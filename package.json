@@ -1,0 +1,34 @@
+{
+	"name": "nuxt-app",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare",
+		"eslint": "eslint --fix .",
+		"prettier": "prettier --write .",
+		"stylelint": "stylelint --fix \"./**/*.{scss,css,sass,vue}\"",
+		"beautifier": "npm run stylelint && npm run eslint && npm run prettier"
+	},
+	"devDependencies": {
+		"@nuxt/devtools": "latest",
+		"@poidet/editorconfig": "^0.4.0",
+		"@poidet/eslint-config-nuxt": "^0.4.0",
+		"@poidet/prettier": "^0.4.0",
+		"@poidet/stylelint": "^0.4.0",
+		"eslint": "^8.52.0",
+		"nuxt": "^3.8.0",
+		"nuxt-simple-sitemap": "^3.4.1",
+		"nuxt-yandex-metrika": "^1.2.3",
+		"prettier": "^3.0.3",
+		"stylelint": "^15.11.0",
+		"vue": "^3.3.6",
+		"vue-router": "^4.2.5"
+	},
+	"dependencies": {
+		"nuxt-simple-robots": "^3.1.6"
+	}
+}
