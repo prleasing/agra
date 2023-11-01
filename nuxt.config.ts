@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	devtools: { enabled: true },
-	modules: ['nuxt-simple-sitemap', 'nuxt-simple-robots', 'nuxt-yandex-metrika'],
+	modules: ['nuxt-simple-sitemap', 'nuxt-simple-robots', 'nuxt-yandex-metrika', '@nuxtjs/google-fonts'],
 	yandexMetrika: {
 		id: process.env.YANDEX_METRIKA_ID,
 		debug: process.env.NODE_ENV !== 'production',
@@ -25,5 +25,12 @@ export default defineNuxtConfig({
 			// 'postcss-nested': {},
 			// "postcss-custom-media": {}
 		}
-	}
+	},
+	googleFonts: {
+		display: 'swap',
+		download: true,
+    families: {
+			Inter: [400, 500, 600, 700]
+		}
+  }
 });
