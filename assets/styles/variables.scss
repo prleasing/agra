@@ -1,0 +1,32 @@
+@use 'utility';
+@use 'breakpoints';
+
+:root {
+	// Цвета
+
+
+	// padding
+	--padding-xxs: #{utility.rem(4)};
+	--padding-xs: #{utility.rem(6)};
+	--padding-sm: #{utility.rem(8)};
+	--padding-md: #{utility.rem(16)};
+	--padding-lg: #{utility.rem(24)};
+
+	// Текст
+	--text-primary: #000;
+
+	// Контейнер
+	--container: 100%;
+	--ears: var(--padding-md);
+	--focus-visible: yellow;
+
+	@each $name, $breakpoint in breakpoints.$list {
+		@include breakpoints.media-up($name) {
+			--container: calc(#{$breakpoint} - var(--ears) * 2);
+		}
+	}
+
+	@include utility.has-p3 {
+    // empty
+	}
+}
