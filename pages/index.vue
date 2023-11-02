@@ -1,10 +1,11 @@
 !
 <template>
-	<div>
+	<the-page>
 		<the-vacancy />
-	</div>
+	</the-page>
 </template>
 <script lang="ts" setup>
-// import TheVacansy from '../components/the-vacancy.vue';
+import ThePage from '~/components/the-page';
+import TheVacancy from '~/components/the-vacancy';
 </script>
 <!-- <style lang="scss"></style> -->
