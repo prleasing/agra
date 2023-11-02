@@ -22,18 +22,19 @@ defineProps({
 @use 'assets/styles/utility';
 
 .section {
+	display: grid;
+	gap: #{utility.rem(24)};
 	width: var(--container);
 	margin: 0 auto;
 
 	&__content {
+		margin: 0 #{utility.rem(-24)};
 		padding: #{utility.rem(24)};
 		border-radius: #{utility.rem(32)};
 		background: #fff;
 	}
 
 	& &__title {
-		padding-bottom: #{utility.rem(24)};
-		padding-left: #{utility.rem(24)};
 		color: #1d2939;
 		font-weight: 700;
 		font-style: normal;
