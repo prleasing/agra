@@ -12,7 +12,8 @@ export default defineNuxtConfig({
 		'nuxt-yandex-metrika',
 		'@nuxtjs/google-fonts',
 		'@nuxtjs/svg-sprite',
-		'@nuxt/image'
+		'@nuxt/image',
+		'@vueuse/nuxt'
 	],
 	yandexMetrika: {
 		id: process.env.YANDEX_METRIKA_ID,

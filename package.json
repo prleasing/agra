@@ -33,6 +33,7 @@
 	},
 	"dependencies": {
 		"@nuxtjs/svg-sprite": "^1.0.2",
+		"@vueuse/nuxt": "^10.5.0",
 		"nuxt-simple-robots": "^3.1.6"
 	}
 }
