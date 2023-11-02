@@ -15,8 +15,10 @@ body {
 
 body {
 	overflow-x: hidden;
-	padding: 0 var(--ears);
-  font-family: Inter, sans-serif;
+	background-color: #eaecf0;
+
+	// padding: 0 var(--ears);
+	font-family: Inter, sans-serif;
 }
 
 a {

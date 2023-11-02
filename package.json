@@ -25,6 +25,7 @@
 		"nuxt-simple-sitemap": "^3.4.1",
 		"nuxt-yandex-metrika": "^1.2.3",
 		"prettier": "^3.0.3",
+		"sass": "^1.69.5",
 		"stylelint": "^15.11.0",
 		"vue": "^3.3.6",
 		"vue-router": "^4.2.5"

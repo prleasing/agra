@@ -4,7 +4,6 @@
 :root {
 	// Цвета
 
-
 	// padding
 	--padding-xxs: #{utility.rem(4)};
 	--padding-xs: #{utility.rem(6)};
@@ -16,7 +15,7 @@
 	--text-primary: #000;
 
 	// Контейнер
-	--container: 100%;
+	--container: #{utility.rem(1280)};
 	--ears: var(--padding-md);
 	--focus-visible: yellow;
 
@@ -27,6 +26,6 @@
 	}
 
 	@include utility.has-p3 {
-    // empty
+		// empty
 	}
 }

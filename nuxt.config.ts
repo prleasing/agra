@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	devtools: { enabled: true },
+	css: ['assets/styles/index.scss'],
 	modules: ['nuxt-simple-sitemap', 'nuxt-simple-robots', 'nuxt-yandex-metrika', '@nuxtjs/google-fonts'],
 	yandexMetrika: {
 		id: process.env.YANDEX_METRIKA_ID,
@@ -29,8 +30,8 @@ export default defineNuxtConfig({
 	googleFonts: {
 		display: 'swap',
 		download: true,
-    families: {
+		families: {
 			Inter: [400, 500, 600, 700]
 		}
-  }
+	}
 });
