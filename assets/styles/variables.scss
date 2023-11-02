@@ -16,14 +16,14 @@
 	--text-primary: #000;
 
 	// Контейнер
-	--container: #{utility.rem(1280)};
+	--container: #{utility.rem(1170)};
 	--ears: var(--padding-md);
 	--focus-visible: yellow;
 
 	@each $name, $breakpoint in breakpoints.$list {
-		@include breakpoints.media-up($name) {
-			--container: calc(#{$breakpoint} - var(--ears) * 2);
-		}
+		// @include breakpoints.media-up($name) {
+		// 	--container: calc(#{$breakpoint} - var(--ears) * 2);
+		// }
 	}
 
 	@include utility.has-p3 {
