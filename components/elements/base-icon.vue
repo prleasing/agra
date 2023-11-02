@@ -24,7 +24,7 @@ const size = computed(() => {
 <template>
 	<svg-icon :name="icon" :view-box="`0 0 ${size} ${size}`" :class="['icon', `icon--${name}`]" />
 </template>
-<style lang="scss">
+<style scoped lang="scss">
 .icon {
 	display: inline-block;
 	color: currentcolor;
