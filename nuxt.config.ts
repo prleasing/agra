@@ -11,7 +11,8 @@ export default defineNuxtConfig({
 		'nuxt-simple-robots',
 		'nuxt-yandex-metrika',
 		'@nuxtjs/google-fonts',
-		'@nuxtjs/svg-sprite'
+		'@nuxtjs/svg-sprite',
+		'@nuxt/image'
 	],
 	yandexMetrika: {
 		id: process.env.YANDEX_METRIKA_ID,

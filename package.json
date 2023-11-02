@@ -15,6 +15,7 @@
 	},
 	"devDependencies": {
 		"@nuxt/devtools": "latest",
+		"@nuxt/image": "^1.0.0",
 		"@nuxtjs/google-fonts": "^3.0.2",
 		"@poidet/editorconfig": "^0.4.0",
 		"@poidet/eslint-config-nuxt": "^0.4.0",
