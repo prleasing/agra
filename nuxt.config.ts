@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { fileURLToPath } from 'url';
+
 export default defineNuxtConfig({
 	components: false,
 	imports: {
@@ -43,6 +45,9 @@ export default defineNuxtConfig({
 			// "postcss-custom-media": {}
 		}
 	},
+	alias: {
+		'@ui': fileURLToPath(new URL('./components/elements/ui', import.meta.url))
+	},
 	googleFonts: {
 		display: 'swap',
 		download: true,
@@ -51,8 +56,31 @@ export default defineNuxtConfig({
 		}
 	},
 	runtimeConfig: {
+		mail: {
+			requestForm: {
+				to: process.env.MAIL_REQUEST
+			},
+			smtp: {
+				host: process.env.MAIL_HOST,
+				port: process.env.MAIL_PORT,
+				auth: {
+					user: process.env.MAIL_USER,
+					password: process.env.MAIL_PASSWORD
+				}
+			}
+		},
 		public: {
-			apiHhLink: process.env.API_HH_LINK
+			apiHhLink: process.env.API_HH_LINK,
+			phone: process.env.PHONE,
+			email: process.env.EMAIL
+		}
+	},
+	vite: {
+		vue: {
+			script: {
+				defineModel: true,
+				propsDestructure: true
+			}
 		}
 	}
 });

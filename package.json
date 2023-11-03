@@ -21,6 +21,7 @@
 		"@poidet/eslint-config-nuxt": "^0.4.0",
 		"@poidet/prettier": "^0.4.0",
 		"@poidet/stylelint": "^0.4.0",
+		"@types/nodemailer": "^6.4.13",
 		"eslint": "^8.52.0",
 		"nuxt": "^3.8.0",
 		"nuxt-simple-sitemap": "^3.4.1",
@@ -32,8 +33,14 @@
 		"vue-router": "^4.2.5"
 	},
 	"dependencies": {
+		"@2gis/mapgl": "^1.40.0",
+		"@maskito/core": "^1.8.1",
+		"@maskito/phone": "^1.8.1",
 		"@nuxtjs/svg-sprite": "^1.0.2",
 		"@vueuse/nuxt": "^10.5.0",
-		"nuxt-simple-robots": "^3.1.6"
+		"libphonenumber-js": "^1.10.49",
+		"nodemailer": "^6.9.7",
+		"nuxt-simple-robots": "^3.1.6",
+		"valibot": "^0.20.1"
 	}
 }

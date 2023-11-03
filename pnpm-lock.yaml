@@ -5,15 +5,33 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@2gis/mapgl':
+    specifier: ^1.40.0
+    version: 1.40.0
+  '@maskito/core':
+    specifier: ^1.8.1
+    version: 1.8.1
+  '@maskito/phone':
+    specifier: ^1.8.1
+    version: 1.8.1(@maskito/core@1.8.1)(@maskito/kit@1.8.1)(libphonenumber-js@1.10.49)
   '@nuxtjs/svg-sprite':
     specifier: ^1.0.2
     version: 1.0.2
   '@vueuse/nuxt':
     specifier: ^10.5.0
     version: 10.5.0(nuxt@3.8.0)(vue@3.3.6)
+  libphonenumber-js:
+    specifier: ^1.10.49
+    version: 1.10.49
+  nodemailer:
+    specifier: ^6.9.7
+    version: 6.9.7
   nuxt-simple-robots:
     specifier: ^3.1.6
     version: 3.1.6(vue@3.3.6)
+  valibot:
+    specifier: ^0.20.1
+    version: 0.20.1
 
 devDependencies:
   '@nuxt/devtools':
@@ -37,6 +55,9 @@ devDependencies:
   '@poidet/stylelint':
     specifier: ^0.4.0
     version: 0.4.0(eslint@8.52.0)(postcss-html@1.5.0)(postcss@8.4.31)(prettier@3.0.3)(stylelint@15.11.0)(typescript@5.2.2)
+  '@types/nodemailer':
+    specifier: ^6.4.13
+    version: 6.4.13
   eslint:
     specifier: ^8.52.0
     version: 8.52.0
@@ -66,6 +87,14 @@ devDependencies:
     version: 4.2.5(vue@3.3.6)
 
 packages:
+  /@2gis/mapgl@1.40.0:
+    resolution:
+      { integrity: sha512-nvP9sACPJyfN+N95OEhQHT3+wYHD8qt2aYcZTutHDLZ+TjM/V9/Jz2hcgBYHa1f8XzHJ5jFEDkoo5cjSGwgGWA== }
+    engines: { node: '>=16.0.0' }
+    dependencies:
+      '@types/geojson': 7946.0.12
+    dev: false
+
   /@aashutoshrathi/word-wrap@1.2.6:
     resolution:
       { integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA== }
@@ -1007,6 +1036,33 @@ packages:
       - encoding
       - supports-color
 
+  /@maskito/core@1.8.1:
+    resolution:
+      { integrity: sha512-h9+Z91WASHQ6z6kDP7uIHyMUPxNwA1mOIPsFxdg2MHq1RASFUNKHj66uU5xuR0OJu17qcCCzUu7ixZ43QQ/HYg== }
+    dev: false
+
+  /@maskito/kit@1.8.1(@maskito/core@1.8.1):
+    resolution:
+      { integrity: sha512-eevH2iyqRjxw8kzt7gmLETrlkPTj4Mq1mbIOOD2VQ+O33ocNFl1a87s02mRQGk6UmSJBmHLT/2EaVfUEswBmWA== }
+    peerDependencies:
+      '@maskito/core': ^1.8.1
+    dependencies:
+      '@maskito/core': 1.8.1
+    dev: false
+
+  /@maskito/phone@1.8.1(@maskito/core@1.8.1)(@maskito/kit@1.8.1)(libphonenumber-js@1.10.49):
+    resolution:
+      { integrity: sha512-m6Lv/j5EPHkTIMJxwMYLW+YIl7474o8I68OQ0IuWsOn150MuYhUOUkAV+MvxG1gqgq6EL0UwbColiL7Ywg12ow== }
+    peerDependencies:
+      '@maskito/core': ^1.8.1
+      '@maskito/kit': ^1.8.1
+      libphonenumber-js: '>=1.0.0'
+    dependencies:
+      '@maskito/core': 1.8.1
+      '@maskito/kit': 1.8.1(@maskito/core@1.8.1)
+      libphonenumber-js: 1.10.49
+    dev: false
+
   /@netlify/functions@2.3.0:
     resolution:
       { integrity: sha512-E3kzXPWMP/r1rAWhjTaXcaOT47dhEvg/eQUJjRLhD9Zzp0WqkdynHr+bqff4rFNv6tuXrtFZrpbPJFKHH0c0zw== }
@@ -1871,6 +1927,11 @@ packages:
     resolution:
       { integrity: sha512-CS2rOaoQ/eAgAfcTfq6amKG7bsN+EMcgGY4FAFQdvSj2y1ixvOZTUA9mOtCai7E1SYu283XNw7urKK30nP3wkQ== }
 
+  /@types/geojson@7946.0.12:
+    resolution:
+      { integrity: sha512-uK2z1ZHJyC0nQRbuovXFt4mzXDwf27vQeUWNhfKGwRcWW429GOhP8HxUHlM6TLH4bzmlv/HlEjpvJh3JfmGsAA== }
+    dev: false
+
   /@types/http-proxy@1.17.13:
     resolution:
       { integrity: sha512-GkhdWcMNiR5QSQRYnJ+/oXzu0+7JJEPC8vkWXK351BkhjraZF+1W13CUYARUvX9+NqIU2n6YHA4iwywsc/M6Sw== }
@@ -1896,6 +1957,13 @@ packages:
       { integrity: sha512-YRsdVxq6OaLfmR9Hy816IMp33xOBjfyOgUd77ehqg96CFywxAPbDbXvAsuN2KVg2HOT8Eh6uAfU+l4WffwPVrQ== }
     dependencies:
       undici-types: 5.25.3
+
+  /@types/nodemailer@6.4.13:
+    resolution:
+      { integrity: sha512-889Vq/77eEpidCwh52sVWpbnqQmIwL8yVBekNbrztVEaWKOCRH3Eq6hjIJh1jwsGDEAJEH0RR+YhpH9mfELLKA== }
+    dependencies:
+      '@types/node': 20.8.8
+    dev: true
 
   /@types/normalize-package-data@2.4.3:
     resolution:
@@ -5390,6 +5458,11 @@ packages:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
+  /libphonenumber-js@1.10.49:
+    resolution:
+      { integrity: sha512-gvLtyC3tIuqfPzjvYLH9BmVdqzGDiSi4VjtWe2fAgSdBf0yt8yPmbNnRIHNbR5IdtVkm0ayGuzwQKTWmU0hdjQ== }
+    dev: false
+
   /lilconfig@2.1.0:
     resolution:
       { integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ== }
@@ -6024,6 +6097,12 @@ packages:
   /node-releases@2.0.13:
     resolution:
       { integrity: sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ== }
+
+  /nodemailer@6.9.7:
+    resolution:
+      { integrity: sha512-rUtR77ksqex/eZRLmQ21LKVH5nAAsVicAtAYudK7JgwenEDZ0UIQ1adUGqErz7sMkWYxWTTU1aeP2Jga6WQyJw== }
+    engines: { node: '>=6.0.0' }
+    dev: false
 
   /nopt@5.0.0:
     resolution:
@@ -8680,6 +8759,11 @@ packages:
   /util-deprecate@1.0.2:
     resolution:
       { integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw== }
+
+  /valibot@0.20.1:
+    resolution:
+      { integrity: sha512-7lToTLG5wtK76u32gq8dUK0bAw7bknTGbeNSKRJunAC2soGVnNrKngg+38Jjt6FOwH+MshUONHoFz+LgmjeYKQ== }
+    dev: false
 
   /validate-npm-package-license@3.0.4:
     resolution:
