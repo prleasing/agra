@@ -49,5 +49,10 @@ export default defineNuxtConfig({
 		families: {
 			Inter: [400, 500, 600, 700]
 		}
+	},
+	runtimeConfig: {
+		public: {
+			apiHhLink: process.env.API_HH_LINK
+		}
 	}
 });
