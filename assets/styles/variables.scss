@@ -29,4 +29,6 @@
 	@include utility.has-p3 {
 		// empty
 	}
+
+	--masonry-grid-gap: #{utility.rem(16)};
 }
