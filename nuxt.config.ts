@@ -9,6 +9,8 @@ export default defineNuxtConfig({
 	devtools: { enabled: true },
 	css: ['assets/styles/index.scss'],
 	modules: [
+		'@pinia-plugin-persistedstate/nuxt',
+		'@pinia/nuxt',
 		'nuxt-simple-sitemap',
 		'nuxt-simple-robots',
 		'nuxt-yandex-metrika',
