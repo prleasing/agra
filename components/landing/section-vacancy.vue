@@ -33,7 +33,6 @@ const { data } = await useFetch<{ items: Vacancy[] }>('https://api.hh.ru/vacanci
 const vacancies = computed(() => {
 	return data.value?.items ?? [];
 });
-console.log(vacancies);
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
