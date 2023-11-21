@@ -2,7 +2,6 @@ import { computed, ref, useEventListener } from '#imports';
 
 let stack = 0;
 let scrollPosition = 0;
-
 export function useBodyScrollLock() {
 	const isLocked = ref(false);
 	const setIsLocked = (value: boolean) => (isLocked.value = value);
@@ -42,7 +41,6 @@ export function useBodyScrollLock() {
 			setIsLocked(false);
 		}
 	}
-
 	return {
 		lock,
 		active
