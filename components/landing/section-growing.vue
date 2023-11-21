@@ -12,6 +12,40 @@
 					<span>{{ item.title }}</span>
 				</div>
 			</base-masonry>
+			<div class="growing__production">
+				<div>
+					<base-icon :icon="Icons44Discount" />
+				</div>
+				<span>Собственная продукция на реализацию (цена с НДС)</span>
+				<!-- <div class="growing__empty"></div> -->
+			</div>
+			<the-cultures />
+			<div>
+				<div class="growing__warning">
+					<div class="growing__icon-wrapper">
+						<base-icon :icon="Icons32Discount"></base-icon>
+					</div>
+					<span
+						>Цены указаны без доставки и упаковки, возможно доставка и упаковка в наши мешки по договоренности.</span
+					>
+				</div>
+				<div class="growing__delivery-info">
+					<div class="growing__pack">
+						<base-icon :icon="Icons32Moneybag"></base-icon>
+						<span>1 мешок</span>
+						<div class="growing__separator"></div>
+						<span>20 ₽</span>
+					</div>
+					<div class="growing__delivery">
+						<base-icon :icon="Icons32TruckDelivery"></base-icon>
+						<span>Доставка</span>
+						<div class="growing__separator"></div>
+						<span>1 км</span>
+						<div class="growing__separator"></div>
+						<span>40 ₽</span>
+					</div>
+				</div>
+			</div>
 			<div class="growing__cultures">
 				<span class="growing__cultures-title"
 					>Хозяйство полностью соблюдает весь технологический процесс агрономии при выращивании культур.</span
@@ -55,12 +89,21 @@
 	</base-section>
 </template>
 <script setup lang="ts">
-import { Icons24ProgressCheck, Icons24Seeding, Icons44Growth } from '#icons';
+import {
+	Icons24ProgressCheck,
+	Icons24Seeding,
+	Icons32Discount,
+	Icons32Moneybag,
+	Icons32TruckDelivery,
+	Icons44Discount,
+	Icons44Growth
+} from '#icons';
 import { ref } from '#imports';
 import BaseSection from '~/components/base-section.vue';
 import BaseIcon from '~/components/elements/base-icon';
 import BaseMasonry from '~/components/elements/base-masonry';
 import BasePicture from '~/components/elements/base-picture.vue';
+import TheCultures from '~/components/landing/the-cultures.vue';
 
 const growingTasks = ref([
 	{ id: 1, title: 'обеспечение высоких урожайности и качества сельскохозяйственной продукции' },
@@ -77,7 +120,88 @@ const growingTasks = ref([
 	:deep(img) {
 		border-radius: #{utility.rem(16)};
 	}
-
+	&__icon-wrapper {
+		padding: 12px;
+		background-color: var(--brand);
+		width: 56px;
+		height: 56px;
+		border-radius: 100px;
+		display: flex;
+		.icon {
+			width: 32px;
+			color: #fff;
+		}
+	}
+	&__warning {
+		display: flex;
+		gap: 24px;
+		align-items: center;
+		max-width: 899px;
+		margin-top: 24px;
+		padding: 24px;
+		padding-right: 32px;
+		border-radius: 16px 16px 16px 0px;
+		border: 1px solid #eaecf0;
+		> span {
+			color: #1d2939;
+			font-size: 24px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 115%;
+			letter-spacing: -0.48px;
+		}
+	}
+	&__pack {
+		display: flex;
+		align-items: center;
+		border: 1px solid #eaecf0;
+		border-top: unset;
+		max-width: 309px;
+		border-radius: 0px 0px 0px 16px;
+		padding: 24px 32px 24px 32px;
+		.icon {
+			width: 32px;
+		}
+		> span {
+			padding-left: 16px;
+			padding-right: 16px;
+			color: #1d2939;
+			font-size: 24px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 115%;
+			letter-spacing: -0.48px;
+		}
+	}
+	&__separator {
+		border-left: 1px solid #667085;
+		height: 16px;
+	}
+	&__delivery {
+		display: flex;
+		align-items: center;
+		border: 1px solid #eaecf0;
+		border-left: unset;
+		max-width: 404px;
+		border-radius: 0px 0px 16px 0px;
+		padding: 24px 32px 24px 32px;
+		.icon {
+			width: 32px;
+		}
+		> span {
+			padding-left: 16px;
+			padding-right: 16px;
+			color: #1d2939;
+			font-size: 24px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 115%;
+			letter-spacing: -0.48px;
+		}
+	}
+	&__delivery-info {
+		display: flex;
+	}
 	&__masonry-item {
 		display: flex;
 		flex-direction: column;
@@ -208,6 +332,35 @@ const growingTasks = ref([
 
 		.icon {
 			width: #{utility.rem(44)};
+		}
+	}
+
+	&__production {
+		display: flex;
+		margin-top: #{utility.rem(42)};
+		margin-bottom: #{utility.rem(16)};
+		padding: #{utility.rem(16)};
+		padding-right: #{utility.rem(20)};
+		padding-left: #{utility.rem(20)};
+		border: 1px solid #eaecf0;
+		border-radius: #{utility.rem(16)};
+
+		.icon {
+			width: #{utility.rem(44)};
+		}
+
+		> span {
+			display: flex;
+			flex: 1;
+			justify-content: center;
+			align-items: center;
+			margin-right: #{utility.rem(44)};
+			color: #1d2939;
+			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(24)};
+			line-height: normal;
+			letter-spacing: #{utility.rem(-0.48)};
 		}
 	}
 }
