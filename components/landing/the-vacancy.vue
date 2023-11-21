@@ -23,11 +23,9 @@ interface Vacancy {
 }
 const runtimeConfig = useRuntimeConfig();
 const { data } = await useFetch<{ items: Vacancy[] }>(runtimeConfig.public.apiHhLink);
-// const vacancies = requestVacancy.then((responce) => console.log(responce.json().then((data) => data.items)));
 const vacancies = computed(() => {
 	return data.value?.items ?? [];
 });
-console.log(vacancies);
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
@@ -35,7 +33,7 @@ console.log(vacancies);
 .section-vacancy {
 	:deep(.section-content) {
 		background-color: #1d2939;
-		box-shadow: 0 24px 64px -24px rgb(29 41 57 / 24%);
+		box-shadow: 0 #{utility.rem(24)} #{utility.rem(64)} #{utility.rem(-24)} rgb(29 41 57 / 24%);
 	}
 }
 
@@ -43,7 +41,7 @@ console.log(vacancies);
 	display: flex;
 	flex-direction: column;
 	gap: #{utility.rem(4)};
-	max-width: 735px;
+	max-width: #{utility.rem(735)};
 
 	& &__info-block {
 		display: flex;
@@ -63,9 +61,9 @@ console.log(vacancies);
 		color: #fff;
 		font-weight: 500;
 		font-style: normal;
-		font-size: 24px;
+		font-size: #{utility.rem(24)};
 		line-height: 135%;
-		letter-spacing: -0.48px;
+		letter-spacing: #{utility.rem(-0.48)};
 	}
 
 	&__link {
@@ -78,8 +76,8 @@ console.log(vacancies);
 		color: #fff;
 
 		:deep(.icon) {
-			width: 32px;
-			height: 32px;
+			width: #{utility.rem(32)};
+			height: #{utility.rem(32)};
 		}
 	}
 }
