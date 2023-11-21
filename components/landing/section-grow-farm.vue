@@ -24,6 +24,7 @@ import BasePicture from '~/components/elements/base-picture';
 const target = ref();
 </script>
 <style scoped lang="scss">
+@use 'assets/styles/utility';
 .grow-farm {
 	width: var(--container);
 	display: flex;

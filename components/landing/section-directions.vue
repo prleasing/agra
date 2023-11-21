@@ -77,6 +77,7 @@ import BaseIcon from '~/components/elements/base-icon';
 import BasePicture from '~/components/elements/base-picture';
 </script>
 <style scoped lang="scss">
+@use 'assets/styles/utility';
 .section-directions {
 	:deep(.section__content) {
 		background-color: #1d2939;

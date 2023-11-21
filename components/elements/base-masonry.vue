@@ -29,7 +29,6 @@ const container = computed(() => boundingClientRect.width.value);
 const columnWidth = computed(() => (container.value - (props.columns - 1) * gutter.value) / props.columns);
 
 function render() {
-	console.log('render');
 	const columnHeight = Array.from<number>(new Array(props.columns)).map(() => 0);
 	const elements = Array.from<HTMLElement>(refMasonry.value?.children as any);
 	const items = elements.map((element) => {
@@ -72,6 +71,8 @@ onUpdated(() => {
 });
 </script>
 <style lang="scss">
+@use 'assets/styles/utility';
+
 .masonry {
 	position: relative;
 	display: flex;

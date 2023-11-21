@@ -81,6 +81,7 @@ import BasePicture from '~/components/elements/base-picture';
 import { Pages } from '~/utils/pages';
 </script>
 <style scoped lang="scss">
+@use 'assets/styles/utility';
 .farming {
 	display: grid;
 	gap: #{utility.rem(16)};
