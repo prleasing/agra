@@ -92,7 +92,7 @@ const email = computed(() => runtimeConfig.email);
 		font-weight: 500;
 		font-style: normal;
 		font-size: #{utility.rem(24)};
-		line-height: 135%; /* 32.4px */
+		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.96)};
 
 		a {
@@ -146,7 +146,7 @@ const email = computed(() => runtimeConfig.email);
 	font-weight: 500;
 	font-style: normal;
 	font-size: #{utility.rem(18)};
-	line-height: 135%; /* 24.3px */
+	line-height: 135%;
 	letter-spacing: #{utility.rem(-0.72)};
 }
 
