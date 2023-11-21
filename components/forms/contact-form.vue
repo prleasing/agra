@@ -137,7 +137,7 @@ const isSuccess = ref(false);
 		font-weight: 500;
 		font-style: normal;
 		font-size: #{utility.rem(24)};
-		line-height: 135%; /* 32.4px */
+		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.96)};
 		transition:
 			background-color 200ms ease-in-out,
@@ -173,7 +173,7 @@ const isSuccess = ref(false);
 		font-weight: 600;
 		font-style: normal;
 		font-size: #{utility.rem(42)};
-		line-height: 110%; /* 46.2px */
+		line-height: 110%;
 		letter-spacing: #{utility.rem(-2.1)};
 	}
 
@@ -186,8 +186,8 @@ const isSuccess = ref(false);
 		color: #1d2939;
 		font-weight: 500;
 		font-style: normal;
-		font-size: 24px;
-		line-height: 115%; /* 27.6px */
+		font-size: #{utility.rem(24)};
+		line-height: 115%;
 		letter-spacing: #{utility.rem(-1.2)};
 		transition:
 			background-color 200ms ease-in-out,
@@ -210,7 +210,7 @@ const isSuccess = ref(false);
 	font-weight: 500;
 	font-style: normal;
 	font-size: #{utility.rem(18)};
-	line-height: 135%; /* 24.3px */
+	line-height: 135%;
 	letter-spacing: #{utility.rem(-0.72)};
 }
 </style>

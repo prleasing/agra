@@ -83,7 +83,7 @@ import { Pages } from '~/utils/pages';
 <style scoped lang="scss">
 .farming {
 	display: grid;
-	gap: 16px;
+	gap: #{utility.rem(16)};
 	position: relative;
 	&__cows {
 		position: absolute;
@@ -92,121 +92,121 @@ import { Pages } from '~/utils/pages';
 	}
 	&__image-wrapper {
 		.picture {
-			border-radius: 16px;
+			border-radius: #{utility.rem(16)};
 		}
 	}
 	&__cows-background {
 		.picture {
-			border-radius: 16px;
+			border-radius: #{utility.rem(16)};
 		}
 	}
 	&__call {
-		max-width: 268px;
+		max-width: #{utility.rem(286)};
 	}
 	&__call-wrapper {
-		padding: 24px 32px 24px 32px;
+		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
 		border: 1px solid var(--brand);
-		border-radius: 12px;
+		border-radius: #{utility.rem(12)};
 		background-color: transparent;
 		cursor: pointer;
 		a {
 			color: var(--brand);
-			font-size: 24px;
+			font-size: #{utility.rem(24)};
 			font-style: normal;
 			font-weight: 500;
 			line-height: 135%;
-			letter-spacing: -0.48px;
+			letter-spacing: #{utility.rem(-0.48)};
 			text-decoration: none;
 		}
 	}
 	&__weight-price {
 		color: rgba(255, 255, 255, 0.64);
-		font-size: 18px;
+		font-size: #{utility.rem(18)};
 		font-style: normal;
 		font-weight: 600;
 		line-height: 135%;
-		letter-spacing: -0.54px;
+		letter-spacing: #{utility.rem(-0.54)};
 		display: flex;
 		.farming__point-separator {
 			display: inline-block;
-			width: 4px;
-			height: 4px;
+			width: #{utility.rem(4)};
+			height: #{utility.rem(4)};
 			background-color: rgba(255, 255, 255, 0.64);
-			border-radius: 100px;
-			margin-left: 8px;
-			margin-right: 8px;
+			border-radius: #{utility.rem(100)};
+			margin-left: #{utility.rem(8)};
+			margin-right: #{utility.rem(8)};
 			vertical-align: middle;
 		}
 	}
 	&__minselhos {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 16px;
+		gap: #{utility.rem(16)};
 		:deep(img) {
-			border-radius: 16px;
+			border-radius: #{utility.rem(16)};
 		}
 	}
 	&__minselhos-title {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		padding: 24px;
-		border-radius: 16px;
+		padding: #{utility.rem(24)};
+		border-radius: #{utility.rem(16)};
 		background-color: #eaecf0;
 		> span {
 			color: #1d2939;
-			font-size: 24px;
+			font-size: #{utility.rem(24)};
 			font-style: normal;
 			font-weight: 500;
 			line-height: 135%;
-			letter-spacing: -0.48px;
+			letter-spacing: #{utility.rem(-0.48)};
 		}
 	}
 	&__cattle {
 		position: relative;
 		> span {
 			position: absolute;
-			bottom: 24px;
-			left: 24px;
+			bottom: #{utility.rem(24)};
+			left: #{utility.rem(24)};
 			color: #fff;
-			font-size: 24px;
+			font-size: #{utility.rem(24)};
 			font-style: normal;
 			font-weight: 500;
 			line-height: 135%;
-			letter-spacing: -0.48px;
-			margin-right: 24px;
+			letter-spacing: #{utility.rem(-0.48)};
+			margin-right: #{utility.rem(24)};
 		}
 	}
 	&__cows-info {
 		position: absolute;
 		bottom: 0;
-		padding: 24px;
+		padding: #{utility.rem(24)};
 		display: grid;
-		gap: 24px;
+		gap: #{utility.rem(24)};
 		.farming__category {
 			color: #fff;
-			font-size: 24px;
+			font-size: #{utility.rem(24)};
 			font-style: normal;
 			font-weight: 500;
 			line-height: 115%;
-			letter-spacing: -0.48px;
-			max-width: 460px;
+			letter-spacing: #{utility.rem(-0.48)};
+			max-width: #{utility.rem(460)};
 		}
 	}
 	&__category-wrapper {
 		display: flex;
 		align-items: center;
-		gap: 16px;
+		gap: #{utility.rem(16)};
 	}
 	&__category-mark {
-		width: 16px;
-		height: 16px;
-		border-radius: 9px;
+		width: #{utility.rem(16)};
+		height: #{utility.rem(16)};
+		border-radius: #{utility.rem(9)};
 		border: 2px solid var(--brand);
 	}
 	&__categories {
 		display: grid;
-		gap: 16px;
+		gap: #{utility.rem(16)};
 	}
 }
 </style>

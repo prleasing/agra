@@ -121,34 +121,34 @@ const growingTasks = ref([
 		border-radius: #{utility.rem(16)};
 	}
 	&__icon-wrapper {
-		padding: 12px;
+		padding: #{utility.rem(12)};
 		background-color: var(--brand);
-		width: 56px;
-		height: 56px;
-		border-radius: 100px;
+		width: #{utility.rem(56)};
+		height: #{utility.rem(56)};
+		border-radius: #{utility.rem(100)};
 		display: flex;
 		.icon {
-			width: 32px;
+			width: #{utility.rem(32)};
 			color: #fff;
 		}
 	}
 	&__warning {
 		display: flex;
-		gap: 24px;
+		gap: #{utility.rem(24)};
 		align-items: center;
-		max-width: 899px;
-		margin-top: 24px;
-		padding: 24px;
-		padding-right: 32px;
-		border-radius: 16px 16px 16px 0px;
+		max-width: #{utility.rem(899)};
+		margin-top: #{utility.rem(24)};
+		padding: #{utility.rem(24)};
+		padding-right: #{utility.rem(32)};
+		border-radius: #{utility.rem(16)} #{utility.rem(16)} #{utility.rem(16)} 0px;
 		border: 1px solid #eaecf0;
 		> span {
 			color: #1d2939;
-			font-size: 24px;
+			font-size: #{utility.rem(24)};
 			font-style: normal;
 			font-weight: 500;
 			line-height: 115%;
-			letter-spacing: -0.48px;
+			letter-spacing: #{utility.rem(-0.48)};
 		}
 	}
 	&__pack {
@@ -156,47 +156,47 @@ const growingTasks = ref([
 		align-items: center;
 		border: 1px solid #eaecf0;
 		border-top: unset;
-		max-width: 309px;
-		border-radius: 0px 0px 0px 16px;
-		padding: 24px 32px 24px 32px;
+		max-width: #{utility.rem(309)};
+		border-radius: 0px 0px 0px #{utility.rem(16)};
+		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
 		.icon {
-			width: 32px;
+			width: #{utility.rem(32)};
 		}
 		> span {
-			padding-left: 16px;
-			padding-right: 16px;
+			padding-left: #{utility.rem(16)};
+			padding-right: #{utility.rem(16)};
 			color: #1d2939;
-			font-size: 24px;
+			font-size: #{utility.rem(24)};
 			font-style: normal;
 			font-weight: 500;
 			line-height: 115%;
-			letter-spacing: -0.48px;
+			letter-spacing: #{utility.rem(-0.48)};
 		}
 	}
 	&__separator {
 		border-left: 1px solid #667085;
-		height: 16px;
+		height: #{utility.rem(16)};
 	}
 	&__delivery {
 		display: flex;
 		align-items: center;
 		border: 1px solid #eaecf0;
 		border-left: unset;
-		max-width: 404px;
-		border-radius: 0px 0px 16px 0px;
-		padding: 24px 32px 24px 32px;
+		max-width: #{utility.rem(404)};
+		border-radius: 0px 0px #{utility.rem(16)} 0px;
+		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
 		.icon {
-			width: 32px;
+			width: #{utility.rem(32)};
 		}
 		> span {
-			padding-left: 16px;
-			padding-right: 16px;
+			padding-left: #{utility.rem(16)};
+			padding-right: #{utility.rem(16)};
 			color: #1d2939;
-			font-size: 24px;
+			font-size: #{utility.rem(24)};
 			font-style: normal;
 			font-weight: 500;
 			line-height: 115%;
-			letter-spacing: -0.48px;
+			letter-spacing: #{utility.rem(-0.48)};
 		}
 	}
 	&__delivery-info {

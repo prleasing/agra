@@ -86,87 +86,87 @@ import BasePicture from '~/components/elements/base-picture';
 .directions {
 	> h3 {
 		color: #fff;
-		font-size: 24px;
+		font-size: #{utility.rem(24)};
 		font-style: normal;
 		font-weight: 600;
 		line-height: normal;
-		letter-spacing: -0.48px;
-		padding-bottom: 24px;
+		letter-spacing: #{utility.rem(-0.48)};
+		padding-bottom: #{utility.rem(24)};
 	}
 	&__categories {
 		display: flex;
-		gap: 16px;
+		gap: #{utility.rem(16)};
 	}
 	&__mission {
 		background-color: #eaecf0;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		margin-top: 33px;
-		border-radius: 16px;
+		margin-top: #{utility.rem(33)};
+		border-radius: #{utility.rem(16)};
 	}
 	&__mission-picture {
 		display: flex;
 		justify-self: flex-end;
-		border-radius: 16px;
+		border-radius: #{utility.rem(16)};
 		.picture {
-			border-radius: 16px;
+			border-radius: #{utility.rem(16)};
 		}
 	}
 	&__garanty {
 		color: #1d2939;
-		font-size: 24px;
+		font-size: #{utility.rem(24)};
 		font-style: normal;
 		font-weight: 500;
 		line-height: 135%;
-		letter-spacing: -0.48px;
+		letter-spacing: #{utility.rem(-0.48)};
 	}
 	&__mission-wrapper {
-		padding-left: 24px;
-		padding-top: 24px;
-		padding-bottom: 24px;
+		padding-left: #{utility.rem(24)};
+		padding-top: #{utility.rem(24)};
+		padding-bottom: #{utility.rem(24)};
 		display: flex;
 		flex-direction: column;
-		gap: 24px;
+		gap: #{utility.rem(24)};
 	}
 	&__location {
-		margin-top: 42px;
+		margin-top: #{utility.rem(42)};
 		display: flex;
 		flex-direction: column;
-		gap: 22px;
+		gap: #{utility.rem(22)};
 		.icon {
-			width: 32px;
-			height: 32px;
+			width: #{utility.rem(32)};
+			height: #{utility.rem(32)};
 			color: #fff;
 		}
 	}
 	&__location-title {
 		color: #fff;
-		font-size: 24px;
+		font-size: #{utility.rem(24)};
 		font-style: normal;
 		font-weight: 600;
 		line-height: normal;
-		letter-spacing: -0.48px;
+		letter-spacing: #{utility.rem(-0.48)};
 	}
 	&__location-info {
 		display: flex;
-		gap: 16px;
+		gap: #{utility.rem(16)};
 	}
 	&__location-wrapper {
 		display: flex;
-		gap: 16px;
-		border-radius: 12px;
+		gap: #{utility.rem(16)};
+		border-radius: #{utility.rem(12)};
 		border: 1px solid rgba(234, 236, 240, 0.16);
 		background: rgba(255, 255, 255, 0.08);
-		padding: 16px;
-		padding-right: 24px;
+		padding: #{utility.rem(16)};
+		padding-right: #{utility.rem(24)};
 		position: relative;
 		> span {
 			color: #fff;
-			font-size: 24px;
+			font-size: #{utility.rem(24)};
 			font-style: normal;
 			font-weight: 500;
 			line-height: 135%;
-			letter-spacing: -0.96px;
+			letter-spacing: #{utility.rem(-0.96)};
 		}
 		a {
 			position: absolute;
@@ -177,51 +177,51 @@ import BasePicture from '~/components/elements/base-picture';
 		}
 	}
 	&__zem-fond {
-		margin-top: 32px;
+		margin-top: #{utility.rem(32)};
 		display: flex;
-		padding: 24px;
+		padding: #{utility.rem(24)};
 		background-color: var(--brand);
-		max-width: 924px;
-		border-radius: 16px;
+		max-width: #{utility.rem(924)};
+		border-radius: #{utility.rem(16)};
 		> span {
 			color: #fff;
-			font-size: 24px;
+			font-size: #{utility.rem(24)};
 			font-style: normal;
 			font-weight: 500;
 			line-height: 135%;
-			letter-spacing: -0.48px;
+			letter-spacing: #{utility.rem(-0.48)};
 		}
 	}
 	&__mission-title {
 		display: flex;
-		gap: 8px;
+		gap: #{utility.rem(8)};
 		.icon {
-			width: 24px;
+			width: #{utility.rem(24)};
 		}
 		> span {
 			color: #1d2939;
-			font-size: 18px;
+			font-size: #{utility.rem(18)};
 			font-style: normal;
 			font-weight: 500;
 			line-height: 135%;
-			letter-spacing: -0.36px;
+			letter-spacing: #{utility.rem(-0.36)};
 		}
 	}
 	&__categories-wrapper {
 		position: relative;
 		.picture {
-			border-radius: 16px;
+			border-radius: #{utility.rem(16)};
 		}
 		> span {
 			color: #fff;
-			font-size: 32px;
+			font-size: #{utility.rem(32)};
 			font-style: normal;
 			font-weight: 600;
 			line-height: 115%;
-			letter-spacing: -0.64px;
+			letter-spacing: #{utility.rem(-0.64)};
 			position: absolute;
-			bottom: 24px;
-			left: 24px;
+			bottom: #{utility.rem(24)};
+			left: #{utility.rem(24)};
 			max-width: 80%;
 		}
 	}

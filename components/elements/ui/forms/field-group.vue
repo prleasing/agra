@@ -71,7 +71,7 @@ const classes = computed(() => {
 		font-weight: 500;
 		font-style: normal;
 		font-size: #{utility.rem(18)};
-		line-height: 135%; /* 24.3px */
+		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.54)};
 		cursor: text;
 
@@ -122,7 +122,7 @@ const classes = computed(() => {
 	font-weight: 500;
 	font-style: normal;
 	font-size: #{utility.rem(18)};
-	line-height: 135%; /* 24.3px */
+	line-height: 135%;
 	letter-spacing: #{utility.rem(-0.72)};
 }
 </style>

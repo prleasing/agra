@@ -145,7 +145,7 @@ const commands = computed<People[]>(() => {
 		color: #1d2939;
 		font-weight: 500;
 		font-size: #{utility.rem(24)};
-		line-height: 135%; /* 32.4px */
+		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.48)};
 	}
 
@@ -181,7 +181,7 @@ const commands = computed<People[]>(() => {
 		font-weight: 700;
 		font-style: normal;
 		font-size: #{utility.rem(48)};
-		line-height: 115%; /* 55.2px */
+		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.96)};
 	}
 
@@ -190,7 +190,7 @@ const commands = computed<People[]>(() => {
 		font-weight: 500;
 		font-style: normal;
 		font-size: #{utility.rem(24)};
-		line-height: 135%; /* 32.4px */
+		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.48)};
 	}
 }
@@ -216,7 +216,7 @@ const commands = computed<People[]>(() => {
 			font-weight: 500;
 			font-style: normal;
 			font-size: #{utility.rem(18)};
-			line-height: 135%; /* 24.3px */
+			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.26)};
 
 			.icon {
@@ -230,7 +230,7 @@ const commands = computed<People[]>(() => {
 		font-weight: 500;
 		font-style: normal;
 		font-size: #{utility.rem(24)};
-		line-height: 115%; /* 27.6px */
+		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
 	}
 
@@ -275,7 +275,7 @@ hr {
 		font-weight: 600;
 		font-style: normal;
 		font-size: #{utility.rem(32)};
-		line-height: 115%; /* 36.8px */
+		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.64)};
 	}
 
@@ -284,7 +284,7 @@ hr {
 		font-weight: 500;
 		font-style: normal;
 		font-size: #{utility.rem(18)};
-		line-height: 135%; /* 24.3px */
+		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.54)};
 	}
 }

@@ -76,7 +76,7 @@ const classes = computed(() => {
 	font-weight: 500;
 	font-style: normal;
 	font-size: #{utility.rem(18)};
-	line-height: 135%; /* 24.3px */
+	line-height: 135%;
 	letter-spacing: #{utility.rem(-0.72)};
 	cursor: pointer;
 
@@ -84,8 +84,8 @@ const classes = computed(() => {
 		display: inline-flex;
 		width: #{utility.rem(24)};
 		height: #{utility.rem(24)};
-		border: 2px solid #fff;
-		border-radius: 1000px;
+		border: #{utility.rem(2)} solid #fff;
+		border-radius: #{utility.rem(1000)};
 		color: transparent;
 		transition: background-color 200ms ease-in-out;
 	}

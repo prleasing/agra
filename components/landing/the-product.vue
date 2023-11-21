@@ -152,20 +152,20 @@ function summaShow() {
 		}
 	}
 	&__discount-price {
-		padding-left: 8px;
-		padding-right: 8px;
-		border-radius: 100px;
+		padding-left: #{utility.rem(8)};
+		padding-right: #{utility.rem(8)};
+		border-radius: #{utility.rem(100)};
 		background-color: rgba(255, 255, 255, 0.24);
 		vertical-align: middle;
 		text-align: center;
 	}
 	&__text-price {
 		color: #fff;
-		font-size: 18px;
+		font-size: #{utility.rem(18)};
 		font-style: normal;
 		font-weight: 500;
 		line-height: 115%;
-		letter-spacing: -0.36px;
+		letter-spacing: #{utility.rem(-0.36)};
 	}
 
 	&__price-title {
