@@ -18,6 +18,12 @@
 				<checkbox v-model="state.agree" name="agree">Я согласен на обработку персональных данных</checkbox>
 			</div>
 		</div>
+		<modal-root v-model="isSuccess">
+			<div class="success">
+				<p>Ваша заявка<br />отправлена</p>
+				<button @click="success">ок</button>
+			</div>
+		</modal-root>
 	</form>
 </template>
 <script setup lang="ts">
@@ -25,10 +31,10 @@ import { Checkbox, FieldPhone, FieldText, ModalRoot } from '@ui';
 import type { PropType } from 'vue';
 
 import { Icons32ArrowUpRight } from '#icons';
-import { reactive, ref } from '#imports';
+import { reactive, ref, toRefs, navigateTo } from '#imports';
 import BaseIcon from '~/components/elements/base-icon';
 import type { Basket } from '~/components/landing/the-basket-product';
-import { isoTimeSecond } from 'valibot';
+import { useStoreBasket } from '~/store/storeBasket';
 
 const props = defineProps({
 	items: {
@@ -36,13 +42,14 @@ const props = defineProps({
 		required: true
 	}
 });
-const state = reactive({ name: '', phone: '', agree: false, items: props.items });
+const basket = useStoreBasket();
+const { items } = toRefs(props);
+const state = reactive({ name: '', phone: '', agree: false, items: items });
 
 interface ResponseError {
 	response: 'error';
 	errors: Record<string, string>;
 }
-
 const errors = reactive<ResponseError['errors']>({});
 const isLoading = ref(false);
 function clearError() {
@@ -77,11 +84,17 @@ async function send() {
 		isLoading.value = false;
 	}
 }
-console.log(props.items);
 const isSuccess = ref(false);
+
+function success() {
+	isSuccess.value = false;
+	navigateTo('/');
+	basket.items = {};
+}
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
+@use 'assets/styles/components/button';
 .form {
 	&__container {
 		background-color: #1D2939;
@@ -99,6 +112,7 @@ const isSuccess = ref(false);
 	&__confirm {
 		display: flex;
 		gap: #{utility.rem(24)};
+		align-items: center;
 		.icon {
 			width: #{utility.rem(32)};
 		}
@@ -134,4 +148,47 @@ const isSuccess = ref(false);
 		}
 	}
 }
+.success {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: #{utility.rem(460)};
+	padding: #{utility.rem(24)};
+	border-radius: #{utility.rem(16)};
+	background-color: var(--brand);
+
+	p {
+		color: #fff;
+		font-weight: 600;
+		font-style: normal;
+		font-size: #{utility.rem(42)};
+		line-height: 110%;
+		letter-spacing: #{utility.rem(-2.1)};
+	}
+
+	button {
+		@include button.reset;
+
+		padding: #{utility.rem(32)};
+		border-radius: #{utility.rem(100)};
+		background: #fff;
+		color: #1d2939;
+		font-weight: 500;
+		font-style: normal;
+		font-size: #{utility.rem(24)};
+		line-height: 115%;
+		letter-spacing: #{utility.rem(-1.2)};
+		transition:
+			background-color 200ms ease-in-out,
+			color 200ms ease-in-out;
+		backdrop-filter: blur(12px);
+
+		@include utility.has-hover {
+			background-color: #1d2939;
+			color: #fff;
+		}
+	}
+}
+
+
 </style>
