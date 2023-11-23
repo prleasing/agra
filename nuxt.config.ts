@@ -74,7 +74,11 @@ export default defineNuxtConfig({
 		public: {
 			apiHhLink: process.env.API_HH_LINK,
 			phone: process.env.PHONE,
-			email: process.env.EMAIL
+			email: process.env.EMAIL,
+			locations: {
+				postupalovo: process.env.LOCATION_POSTUPALOVO,
+				ivanokazanka: process.env.LOCATION_IVANOKAZANKA
+			}
 		}
 	},
 	vite: {
