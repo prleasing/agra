@@ -21,6 +21,7 @@
 						>
 					</div>
 				</div>
+				<basket-form :items="items"></basket-form>
 			</base-section>
 		</client-only>
 	</the-page>
@@ -31,6 +32,7 @@ import { Icons44ArrowUp } from '#icons';
 import { computed, definePageMeta, onMounted, ref, watch } from '#imports';
 import BaseSection from '~/components/base-section.vue';
 import BaseIcon from '~/components/elements/base-icon';
+import BasketForm from '~/components/forms/basket-form';
 import TheBasketProduct from '~/components/landing/the-basket-product';
 import ThePage from '~/components/the-page';
 import { useStoreBasket } from '~/store/storeBasket';
@@ -59,7 +61,7 @@ const items = computed(() => {
 			}
 			return item.cost;
 		};
-		return { ...item, sum: count * item.multifyer * costDiscount() };
+		return { ...item, sum: count * item.multifyer * costDiscount(), count };
 	});
 });
 const sum = computed(() => {
