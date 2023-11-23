@@ -52,6 +52,7 @@ import { formatter } from '~/utils/formatter.ts';
 
 export interface Basket extends Product {
 	sum: number;
+	count: number;
 }
 
 const props = defineProps({
