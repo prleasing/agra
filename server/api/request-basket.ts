@@ -24,6 +24,19 @@ const center = `text-align: center;`;
 const padding = `padding: 8px;`;
 
 const FormRequestSchema = object({
+	items: array(
+		object({
+			title: string('Название должно быть строкой', [
+				minLength(1, 'Введите имя'),
+				maxLength(40, 'Имя перевышает максимальную длину')
+			]),
+			count: number('Количество должно быть числом'),
+			measure: string('Мера должно быть строкой'),
+			sum: number('Сумма должна быть числом')
+		}),
+		'Нужно чтобы был массив',
+		[minLength(1, 'В корзине ничего нет, выберите продукт')]
+	),
 	agree: boolean([
 		(input) => {
 			return input ? getOutput(input) : getPipeIssues('custom', 'Вы не дали согласие на обработку данных', input);
@@ -41,18 +54,7 @@ const FormRequestSchema = object({
 			}
 			return getPipeIssues('custom', 'Неверный формат номера телефона', input);
 		}
-	]),
-	items: array(
-		object({
-			title: string('Название должно быть строкой', [
-				minLength(1, 'Введите имя'),
-				maxLength(40, 'Имя перевышает максимальную длину')
-			]),
-			count: number('Количество должно быть числом'),
-			measure: string('Мера должно быть строкой'),
-			sum: number('Сумма должна быть числом')
-		})
-	)
+	])
 });
 
 export default defineEventHandler(async (event) => {
@@ -61,6 +63,7 @@ export default defineEventHandler(async (event) => {
 		// const title = body.items.map((item) => item.title);
 		// const count = body.items.map((item) => item.count);
 		// const measure = body.items.map((item) => item.measure);
+		const result = await safeParseAsync(FormRequestSchema, body, { abortEarly: false });
 		const temp = body.items
 			.map(
 				(item) =>
@@ -73,7 +76,7 @@ export default defineEventHandler(async (event) => {
 					<td style="${styleBorder}${styleCollapse}${center}${padding}">${item.sum}₽</td></tr><br>`
 			)
 			.join('');
-		const result = await safeParseAsync(FormRequestSchema, body, { abortEarly: false });
+		console.log(result);
 		if (!result.success) {
 			const errors = result.issues.map((item) => {
 				return [item.path?.at(0)?.key, item.message];
