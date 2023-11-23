@@ -1,14 +1,12 @@
 <template>
 	<div class="basket-product">
-		<!-- <nuxt-link :to="{ path: '/', hash: '#contact-form' }">
-			<span class="farming__call-title">Обратный звонок</span>
-		</nuxt-link> -->
 		<div class="basket-product__container">
 			<div class="basket-product__image">
 				<base-picture :width="80" :height="80" alt="culture-photo" :src="item.image"></base-picture>
 			</div>
 			<div class="basket-product__cultures-info">
 				<div class="basket-product__cultures-title">{{ item.title }}</div>
+				<span class="basket-product__cultures-subtitle" v-if="item.subtitle">{{ item.subtitle }}</span>
 				<div class="basket-product__cultures-cost">
 					{{ item.cost.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 }) }}/{{
 						item.measure
@@ -218,6 +216,14 @@ formatter(basket.items[props.item.id], props.item.measure);
 		font-size: #{utility.rem(24)};
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
+	}
+	&__cultures-subtitle {
+		color: #667085;
+		font-size: #{utility.rem(18)};
+		font-style: normal;
+		font-weight: 500;
+		line-height: 135%;
+		letter-spacing: #{utility.rem(-0.54)};
 	}
 
 	&__cultures-cost {
