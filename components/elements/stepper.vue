@@ -64,13 +64,10 @@ const emit = defineEmits<{
 const target = ref<HTMLElement>();
 const model = ref<number>(props.modelValue);
 const isShield = ref<boolean>(true);
-// const counterValue = ref<number>(1);
 function counterMinus() {
-	isShield.value = false;
 	model.value--;
 }
 function counterPlus() {
-	isShield.value = false;
 	model.value++;
 }
 function shieldActivate(e) {
@@ -110,6 +107,10 @@ onClickOutside(target, () => {
 	align-items: center;
 	border: none;
 	background-color: transparent;
+	cursor: pointer;
+}
+.stepper__counter-button:hover .icon {
+	color: var(--brand);
 }
 
 .product__total-price {
