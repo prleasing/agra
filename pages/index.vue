@@ -1,11 +1,11 @@
 <template>
 	<the-page>
 		<section-grow-farm />
-		<section-directions />
+		<section-directions id="directions" />
 		<section-farming />
 		<section-growing />
-		<section-vacancy />
-		<section-about />
+		<section-vacancy id="vacancy" />
+		<section-about id="about-company" />
 		<section-contact-form id="contact-form" name="contact-form" />
 	</the-page>
 </template>
