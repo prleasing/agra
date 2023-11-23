@@ -111,7 +111,9 @@ function summaShow() {
 @use 'assets/styles/utility';
 
 .product {
+	max-height: 379px;
 	position: relative;
+	border-radius: 16px;
 
 	&__counter-button {
 		border: none;
@@ -291,6 +293,7 @@ function summaShow() {
 		top: 0;
 		left: 0;
 		height: 100%;
+		border-radius: 16px;
 	}
 
 	.icon {
