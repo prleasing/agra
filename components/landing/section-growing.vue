@@ -1,18 +1,20 @@
 <template>
 	<base-section title="Растениеводство" class="section-growing">
 		<div class="growing">
-			<base-picture :width="1170" :height="384" alt="growing-picture" src="/images/landing/home/growing.jpg" />
-			<span class="growing__description">
-				В настоящее время, при поддержке лучших агрономов Республики Башкортостан, хозяйство успешно решает следующие
-				задачи
-			</span>
+			<div class="growing__picture">
+				<base-picture :width="1170" :height="384" alt="growing-picture" src="/images/landing/home/growing.jpg" />
+				<span class="growing__description">
+					В настоящее время, при поддержке лучших агрономов Республики Башкортостан, хозяйство успешно решает следующие
+					задачи
+				</span>
+			</div>
 			<base-masonry>
 				<div v-for="item in growingTasks" :key="item.id" class="growing__masonry-item">
 					<base-icon :icon="Icons24ProgressCheck" />
 					<span>{{ item.title }}</span>
 				</div>
 			</base-masonry>
-			<div class="growing__production">
+			<div id="products" class="growing__production">
 				<div>
 					<base-icon :icon="Icons44Discount" />
 				</div>
@@ -120,6 +122,14 @@ const growingTasks = ref([
 	:deep(img) {
 		border-radius: #{utility.rem(16)};
 	}
+	&__picture {
+		position: relative;
+		margin-bottom: #{utility.rem(24)};
+		> span {
+			position: absolute;
+			bottom: 0;
+		}
+	}
 	&__icon-wrapper {
 		padding: #{utility.rem(12)};
 		background-color: var(--brand);
@@ -156,7 +166,7 @@ const growingTasks = ref([
 		align-items: center;
 		border: 1px solid #eaecf0;
 		border-top: unset;
-		max-width: #{utility.rem(309)};
+		max-width: #{utility.rem(319)};
 		border-radius: 0px 0px 0px #{utility.rem(16)};
 		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
 		.icon {
@@ -182,6 +192,7 @@ const growingTasks = ref([
 		align-items: center;
 		border: 1px solid #eaecf0;
 		border-left: unset;
+		border-top: unset;
 		max-width: #{utility.rem(404)};
 		border-radius: 0px 0px #{utility.rem(16)} 0px;
 		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
@@ -222,13 +233,14 @@ const growingTasks = ref([
 		display: flex;
 		margin-top: #{utility.rem(24)};
 		margin-bottom: #{utility.rem(32)};
-		color: #1d2939;
+		color: #fff;
 		font-weight: 600;
 		font-style: normal;
 		font-size: #{utility.rem(32)};
 		line-height: normal;
 		letter-spacing: #{utility.rem(-0.64)};
 		text-align: center;
+		z-index: 1;
 	}
 
 	&__cultures {
