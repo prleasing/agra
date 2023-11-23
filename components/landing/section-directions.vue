@@ -1,7 +1,7 @@
 <template>
 	<base-section title="Направления деятельности" class="section-directions">
 		<div class="directions">
-			<h3>Ключевыми напрвлениями деятельности ООО "ПР-Агро" являются:</h3>
+			<h3>Ключевыми направлениями деятельности ООО "ПР-Агро" являются:</h3>
 			<div class="directions__categories">
 				<div class="directions__categories-wrapper">
 					<base-picture
