@@ -11,8 +11,11 @@ const FormRequestSchema = object({
 			return input ? getOutput(input) : getPipeIssues('custom', 'Вы не дали согласие на обработку данных', input);
 		}
 	]),
-	name: string('Имя быть строкой', [minLength(1, 'Введите имя'), maxLength(40, 'Имя перевышает максимальную длину')]),
-	phone: string('Телефон быть строкой', [
+	name: string('Имя должно быть строкой', [
+		minLength(1, 'Введите имя'),
+		maxLength(40, 'Имя перевышает максимальную длину')
+	]),
+	phone: string('Телефон должен быть строкой', [
 		(input: string) => {
 			const phoneNumber = parsePhoneNumber(input, 'RU');
 			if (phoneNumber?.isValid()) {
