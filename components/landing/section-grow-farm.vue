@@ -9,7 +9,7 @@
 				<span class="grow-farm__special-title">животноводства и растениеводства</span>
 			</div>
 			<div class="grow-farm__call">
-				<nuxt-link to="#">Обратный звонок</nuxt-link>
+				<nuxt-link to="/#contact-form"><span class="grow-farm__call-title">Обратный звонок</span></nuxt-link>
 			</div>
 		</div>
 		<div class="grow-farm__picture">
@@ -62,6 +62,7 @@ const target = ref();
 		top: #{utility.rem(-160)};
 		left: #{utility.rem(-380)};
 		z-index: -1;
+		width: 137%;
 	}
 	&__call {
 		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
@@ -76,6 +77,8 @@ const target = ref();
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-1.44)};
 		margin-top: #{utility.rem(36)};
+		cursor: pointer;
+		transition: background-color 0.2s ease-in-out;
 		box-shadow:
 			0px #{utility.rem(5)} #{utility.rem(10)} 0px rgba(29, 41, 57, 0.08),
 			0px #{utility.rem(19)} #{utility.rem(19)} 0px rgba(29, 41, 57, 0.07),
@@ -85,6 +88,15 @@ const target = ref();
 		a {
 			text-decoration: none;
 		}
+		> span {
+			transition: color 0.2s ease-in-out;
+		}
+	}
+	&__call:hover span {
+		color: #fff;
+	}
+	&__call:hover {
+		background-color: var(--brand);
 	}
 	&__special {
 		margin-top: #{utility.rem(32)};
