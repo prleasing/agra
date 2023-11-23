@@ -110,6 +110,7 @@ import { Pages } from '~/utils/pages';
 		border-radius: #{utility.rem(12)};
 		background-color: transparent;
 		cursor: pointer;
+		transition: border 0.2s ease-in-out;
 		a {
 			color: var(--brand);
 			font-size: #{utility.rem(24)};
@@ -118,7 +119,14 @@ import { Pages } from '~/utils/pages';
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.48)};
 			text-decoration: none;
+			transition: color 0.2s ease-in-out;
 		}
+	}
+	&__call-wrapper:hover {
+		border: 1px solid #fff;
+	}
+	&__call-wrapper:hover a {
+		color: #fff;
 	}
 	&__weight-price {
 		color: rgba(255, 255, 255, 0.64);
