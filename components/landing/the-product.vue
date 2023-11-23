@@ -2,7 +2,9 @@
 	<div class="product">
 		<base-picture :width="379" :height="379" alt="grains-picture" :src="item.image" />
 		<div class="product__info-wrapper">
-			<div class="product__title">{{ item.title }}</div>
+			<div class="product__title">{{ item.title }}
+				<span v-if="item.subtitle">{{ item.subtitle }}</span>
+			</div>
 			<div v-show="count > 0" class="product__counter">
 				<stepper v-model="count" :format="formatter" :measure="item.measure"></stepper>
 				<button
@@ -244,6 +246,15 @@ function summaShow() {
 		font-size: #{utility.rem(24)};
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
+		display: grid;
+		> span {
+			color: #667085;
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.54)};
+		}
 	}
 
 	&__info-wrapper {
@@ -336,32 +347,32 @@ img {
 	text-align: center;
 	appearance: none;
 }
-.fade-enter-active,
-.fade-leave-active {
-	transition: opacity 0.2s ease;
-	opacity: 0;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
-	opacity: 0;
-	transition-delay: 0.2s;
-}
-.fade-leave,
-.fade-enter-to {
-	opacity: 1;
-	transition-delay: 0.2s;
-}
-.fade-basket-enter-active,
-.fade-basket-leave-active {
-	transition: opacity 0.2s ease;
-	transition-delay: 0.1s;
-	opacity: 0;
-}
-.fade-basket-enter, .fade-basket-leave-to /* .fade-leave-active до версии 2.1.8 */ {
-	opacity: 0;
-}
-.fade-basket-leave,
-.fade-basket-enter-to {
-	opacity: 1;
-	transition-delay: 0.1s;
-}
+// .fade-enter-active,
+// .fade-leave-active {
+// 	transition: opacity 0.2s ease;
+// 	opacity: 0;
+// }
+// .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+// 	opacity: 0;
+// 	transition-delay: 0.2s;
+// }
+// .fade-leave,
+// .fade-enter-to {
+// 	opacity: 1;
+// 	transition-delay: 0.2s;
+// }
+// .fade-basket-enter-active,
+// .fade-basket-leave-active {
+// 	transition: opacity 0.2s ease;
+// 	transition-delay: 0.1s;
+// 	opacity: 0;
+// }
+// .fade-basket-enter, .fade-basket-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+// 	opacity: 0;
+// }
+// .fade-basket-leave,
+// .fade-basket-enter-to {
+// 	opacity: 1;
+// 	transition-delay: 0.1s;
+// }
 </style>
