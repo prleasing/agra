@@ -44,7 +44,6 @@ definePageMeta({
 	name: Pages.Basket
 });
 const basket = useStoreBasket();
-// const bask = ref(false);
 const product = useStoreProduct();
 const products = computed(() => {
 	return product.items.reduce((map, item) => {
