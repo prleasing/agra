@@ -65,7 +65,9 @@ const target = ref<HTMLElement>();
 const model = ref<number>(props.modelValue);
 const isShield = ref<boolean>(true);
 function counterMinus() {
-	model.value--;
+	if (model.value > 1) {
+		model.value--;
+	}
 }
 function counterPlus() {
 	model.value++;
