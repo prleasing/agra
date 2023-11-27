@@ -75,7 +75,7 @@ const count = computed({
 	}
 });
 const format = computed(() => {
-	return formatter(count.value, props.item.measure);
+	return formatter(props.item.discount.barrier, props.item.measure);
 });
 
 const showCounter = ref<boolean>(false);
