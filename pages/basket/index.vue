@@ -6,7 +6,7 @@
 					<the-basket-product v-for="item in items" :key="item.id" :item="item" />
 				</div>
 				<div v-if="noBasket" class="basket__to-main">
-					<span>Перейти на главную</span>
+					<nuxt-link to="/">Перейти на главную </nuxt-link>
 					<base-icon :icon="Icons44ArrowUp"></base-icon>
 				</div>
 				<div class="basket__add-info" :class="{ 'no-basket': noBasket }">
@@ -109,18 +109,33 @@ const noBasket = computed(() => {
 		border-radius: #{utility.rem(16)};
 		border: 1px solid #1d2939;
 		margin-bottom: #{utility.rem(16)};
-		> span {
+		position: relative;
+		justify-content: flex-end;
+		> a {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
 			display: flex;
 			flex: 1;
 			justify-content: center;
 			align-items: center;
-			margin-left: #{utility.rem(44)};
+			text-decoration: none;
+			// margin-left: #{utility.rem(44)};
 			color: #1d2939;
 			font-size: #{utility.rem(24)};
 			font-style: normal;
 			font-weight: 500;
 			line-height: normal;
 			letter-spacing: #{utility.rem(-0.48)};
+			order: 1;
+		}
+		svg {
+			display: flex;
+			order: 2;
+			justify-self: flex-end;
+			pointer-events: none;
 		}
 	}
 	&__not-oferta {
