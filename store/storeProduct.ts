@@ -9,7 +9,7 @@ export interface Product {
 	measure: string;
 	cost: number;
 	multifyer: number;
-	discount: Discount;
+	discount: Discount | null;
 	image: string;
 	// sum?: number | undefined;
 }
