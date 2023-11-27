@@ -17,6 +17,8 @@
 
 	// Контейнер
 	--container: #{utility.rem(1170)};
+	--mobile-container-max-width: #{utility.rem(768)};
+	--mobile-container: 100%;
 	--ears: var(--padding-md);
 	--focus-visible: yellow;
 
