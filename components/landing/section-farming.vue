@@ -82,6 +82,7 @@ import { Pages } from '~/utils/pages';
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
+@use 'assets/styles/breakpoints';
 .farming {
 	display: grid;
 	gap: #{utility.rem(16)};
@@ -151,6 +152,9 @@ import { Pages } from '~/utils/pages';
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: #{utility.rem(16)};
+		@include breakpoints.media-down('xl') {
+			grid-template-columns: 1fr;
+		}
 		:deep(img) {
 			border-radius: #{utility.rem(16)};
 		}
