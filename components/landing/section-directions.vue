@@ -46,6 +46,10 @@
 					<base-picture :width="480" :height="194" alt="grow-photo" src="/images/landing/directions/mission.jpg">
 					</base-picture>
 				</div>
+				<div class="directions__mission-picture-mobile">
+					<base-picture :width="288" :height="234" alt="grow-photo" src="/images/landing/directions/mission-mobile.jpg">
+					</base-picture>
+				</div>
 			</div>
 			<div class="directions__location">
 				<span class="directions__location-title"
@@ -78,13 +82,20 @@ import BasePicture from '~/components/elements/base-picture';
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
+@use 'assets/styles/breakpoints';
 .section-directions {
 	:deep(.section__content) {
 		background-color: #1d2939;
 	}
+	@include breakpoints.media-down('xl') {
+		// width: 100%;
+	}
 }
 
 .directions {
+	@include breakpoints.media-down('xl') {
+		width: 100%;
+	}
 	> h3 {
 		color: #fff;
 		font-size: #{utility.rem(24)};
@@ -93,6 +104,13 @@ import BasePicture from '~/components/elements/base-picture';
 		line-height: normal;
 		letter-spacing: #{utility.rem(-0.48)};
 		padding-bottom: #{utility.rem(24)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+			letter-spacing: #{utility.rem(-0.36)};
+		}
 	}
 	&__categories {
 		display: flex;
@@ -104,6 +122,10 @@ import BasePicture from '~/components/elements/base-picture';
 		grid-template-columns: 1fr 1fr;
 		margin-top: #{utility.rem(33)};
 		border-radius: #{utility.rem(16)};
+		@include breakpoints.media-down('xl') {
+			display: flex;
+			flex-direction: column;
+		}
 	}
 	&__mission-picture {
 		display: flex;
@@ -111,6 +133,24 @@ import BasePicture from '~/components/elements/base-picture';
 		border-radius: #{utility.rem(16)};
 		.picture {
 			border-radius: #{utility.rem(16)};
+			@include breakpoints.media-down('xl') {
+				display: none;
+			}
+		}
+	}
+	&__mission-picture-mobile {
+		display: none;
+		@include breakpoints.media-down('xl') {
+			display: flex;
+			.picture {
+				width: 100%;
+			}
+			:deep(img) {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
 		}
 	}
 	&__garanty {
@@ -120,6 +160,13 @@ import BasePicture from '~/components/elements/base-picture';
 		font-weight: 500;
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.48)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+			letter-spacing: #{utility.rem(-0.36)};
+		}
 	}
 	&__mission-wrapper {
 		padding-left: #{utility.rem(24)};
@@ -147,10 +194,20 @@ import BasePicture from '~/components/elements/base-picture';
 		font-weight: 600;
 		line-height: normal;
 		letter-spacing: #{utility.rem(-0.48)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+			letter-spacing: #{utility.rem(-0.36)};
+		}
 	}
 	&__location-info {
 		display: flex;
 		gap: #{utility.rem(16)};
+		@include breakpoints.media-down('xl') {
+			flex-direction: column;
+		}
 	}
 	&__location-wrapper {
 		display: flex;
@@ -161,6 +218,17 @@ import BasePicture from '~/components/elements/base-picture';
 		padding: #{utility.rem(16)};
 		padding-right: #{utility.rem(24)};
 		position: relative;
+		@include breakpoints.media-down('xl') {
+			max-width: #{utility.rem(260)};
+			padding: #{utility.rem(8)};
+			gap: #{utility.rem(8)};
+			align-items: center;
+		}
+		.icon {
+			@include breakpoints.media-down('xl') {
+				width: #{utility.rem(24)};
+			}
+		}
 		> span {
 			color: #fff;
 			font-size: #{utility.rem(24)};
@@ -168,6 +236,14 @@ import BasePicture from '~/components/elements/base-picture';
 			font-weight: 500;
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.96)};
+			@include breakpoints.media-down('xl') {
+				color: #FFF;
+				font-size: #{utility.rem(18)};
+				font-style: normal;
+				font-weight: 500;
+				line-height: 115%;
+				letter-spacing: #{utility.rem(-0.72)};
+			}
 		}
 		a {
 			position: absolute;
@@ -184,6 +260,9 @@ import BasePicture from '~/components/elements/base-picture';
 		background-color: var(--brand);
 		max-width: #{utility.rem(924)};
 		border-radius: #{utility.rem(16)};
+		@include breakpoints.media-down('xl') {
+			// max-width: #{utility.rem(800)};
+		}
 		> span {
 			color: #fff;
 			font-size: #{utility.rem(24)};
@@ -191,6 +270,13 @@ import BasePicture from '~/components/elements/base-picture';
 			font-weight: 500;
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.48)};
+			@include breakpoints.media-down('xl') {
+				font-size: #{utility.rem(18)};
+				font-style: normal;
+				font-weight: 500;
+				line-height: 135%;
+				letter-spacing: #{utility.rem(-0.72)};
+			}
 		}
 	}
 	&__mission-title {
@@ -224,7 +310,100 @@ import BasePicture from '~/components/elements/base-picture';
 			bottom: #{utility.rem(24)};
 			left: #{utility.rem(24)};
 			max-width: 80%;
+			@include breakpoints.media-down('xl') {
+				background: linear-gradient(180deg, rgba(29, 41, 57, 0.00) 0%, rgba(29, 41, 57, 0.64) 100%);
+				height: 50%;
+				width: 100%;
+				max-width: 100%;
+				bottom: #{utility.rem(0)};
+				left: #{utility.rem(0)};
+				display: flex;
+				align-items: flex-end;
+				padding: #{utility.rem(16)};
+				font-size: #{utility.rem(16)};
+				font-style: normal;
+				font-weight: 600;
+				line-height: 115%;
+				letter-spacing: #{utility.rem(-0.32)};
+			}
 		}
 	}
 }
+.directions__categories {
+	@include breakpoints.media-down('xl') {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		// grid-template-rows: 1fr auto;
+		> div:not(:last-child) {
+			:deep(img) {
+				aspect-ratio: 1/1;
+			}
+		}
+		> div:last-child {
+			grid-column-start: 1;
+			grid-column-end: 3;
+			:deep(img) {
+				aspect-ratio: 2/1;
+			}
+			// grid-area:  /;
+		}
+	}
+}
+.directions__categories-wrapper {
+	@include breakpoints.media-down('xl') {
+		// display: block;
+		.picture {
+			// max-height: 144px;
+			// width: 100%;
+		}
+		:deep(img) {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+// .directions__categories-wrapper:nth-child(2) {
+// 	@include breakpoints.media-down('xl') {
+// 		display: flex;
+// 		// flex: 1 0 auto;
+// 		.picture {
+// 			// max-height: 144px;
+// 			width: 100%;
+// 		}
+// 		:deep(img) {
+// 			height: 100%;
+// 			width: 100%;
+// 			// display: flex;
+// 			justify-content: center;
+// 			align-items: center;
+// 			object-fit: cover;
+// 		}
+// 	}
+// }
+// .directions__categories-wrapper:last-child {
+// 	@include breakpoints.media-down('xl') {
+// 		display: flex;
+// 		width: 100%;
+// 		.picture {
+// 			width: 100%;
+// 			// max-height: 144px;
+// 			max-width: 100%;
+// 		}
+// 		:deep(picture) {
+// 			display: flex;
+// 			height: 100%;
+// 			justify-content: center;
+// 			align-items: center;
+// 		}
+// 		:deep(img) {
+// 			width: 100%;
+// 			display: flex;
+// 			justify-content: center;
+// 			align-items: center;
+// 			object-fit: cover;
+// 		}
+// 	}
+// }
 </style>
