@@ -82,7 +82,6 @@ const isSuccess = ref(false);
 .form {
 	:deep(.field-group) {
 		border-radius: 0;
-
 		.field {
 			border-radius: 0;
 
