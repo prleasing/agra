@@ -36,6 +36,7 @@ const vacancies = computed(() => {
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
+@use 'assets/styles/breakpoints';
 
 .section-vacancy {
 	:deep(.section-content) {
@@ -43,6 +44,9 @@ const vacancies = computed(() => {
 		gap: #{utility.rem(16)};
 		background-color: #1d2939;
 		box-shadow: 0 #{utility.rem(24)} #{utility.rem(64)} #{utility.rem(-24)} rgb(29 41 57 / 24%);
+		@include breakpoints.media-down('xl') {
+			flex-direction: column;
+		}
 	}
 }
 
@@ -51,10 +55,16 @@ const vacancies = computed(() => {
 	flex-direction: column;
 	gap: #{utility.rem(4)};
 	max-width: #{utility.rem(775)};
-
+	@include breakpoints.media-down('xl') {
+		gap: #{utility.rem(8)};
+	}
 	:deep(picture) {
 		position: sticky;
 		top: 0;
+	}
+	:deep(img) {
+		width: 100%;
+		object-fit: cover;
 	}
 
 	& &__payment {
@@ -64,11 +74,21 @@ const vacancies = computed(() => {
 		padding: #{utility.rem(16)} #{utility.rem(20)} #{utility.rem(16)} #{utility.rem(20)};
 		border: 1px solid #fff;
 		border-radius: #{utility.rem(16)};
+		@include breakpoints.media-down('xl') {
+			padding: #{utility.rem(12)};
+			width: 100%;
+			gap: #{utility.rem(10)};
+		}
 
 		:deep(.icon) {
 			width: #{utility.rem(44)};
 			height: #{utility.rem(44)};
 			color: #fff;
+			@include breakpoints.media-down('xl') {
+				width: #{utility.rem(32)};
+				display: flex;
+				align-self: flex-start;
+			}
 		}
 	}
 
@@ -79,6 +99,14 @@ const vacancies = computed(() => {
 		font-size: #{utility.rem(24)};
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.36)};
+			max-width: 60%;
+		}
 	}
 
 	& &__info-block {
@@ -86,6 +114,9 @@ const vacancies = computed(() => {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		@include breakpoints.media-down('xl') {
+			align-items: flex-start;
+		}
 
 		// height: #{utility.rem(96)};
 		padding: #{utility.rem(16)} #{utility.rem(16)} #{utility.rem(16)} #{utility.rem(24)};
@@ -132,6 +163,13 @@ const vacancies = computed(() => {
 
 		// margin: #{utility.rem(16)} #{utility.rem(16)} #{utility.rem(16)} #{utility.rem(24)};
 		text-decoration: none;
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.36)};
+		}
 	}
 
 	&__link {
@@ -143,6 +181,9 @@ const vacancies = computed(() => {
 		background-color: transparent;
 		color: #fff;
 		transition: background-color 300ms ease-in-out;
+		@include breakpoints.media-down('xl') {
+			padding: #{utility.rem(0)};
+		}
 
 		:deep(.icon) {
 			width: #{utility.rem(32)};
@@ -156,11 +197,15 @@ const vacancies = computed(() => {
 
 	:deep(img) {
 		border-radius: #{utility.rem(16)};
+		width: 100%;
+		object-fit: cover;
 	}
 
 	:deep(picture) {
 		position: sticky;
 		top: 0;
+		width: 100%;
+		display: block;
 	}
 }
 </style>
