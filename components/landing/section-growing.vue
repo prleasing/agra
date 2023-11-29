@@ -8,7 +8,7 @@
 					задачи
 				</span>
 			</div>
-			<base-masonry>
+			<base-masonry :columns="isMobile ? 1 : 3">
 				<div v-for="item in growingTasks" :key="item.id" class="growing__masonry-item">
 					<base-icon :icon="Icons24ProgressCheck" />
 					<span>{{ item.title }}</span>
@@ -22,10 +22,10 @@
 				<!-- <div class="growing__empty"></div> -->
 			</div>
 			<the-cultures />
-			<div>
+			<div class="growing__warn-wrapper">
 				<div class="growing__warning">
 					<div class="growing__icon-wrapper">
-						<base-icon :icon="Icons32Discount"></base-icon>
+						<base-icon :icon="Icons32ExclamationMark"></base-icon>
 					</div>
 					<span
 						>Цены указаны без доставки и упаковки, возможно доставка и упаковка в наши мешки по договоренности.</span
@@ -41,7 +41,7 @@
 					<div class="growing__delivery">
 						<base-icon :icon="Icons32TruckDelivery"></base-icon>
 						<span>Доставка</span>
-						<div class="growing__separator"></div>
+						<div class="growing__separator-nomobile"></div>
 						<span>1 км</span>
 						<div class="growing__separator"></div>
 						<span>40 ₽</span>
@@ -67,8 +67,6 @@
 								<base-icon :icon="Icons24Seeding" />
 								<span>Овес</span>
 							</div>
-						</div>
-						<div>
 							<div class="growing__grain-binary">
 								<base-icon :icon="Icons24Seeding" />
 								Бинарный посев
@@ -94,13 +92,13 @@
 import {
 	Icons24ProgressCheck,
 	Icons24Seeding,
-	Icons32Discount,
+	Icons32ExclamationMark,
 	Icons32Moneybag,
 	Icons32TruckDelivery,
 	Icons44Discount,
 	Icons44Growth
 } from '#icons';
-import { ref } from '#imports';
+import { ref, computed, useWindowSize, watch, onMounted } from '#imports';
 import BaseSection from '~/components/base-section.vue';
 import BaseIcon from '~/components/elements/base-icon';
 import BaseMasonry from '~/components/elements/base-masonry';
@@ -114,13 +112,32 @@ const growingTasks = ref([
 	{ id: 4, title: 'борьба с болезнями, вредителями и сорняками' },
 	{ id: 5, title: 'сохранение и развитие генетического потенциала культурных растений' }
 ]);
+const { width } = useWindowSize();
+const isMobile = ref<boolean>(false);
+const twoColumns = ref<boolean>(false);
+watch(width, (value) => {
+	if (value < 1200) {
+		isMobile.value = true;
+	} else isMobile.value = false;
+});
+onMounted(() => {
+	if (width.value < 1200) {
+		isMobile.value = true;
+	} else isMobile.value = false;
+});
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
+@use 'assets/styles/breakpoints';
 
 .growing {
 	:deep(img) {
 		border-radius: #{utility.rem(16)};
+		@include breakpoints.media-down('xl') {
+			object-fit: cover;
+			width: 100%;
+			// height: auto;
+		}
 	}
 	&__picture {
 		position: relative;
@@ -152,6 +169,9 @@ const growingTasks = ref([
 		padding-right: #{utility.rem(32)};
 		border-radius: #{utility.rem(16)} #{utility.rem(16)} #{utility.rem(16)} 0px;
 		border: 1px solid #eaecf0;
+		@include breakpoints.media-down('xl') {
+			border-radius: unset;
+		}
 		> span {
 			color: #1d2939;
 			font-size: #{utility.rem(24)};
@@ -159,6 +179,24 @@ const growingTasks = ref([
 			font-weight: 500;
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.48)};
+			@include breakpoints.media-down('xl') {
+				font-size: #{utility.rem(18)};
+				font-style: normal;
+				font-weight: 500;
+				line-height: 115%;
+				letter-spacing: #{utility.rem(-0.36)};
+			}
+		}
+		.icon {
+			@include breakpoints.media-down('xl') {
+				width: unset;
+				height: unset;
+			}
+		}
+		.icon-wrapper {
+			@include breakpoints.media-down('xl') {
+				width: #{utility.rem(24)};
+			}
 		}
 	}
 	&__pack {
@@ -169,8 +207,16 @@ const growingTasks = ref([
 		max-width: #{utility.rem(319)};
 		border-radius: 0px 0px 0px #{utility.rem(16)};
 		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
+		@include breakpoints.media-down('xl') {
+			width: 100%;
+			max-width: unset;
+			border-radius: unset;
+		}
 		.icon {
 			width: #{utility.rem(32)};
+			@include breakpoints.media-down('xl') {
+				width: #{utility.rem(24)};
+			}
 		}
 		> span {
 			padding-left: #{utility.rem(16)};
@@ -181,11 +227,26 @@ const growingTasks = ref([
 			font-weight: 500;
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.48)};
+			@include breakpoints.media-down('xl') {
+				font-size: #{utility.rem(18)};
+				font-style: normal;
+				font-weight: 500;
+				line-height: 115%;
+				letter-spacing: #{utility.rem(-0.36)};
+				// width: max-content;
+			}
 		}
 	}
 	&__separator {
 		border-left: 1px solid #667085;
 		height: #{utility.rem(16)};
+	}
+	&__separator-nomobile {
+		border-left: 1px solid #667085;
+		height: #{utility.rem(16)};
+		@include breakpoints.media-down('xl') {
+			border-left: unset;
+		}
 	}
 	&__delivery {
 		display: flex;
@@ -196,8 +257,17 @@ const growingTasks = ref([
 		max-width: #{utility.rem(404)};
 		border-radius: 0px 0px #{utility.rem(16)} 0px;
 		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
+		@include breakpoints.media-down('xl') {
+			border-left: 1px solid #eaecf0;
+			border-radius: 0px 0px #{utility.rem(16)} #{utility.rem(16)};
+			width: 100%;
+			max-width: unset;
+		}
 		.icon {
 			width: #{utility.rem(32)};
+			@include breakpoints.media-down('xl') {
+				width: #{utility.rem(24)};
+			}
 		}
 		> span {
 			padding-left: #{utility.rem(16)};
@@ -208,10 +278,23 @@ const growingTasks = ref([
 			font-weight: 500;
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.48)};
+			@include breakpoints.media-down('xl') {
+				font-size: #{utility.rem(18)};
+				font-style: normal;
+				font-weight: 500;
+				line-height: 115%;
+				letter-spacing: #{utility.rem(-0.36)};
+				// width: max-content;
+				padding-left: #{utility.rem(8)};
+				padding-right: #{utility.rem(8)};
+			}
 		}
 	}
 	&__delivery-info {
 		display: flex;
+		@include breakpoints.media-down('xl') {
+			flex-direction: column;
+		}
 	}
 	&__masonry-item {
 		display: flex;
@@ -241,6 +324,13 @@ const growingTasks = ref([
 		letter-spacing: #{utility.rem(-0.64)};
 		text-align: center;
 		z-index: 1;
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(20)};
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+			letter-spacing: #{utility.rem(-0.4)};
+		}
 	}
 
 	&__cultures {
@@ -251,6 +341,11 @@ const growingTasks = ref([
 		padding-top: #{utility.rem(42)};
 		padding-bottom: #{utility.rem(42)};
 		border-top: 1px solid #eaecf0;
+		@include breakpoints.media-down('xl') {
+			grid-template-columns: 1fr;
+			padding-top: #{utility.rem(16)};
+			padding-bottom: #{utility.rem(16)};
+		}
 	}
 
 	&__cultures-title {
@@ -260,6 +355,13 @@ const growingTasks = ref([
 		font-size: #{utility.rem(24)};
 		line-height: normal;
 		letter-spacing: #{utility.rem(-0.48)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			letter-spacing: #{utility.rem(-0.36)};
+		}
 	}
 
 	&__grain,
@@ -272,6 +374,13 @@ const growingTasks = ref([
 		font-size: #{utility.rem(24)};
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.48)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.36)};
+		}
 
 		.icon {
 			width: #{utility.rem(24)};
@@ -298,6 +407,14 @@ const growingTasks = ref([
 			font-size: #{utility.rem(24)};
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.72)};
+			@include breakpoints.media-down('xl') {
+				font-size: #{utility.rem(18)};
+				font-style: normal;
+				font-weight: 500;
+				line-height: 135%;
+				letter-spacing: #{utility.rem(-0.36)};
+				display: none;
+			}
 		}
 	}
 
@@ -306,11 +423,19 @@ const growingTasks = ref([
 		gap: #{utility.rem(12)};
 		padding: #{utility.rem(16)};
 		padding-right: #{utility.rem(24)};
+		@include breakpoints.media-down('xl') {
+			padding: #{utility.rem(8)};
+			padding-right: #{utility.rem(16)};
+		}
 	}
 
 	&__grain-solo {
 		display: flex;
 		gap: #{utility.rem(12)};
+		flex-wrap: wrap;
+		@include breakpoints.media-down('xl') {
+			gap: #{utility.rem(8)};
+		}
 	}
 
 	&__grain-wrapper {
@@ -341,9 +466,23 @@ const growingTasks = ref([
 		font-size: #{utility.rem(24)};
 		line-height: normal;
 		letter-spacing: #{utility.rem(-0.48)};
-
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(16)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			letter-spacing: #{utility.rem(-0.32)};
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			gap: #{utility.rem(8)};
+			right: #{utility.rem(16)};
+		}
 		.icon {
 			width: #{utility.rem(44)};
+			@include breakpoints.media-down('xl') {
+				width: #{utility.rem(24)};
+			}
 		}
 	}
 
@@ -356,9 +495,16 @@ const growingTasks = ref([
 		padding-left: #{utility.rem(20)};
 		border: 1px solid #eaecf0;
 		border-radius: #{utility.rem(16)};
+		@include breakpoints.media-down('md') {
+			flex-direction: column;
+		}
 
 		.icon {
 			width: #{utility.rem(44)};
+			@include breakpoints.media-down('xl') {
+				width: #{utility.rem(24)};
+				display: block;
+			}
 		}
 
 		> span {
@@ -373,6 +519,16 @@ const growingTasks = ref([
 			font-size: #{utility.rem(24)};
 			line-height: normal;
 			letter-spacing: #{utility.rem(-0.48)};
+			@include breakpoints.media-down('xl') {
+				font-size: #{utility.rem(18)};
+				font-style: normal;
+				font-weight: 500;
+				line-height: normal;
+				letter-spacing: #{utility.rem(-0.36)};
+			}
+			@include breakpoints.media-down('md') {
+				justify-content: flex-start;
+			}
 		}
 	}
 }
