@@ -7,7 +7,7 @@ export default defineNuxtConfig({
 		autoImport: false
 	},
 	devtools: { enabled: true },
-	css: ['assets/styles/index.scss'],
+	css: ['assets/styles/index.scss', 'assets/styles/production.scss'],
 	modules: [
 		'@pinia-plugin-persistedstate/nuxt',
 		'@pinia/nuxt',
@@ -90,3 +90,6 @@ export default defineNuxtConfig({
 		}
 	}
 });
+
+
+// , 'assets/styles/production.scss'
