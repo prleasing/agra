@@ -8,6 +8,22 @@
 					alt="photo-meat"
 					src="/images/landing/farming/farming-meat.jpg"
 				></base-picture>
+				<span class="farming__meat-info"
+					>В 2023 года хозяйство переформатировало направление деятельности с молочного производства и сфокусировало
+					деятельность на мясном направлении</span
+				>
+			</div>
+			<div class="farming__image-mobile-wrapper">
+				<base-picture
+					:width="1170"
+					:height="384"
+					alt="photo-meat"
+					src="/images/landing/farming/farming-meat-mobile.jpg"
+				></base-picture>
+				<span class="farming__meat-info"
+					>В 2023 года хозяйство переформатировало направление деятельности с молочного производства и сфокусировало
+					деятельность на мясном направлении</span
+				>
 			</div>
 			<div class="farming__minselhos">
 				<div class="farming__minselhos-title">
@@ -30,6 +46,14 @@
 					:height="336"
 					alt="background-photo"
 					src="/images/landing/farming/background-cows.jpg"
+				></base-picture>
+			</div>
+			<div class="farming__cows-background-mobile">
+				<base-picture
+					:width="288"
+					:height="496"
+					alt="background-photo"
+					src="/images/landing/farming/background-cows-mobile.jpg"
 				></base-picture>
 			</div>
 			<div class="farming__cows">
@@ -63,11 +87,9 @@
 					</div>
 				</div>
 				<div class="farming__weight-price">
-					<span
-						>Цена зависит от веса
-						<div class="farming__point-separator"></div>
-						от 200 ₽/кг за живой вес</span
-					>
+					<span>Цена зависит от веса </span>
+					<div class="farming__point-separator"></div>
+					<span>от 200 ₽/кг за живой вес</span>
 				</div>
 			</div>
 		</div>
@@ -87,23 +109,114 @@ import { Pages } from '~/utils/pages';
 	display: grid;
 	gap: #{utility.rem(16)};
 	position: relative;
+	@include breakpoints.media-down('xl') {
+		gap: #{utility.rem(8)};
+	}
 	&__cows {
 		position: absolute;
 		bottom: 0;
 		right: 0;
+		@include breakpoints.media-down('xl') {
+			width: 100%;
+		}
+		:deep(img) {
+			@include breakpoints.media-down('xl') {
+				width: #{utility.rem(288)};
+				height: #{utility.rem(210)};
+			}
+		}
+		:deep(picture) {
+			@include breakpoints.media-down('xl') {
+				display: flex;
+				width: 100%;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+	}
+	&__meat-info {
+		position: absolute;
+		top: #{utility.rem(24)};
+		left: #{utility.rem(24)};
+		color: #FFF;
+		font-size: #{utility.rem(24)};
+		font-style: normal;
+		font-weight: 500;
+		line-height: 135%;
+		letter-spacing: #{utility.rem(-0.48)};
+		@include breakpoints.media-down('xl') {
+			top: #{utility.rem(16)};
+			left: #{utility.rem(16)};
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.36)};
+		}
 	}
 	&__image-wrapper {
+		position: relative;
+		@include breakpoints.media-down('xl') {
+			display: none;
+		}
 		.picture {
 			border-radius: #{utility.rem(16)};
+		}
+		:deep(img) {
+			@include breakpoints.media-down('xl') {
+				max-width: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+	&__image-mobile-wrapper {
+		position: relative;
+		.picture {
+			display: none;
+			border-radius: #{utility.rem(16)};
+			@include breakpoints.media-down('xl') {
+				display: flex;
+				max-width: 100%;
+			}
+		}
+		:deep(img) {
+			@include breakpoints.media-down('xl') {
+				display: flex;
+				max-width: 100%;
+				object-fit: cover;
+			}
 		}
 	}
 	&__cows-background {
 		.picture {
 			border-radius: #{utility.rem(16)};
 		}
+		@include breakpoints.media-down('xl') {
+			display: none;
+		}
+	}
+	&__cows-background-mobile {
+		display: none;
+		@include breakpoints.media-down('xl') {
+			display: block;
+			width: 100%;
+			.picture {
+				border-radius: #{utility.rem(16)};
+			}
+		}
+		:deep(img) {
+			@include breakpoints.media-down('xl') {
+				object-fit: cover;
+				width: 100%;
+			}
+		}
 	}
 	&__call {
 		max-width: #{utility.rem(286)};
+		@include breakpoints.media-down('xl') {
+			margin-top: #{utility.rem(24)};
+			margin-bottom: #{utility.rem(8)};
+		}
 	}
 	&__call-wrapper {
 		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
@@ -112,6 +225,11 @@ import { Pages } from '~/utils/pages';
 		background-color: transparent;
 		cursor: pointer;
 		transition: border 0.2s ease-in-out;
+		@include breakpoints.media-down('xl') {
+			padding: #{utility.rem(16)} #{utility.rem(24)} #{utility.rem(16)} #{utility.rem(24)};
+			display: flex;
+			justify-content: center;
+		}
 		a {
 			color: var(--brand);
 			font-size: #{utility.rem(24)};
@@ -121,6 +239,13 @@ import { Pages } from '~/utils/pages';
 			letter-spacing: #{utility.rem(-0.48)};
 			text-decoration: none;
 			transition: color 0.2s ease-in-out;
+			@include breakpoints.media-down('xl') {
+				font-size: #{utility.rem(18)};
+				font-style: normal;
+				font-weight: 500;
+				line-height: 135%;
+				letter-spacing: #{utility.rem(-1.08)};
+			}
 		}
 	}
 	&__call-wrapper:hover {
@@ -137,6 +262,15 @@ import { Pages } from '~/utils/pages';
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.54)};
 		display: flex;
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(16)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.48)};
+			display: flex;
+			flex-direction: column;
+		}
 		.farming__point-separator {
 			display: inline-block;
 			width: #{utility.rem(4)};
@@ -146,6 +280,9 @@ import { Pages } from '~/utils/pages';
 			margin-left: #{utility.rem(8)};
 			margin-right: #{utility.rem(8)};
 			vertical-align: middle;
+			@include breakpoints.media-down('xl') {
+				display: none;
+			}
 		}
 	}
 	&__minselhos {
@@ -166,6 +303,14 @@ import { Pages } from '~/utils/pages';
 		padding: #{utility.rem(24)};
 		border-radius: #{utility.rem(16)};
 		background-color: #eaecf0;
+		@include breakpoints.media-down('xl') {
+			gap: #{utility.rem(42)};
+		}
+		:deep(img) {
+			@include breakpoints.media-down('xl') {
+				max-width: #{utility.rem(204)};
+			}
+		}
 		> span {
 			color: #1d2939;
 			font-size: #{utility.rem(24)};
@@ -173,21 +318,42 @@ import { Pages } from '~/utils/pages';
 			font-weight: 500;
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.48)};
+			@include breakpoints.media-down('xl') {
+				font-size: #{utility.rem(18)};
+				font-style: normal;
+				font-weight: 500;
+				line-height: 135%;
+				letter-spacing: #{utility.rem(-0.36)};
+			}
 		}
 	}
 	&__cattle {
 		position: relative;
 		> span {
 			position: absolute;
-			bottom: #{utility.rem(24)};
-			left: #{utility.rem(24)};
 			color: #fff;
 			font-size: #{utility.rem(24)};
-			font-style: normal;
+			bottom: #{utility.rem(24)};
+			left: #{utility.rem(24)};
 			font-weight: 500;
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.48)};
 			margin-right: #{utility.rem(24)};
+			@include breakpoints.media-down('xl') {
+				font-size: #{utility.rem(18)};
+				font-style: normal;
+				font-weight: 500;
+				line-height: 135%;
+				letter-spacing: #{utility.rem(-0.36)};
+				bottom: #{utility.rem(16)};
+				left: #{utility.rem(16)};
+			}
+		}
+		:deep(img) {
+			@include breakpoints.media-down('xl') {
+				width: 100%;
+				object-fit: cover;
+			}
 		}
 	}
 	&__cows-info {
@@ -196,6 +362,11 @@ import { Pages } from '~/utils/pages';
 		padding: #{utility.rem(24)};
 		display: grid;
 		gap: #{utility.rem(24)};
+		@include breakpoints.media-down('xl') {
+			bottom: #{utility.rem(196)};
+			padding: #{utility.rem(16)};
+			gap: #{utility.rem(0)};
+		}
 		.farming__category {
 			color: #fff;
 			font-size: #{utility.rem(24)};
@@ -204,6 +375,15 @@ import { Pages } from '~/utils/pages';
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.48)};
 			max-width: #{utility.rem(460)};
+			@include breakpoints.media-down('xl') {
+				font-size: #{utility.rem(16)};
+				font-style: normal;
+				font-weight: 500;
+				line-height: 115%;
+				letter-spacing: #{utility.rem(-0.32)};
+				// width: #{utility.rem(226)};
+				width: 90%;
+			}
 		}
 	}
 	&__category-wrapper {
