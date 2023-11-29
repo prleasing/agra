@@ -26,7 +26,12 @@ const refMasonry = ref<HTMLElement | null>(null);
 const gutter = useCssPropertyCalculateGutter('--masonry-grid-gap', refMasonry);
 const boundingClientRect = useElementBounding(refMasonry);
 const container = computed(() => boundingClientRect.width.value);
-const columnWidth = computed(() => (container.value - (props.columns - 1) * gutter.value) / props.columns);
+const columnWidth = computed(() => {
+	if (props.columns === 1) {
+		return 100;
+	}
+	return (container.value - (props.columns - 1) * gutter.value) / props.columns;
+});
 
 function render() {
 	const columnHeight = Array.from<number>(new Array(props.columns)).map(() => 0);
@@ -34,7 +39,7 @@ function render() {
 	const items = elements.map((element) => {
 		const style = {
 			position: 'absolute',
-			width: `${columnWidth.value}px`
+			width: props.columns === 1 ? `${columnWidth.value}%` : `${columnWidth.value}px`
 		};
 
 		Object.assign(element.style, style);
