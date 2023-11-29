@@ -2,7 +2,8 @@
 	<div class="product">
 		<base-picture :width="379" :height="379" alt="grains-picture" :src="item.image" />
 		<div class="product__info-wrapper">
-			<div class="product__title">{{ item.title }}
+			<div class="product__title">
+				{{ item.title }}
 				<span v-if="item.subtitle">{{ item.subtitle }}</span>
 			</div>
 			<div v-show="count > 0" class="product__counter">
@@ -75,7 +76,9 @@ const count = computed({
 	}
 });
 const format = computed(() => {
-	return formatter(props.item.discount.barrier, props.item.measure);
+	if (props.item.discount) {
+		return formatter(props.item.discount.barrier, props.item.measure);
+	}
 });
 
 const showCounter = ref<boolean>(false);
@@ -109,12 +112,21 @@ function summaShow() {
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
+@use 'assets/styles/breakpoints';
 
 .product {
 	max-height: #{utility.rem(379)};
 	position: relative;
 	border-radius: #{utility.rem(16)};
-
+	@include breakpoints.media-down('xl') {
+		display: grid;
+	}
+	@include breakpoints.media-down('mmd') {
+		display: block;
+		width: 100%;
+		max-height: unset;
+		height: auto;
+	}
 	&__counter-button {
 		border: none;
 		background-color: #fff;
@@ -170,6 +182,13 @@ function summaShow() {
 		font-weight: 500;
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.36)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(14)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 115%;
+			letter-spacing: #{utility.rem(-0.28)};
+		}
 	}
 
 	&__price-title {
@@ -189,6 +208,13 @@ function summaShow() {
 		justify-content: center;
 		align-items: center;
 		text-align: center;
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 115%;
+			letter-spacing: #{utility.rem(-0.36)};
+		}
 	}
 	&__price-title1 {
 		color: #fff;
@@ -224,6 +250,11 @@ function summaShow() {
 		padding: #{utility.rem(16)};
 		border-radius: #{utility.rem(8)} 0 0 #{utility.rem(8)};
 		background-color: #fff;
+		@include breakpoints.media-down('xl') {
+			padding: #{utility.rem(10)};
+			padding-top: #{utility.rem(16)};
+			padding-bottom: #{utility.rem(16)};
+		}
 	}
 
 	&__counter {
@@ -249,6 +280,14 @@ function summaShow() {
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
 		display: grid;
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 600;
+			line-height: 115%;
+			letter-spacing: #{utility.rem(-0.36)};
+			padding: #{utility.rem(8)};
+		}
 		> span {
 			color: #667085;
 			font-size: #{utility.rem(18)};
@@ -270,6 +309,11 @@ function summaShow() {
 		padding-bottom: #{utility.rem(16)};
 		border-radius: #{utility.rem(16)};
 		background: linear-gradient(180deg, rgb(29 41 57 / 0%) 0%, rgb(29 41 57 / 80%) 100%);
+		@include breakpoints.media-down('xl') {
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
 	}
 
 	&__cost {
@@ -285,6 +329,13 @@ function summaShow() {
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.96)};
 			text-align: center;
+			@include breakpoints.media-down('xl') {
+				font-size: #{utility.rem(24)};
+				font-style: normal;
+				font-weight: 700;
+				line-height: 115%;
+				letter-spacing: #{utility.rem(-0.48)};
+			}
 		}
 	}
 
@@ -294,6 +345,10 @@ function summaShow() {
 		left: 0;
 		height: 100%;
 		border-radius: #{utility.rem(16)};
+		@include breakpoints.media-down('xl') {
+			width: 100%;
+			position: relative;
+		}
 	}
 
 	.icon {
@@ -314,6 +369,9 @@ function summaShow() {
 		opacity 300ms ease-in-out,
 		background-color 300ms ease-in-out,
 		color 300ms ease-in-out;
+	@include breakpoints.media-down('xl') {
+		opacity: 1;
+	}
 }
 
 .product:hover .product__icon-container {
