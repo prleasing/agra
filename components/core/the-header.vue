@@ -10,14 +10,19 @@
 			<div v-for="item in menu" :key="item.id" class="header__menu-item">
 				<nuxt-link :to="`/#${item.link}`">{{ item.title }}</nuxt-link>
 			</div>
-			<div class="header__cart">
-				<nuxt-link :to="{ path: Pages.Basket }">
-					<base-icon :icon="Icons24ShoppingCart" />
-				</nuxt-link>
-				<div v-show="showInfo" class="header__cart-info">
-					<client-only
-						><span>{{ length }}</span></client-only
-					>
+			<div class="header__menu-cart-wrapper">
+				<div class="header__cart">
+					<nuxt-link :to="{ path: Pages.Basket }">
+						<base-icon :icon="Icons24ShoppingCart" />
+					</nuxt-link>
+					<div v-show="showInfo" class="header__cart-info">
+						<client-only
+							><span>{{ length }}</span></client-only
+						>
+					</div>
+				</div>
+				<div class="header__burger">
+					<base-icon :icon="Icons24Menu"></base-icon>
 				</div>
 			</div>
 		</div>
@@ -26,7 +31,7 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
 
-import { Icons24ShoppingCart } from '#icons';
+import { Icons24Menu, Icons24ShoppingCart } from '#icons';
 import { computed, ref } from '#imports';
 import BaseIcon from '~/components/elements/base-icon.vue';
 import BaseLogo from '~/components/elements/base-logo.vue';
@@ -54,6 +59,7 @@ const length = computed(() => {
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
+@use 'assets/styles/breakpoints';
 
 .header {
 	margin: 0 auto;
@@ -68,6 +74,47 @@ const length = computed(() => {
 	position: sticky;
 	z-index: 3;
 	top: #{utility.rem(16)};
+	@include breakpoints.media-down('xl') {
+		width: var(--mobile-container);
+		background-color: rgba(255, 255, 255, 0.01);
+		padding-left: #{utility.rem(16)};
+		padding-right: #{utility.rem(16)};
+		backdrop-filter: blur(20px);
+		top: #{utility.rem(0)};
+		border-radius: 0 0 #{utility.rem(16)} #{utility.rem(16)};
+	}
+	&__logo-wrapper {
+		svg {
+			@include breakpoints.media-down('xl') {
+				max-width: #{utility.rem(170)};
+			}
+		}
+	}
+	&__menu-cart-wrapper {
+		display: flex;
+		gap: #{utility.rem(8)};
+		height: 100%;
+		@include breakpoints.media-down('xl') {
+			width: 100%;
+		}
+	}
+	&__burger {
+		display: none;
+		@include breakpoints.media-down('xl') {
+			display: flex;
+			// height: 48px;
+			background-color: var(--brand);
+			padding: #{utility.rem(12)};
+			border-radius: 100%;
+			min-width: #{utility.rem(48)};
+			min-height: #{utility.rem(48)};
+			align-items: center;
+			justify-content: center;
+		}
+		.icon {
+			width: #{utility.rem(24)};
+		}
+	}
 	&__items-wrapper {
 		display: flex;
 	}
@@ -92,6 +139,9 @@ const length = computed(() => {
 		font-size: #{utility.rem(18)};
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.54)};
+		@include breakpoints.media-down('xl') {
+			display: none;
+		}
 		a {
 			text-decoration: none;
 		}
@@ -105,6 +155,7 @@ const length = computed(() => {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding: #{utility.rem(12)};
 		width: #{utility.rem(56)};
 		height: #{utility.rem(56)};
 		margin-left: #{utility.rem(16)};
@@ -112,6 +163,11 @@ const length = computed(() => {
 		background-color: #fff;
 		border: 1px solid #1d2939;
 		transition: background-color 0.2s ease-in-out;
+		@include breakpoints.media-down('xl') {
+			border: none;
+			width: #{utility.rem(48)};
+			height: #{utility.rem(48)};
+		}
 		.icon {
 			width: #{utility.rem(24)};
 			transition: background-color 0.2s ease-in-out;
@@ -142,6 +198,12 @@ const length = computed(() => {
 		border-radius: #{utility.rem(100)};
 		background-color: var(--brand);
 		text-align: center;
+		display: flex;
+		@include breakpoints.media-down('xl') {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 
 		> span {
 			width: 100%;
