@@ -36,7 +36,6 @@
 import { ref } from '#imports';
 import BasePicture from '~/components/elements/base-picture';
 
-const target = ref();
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
@@ -156,11 +155,11 @@ const target = ref();
 		@include breakpoints.media-down('xl') {
 			padding: #{utility.rem(16)} #{utility.rem(24)} #{utility.rem(16)} #{utility.rem(24)};
 			max-width: #{utility.rem(190)};
-			font-size: 18px;
+			font-size: #{utility.rem(18)};
 			font-style: normal;
 			font-weight: 500;
 			line-height: 135%;
-			letter-spacing: -1.08px;
+			letter-spacing: #{utility.rem(-1.08)};
 			border-radius: #{utility.rem(12)};
 		}
 		a {
