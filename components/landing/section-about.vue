@@ -106,7 +106,7 @@ const commands = computed<People[]>(() => {
 
 <style scoped lang="scss">
 @use 'assets/styles/utility';
-
+@use 'assets/styles/breakpoints';
 .section-about {
 	:deep(.section-content) {
 		display: grid;
@@ -121,7 +121,9 @@ const commands = computed<People[]>(() => {
 .messages {
 	display: grid;
 	gap: #{utility.rem(42)};
-
+	@include breakpoints.media-down('xl') {
+		gap: #{utility.rem(16)};
+	}
 	.message:nth-child(odd) {
 		display: flex;
 		justify-content: flex-end;
@@ -137,16 +139,23 @@ const commands = computed<People[]>(() => {
 	display: grid;
 	gap: #{utility.rem(8)};
 	justify-items: start;
-
 	& &__bubble,
 	& &__link {
-		padding: #{utility.rem(16)} #{utility.rem(24)};
+		padding: #{utility.rem(12)} #{utility.rem(16)};
 		border-radius: #{utility.rem(12)};
 		color: #1d2939;
 		font-weight: 500;
 		font-size: #{utility.rem(24)};
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.48)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.36)};
+			padding: #{utility.rem(16)} #{utility.rem(24)};
+		}
 	}
 
 	& &__bubble {
@@ -174,6 +183,9 @@ const commands = computed<People[]>(() => {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: #{utility.rem(24)} #{utility.rem(16)};
+	@include breakpoints.media-down('xl') {
+		grid-template-columns: repeat(1, 1fr);
+	}
 
 	h3 {
 		grid-column: 1/-1;
@@ -183,6 +195,13 @@ const commands = computed<People[]>(() => {
 		font-size: #{utility.rem(48)};
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.96)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(24)};
+			font-style: normal;
+			font-weight: 700;
+			line-height: 115%;
+			letter-spacing: #{utility.rem(-0.96)};
+		}
 	}
 
 	p {
@@ -192,6 +211,13 @@ const commands = computed<People[]>(() => {
 		font-size: #{utility.rem(24)};
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.48)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.36)};
+		}
 	}
 }
 
@@ -203,7 +229,10 @@ const commands = computed<People[]>(() => {
 	border: 1px solid rgb(41 161 62 / 16%);
 	border-radius: #{utility.rem(16)};
 	background: #fbfdfc;
-
+	position: relative;
+	@include breakpoints.media-down('xl') {
+		flex-direction: column;
+	}
 	& &__content {
 		display: grid;
 		gap: #{utility.rem(24)};
@@ -224,7 +253,6 @@ const commands = computed<People[]>(() => {
 			}
 		}
 	}
-
 	p {
 		color: var(--brand);
 		font-weight: 500;
@@ -235,10 +263,27 @@ const commands = computed<People[]>(() => {
 	}
 
 	.picture {
+		@include breakpoints.media-down('xl') {
+			width: 100%;
+			::after {
+				border-top: transparent;
+				content: '';
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(180deg, #FBFDFC 5%, rgba(251, 253, 252, 0.00) 73.5%);
+			}
+		}
 		:deep(img) {
 			width: #{utility.rem(261)};
 			height: #{utility.rem(152)};
 			border-radius: #{utility.rem(16)};
+			@include breakpoints.media-down('xl') {
+				width: 100%;
+				object-fit: cover;
+				height: auto;
+			}
 		}
 	}
 }
@@ -254,12 +299,20 @@ hr {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: #{utility.rem(16)};
+	overflow: auto;
+	margin-left: #{utility.rem(-16)};
+	margin-right: #{utility.rem(-16)};
+	padding-left: #{utility.rem(16)};
+	padding-right: #{utility.rem(16)};
 }
 
 .people {
 	display: grid;
 	gap: #{utility.rem(8)};
-
+	@include breakpoints.media-down('xl') {
+		display: block;
+		width: #{utility.rem(290)};
+	}
 	&__cover {
 		margin-bottom: #{utility.rem(8)};
 
@@ -267,6 +320,17 @@ hr {
 			width: #{utility.rem(379)};
 			height: #{utility.rem(300)};
 			border-radius: #{utility.rem(24)};
+			@include breakpoints.media-down('xl') {
+				object-fit: cover;
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+	.picture {
+		@include breakpoints.media-down('xl') {
+			display: block;
+			width: #{utility.rem(290)};
 		}
 	}
 
