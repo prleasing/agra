@@ -65,6 +65,7 @@ const email = computed(() => runtimeConfig.email);
 
 <style scoped lang="scss">
 @use 'assets/styles/utility';
+@use 'assets/styles/breakpoints';
 
 .section-contact-form {
 	:deep(.section-content) {
@@ -72,11 +73,17 @@ const email = computed(() => runtimeConfig.email);
 		grid-template-columns: auto #{utility.rem(616)};
 		gap: #{utility.rem(24)};
 		background-color: #1d2939;
-
+		@include breakpoints.media-down('xl') {
+			grid-template-columns: 1fr;
+		}
 		.maps {
 			height: 100%;
 			border: 1px solid #eaecf0;
 			border-radius: #{utility.rem(16)};
+			@include breakpoints.media-down('xl') {
+				height: 100%;
+				min-height: #{utility.rem(288)};
+			}
 		}
 	}
 }
@@ -85,6 +92,10 @@ const email = computed(() => runtimeConfig.email);
 	display: flex;
 	justify-content: space-between;
 	color: #fff;
+	@include breakpoints.media-down('xl') {
+		flex-direction: column;
+		gap: #{utility.rem(16)};
+	}
 
 	& &__links {
 		display: grid;
