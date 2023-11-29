@@ -53,6 +53,7 @@ const classes = computed(() => {
 <style scoped lang="scss">
 @use 'assets/styles/utility';
 @use 'assets/styles/components/forms';
+@use 'assets/styles/breakpoints';
 
 .field {
 	$self: &;
@@ -64,6 +65,9 @@ const classes = computed(() => {
 	background: rgb(255 255 255 / 17%);
 	color: #fff;
 	transition: background-color 100ms ease-in-out;
+	@include breakpoints.media-down('xl') {
+		padding: #{utility.rem(12)} #{utility.rem(16)};
+	}
 
 	& &__label {
 		border-radius: inherit;
@@ -74,6 +78,13 @@ const classes = computed(() => {
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.54)};
 		cursor: text;
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(16)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.48)};
+		}
 
 		&::after {
 			content: '';
@@ -88,6 +99,7 @@ const classes = computed(() => {
 		@include forms.base;
 
 		color: inherit;
+		width: 100%;
 
 		&:-internal-autofill-selected:not(:focus) {
 			-webkit-text-fill-color: #fff !important;
