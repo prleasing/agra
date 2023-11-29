@@ -103,6 +103,7 @@ onClickOutside(target, () => {
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
+@use 'assets/styles/breakpoints';
 
 .stepper__counter-button {
 	display: flex;
@@ -110,6 +111,9 @@ onClickOutside(target, () => {
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
+	@include breakpoints.media-down('xl') {
+		padding: 0;
+	}
 }
 .stepper__counter-button:hover .icon {
 	color: var(--brand);
@@ -206,6 +210,13 @@ input[type='number']::-webkit-outer-spin-button {
 	line-height: 115%;
 	letter-spacing: #{utility.rem(-0.48)};
 	pointer-events: none;
+	@include breakpoints.media-down('xl') {
+		font-size: #{utility.rem(18)};
+		font-style: normal;
+		font-weight: 500;
+		line-height: 115%;
+		letter-spacing: #{utility.rem(-0.36)};
+	}
 }
 
 .icon {
