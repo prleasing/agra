@@ -237,7 +237,7 @@ import BasePicture from '~/components/elements/base-picture';
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.96)};
 			@include breakpoints.media-down('xl') {
-				color: #FFF;
+				color: #fff;
 				font-size: #{utility.rem(18)};
 				font-style: normal;
 				font-weight: 500;
@@ -311,7 +311,7 @@ import BasePicture from '~/components/elements/base-picture';
 			left: #{utility.rem(24)};
 			max-width: 80%;
 			@include breakpoints.media-down('xl') {
-				background: linear-gradient(180deg, rgba(29, 41, 57, 0.00) 0%, rgba(29, 41, 57, 0.64) 100%);
+				background: linear-gradient(180deg, rgba(29, 41, 57, 0) 0%, rgba(29, 41, 57, 0.64) 100%);
 				height: 50%;
 				width: 100%;
 				max-width: 100%;
