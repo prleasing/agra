@@ -6,7 +6,7 @@
 			</div>
 			<div class="basket-product__cultures-info">
 				<div class="basket-product__cultures-title">{{ item.title }}</div>
-				<span class="basket-product__cultures-subtitle" v-if="item.subtitle">{{ item.subtitle }}</span>
+				<span v-if="item.subtitle" class="basket-product__cultures-subtitle">{{ item.subtitle }}</span>
 				<div class="basket-product__cultures-cost">
 					{{ item.cost.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 }) }}/{{
 						item.measure
