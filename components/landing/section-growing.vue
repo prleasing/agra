@@ -98,7 +98,7 @@ import {
 	Icons44Discount,
 	Icons44Growth
 } from '#icons';
-import { ref, computed, useWindowSize, watch, onMounted } from '#imports';
+import { computed, onMounted, ref, useWindowSize, watch } from '#imports';
 import BaseSection from '~/components/base-section.vue';
 import BaseIcon from '~/components/elements/base-icon';
 import BaseMasonry from '~/components/elements/base-masonry';
