@@ -31,7 +31,7 @@ import { Checkbox, FieldPhone, FieldText, ModalRoot } from '@ui';
 import type { PropType } from 'vue';
 
 import { Icons32ArrowUpRight } from '#icons';
-import { reactive, ref, toRefs, navigateTo } from '#imports';
+import { navigateTo, reactive, ref, toRefs } from '#imports';
 import BaseIcon from '~/components/elements/base-icon';
 import type { Basket } from '~/components/landing/the-basket-product';
 import { useStoreBasket } from '~/store/storeBasket';
@@ -97,7 +97,7 @@ function success() {
 @use 'assets/styles/components/button';
 .form {
 	&__container {
-		background-color: #1D2939;
+		background-color: #1d2939;
 		padding: #{utility.rem(24)};
 		display: grid;
 		gap: #{utility.rem(16)};
@@ -120,7 +120,7 @@ function success() {
 			display: flex;
 			background-color: #fff;
 			border: none;
-			color: #29A13E;
+			color: #29a13e;
 			font-size: #{utility.rem(24)};
 			font-style: normal;
 			font-weight: 500;
@@ -189,6 +189,4 @@ function success() {
 		}
 	}
 }
-
-
 </style>
