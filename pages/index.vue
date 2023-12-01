@@ -11,6 +11,7 @@
 </template>
 <script lang="ts" setup>
 import { definePageMeta } from '#imports';
+import MobileMenu from '~/components/elements/mobile-menu';
 import SectionAbout from '~/components/landing/section-about';
 import SectionContactForm from '~/components/landing/section-contact-form';
 import SectionDirections from '~/components/landing/section-directions';
