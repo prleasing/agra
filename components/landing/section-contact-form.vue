@@ -3,6 +3,7 @@ import parsePhoneNumber, { getCountryCallingCode } from 'libphonenumber-js';
 
 import { computed, useRuntimeConfig } from '#imports';
 import BaseSection from '~/components/base-section';
+import Contacts from '~/components/elements/contacts';
 import YandexMaps from '~/components/elements/yandex-maps';
 import ContactForm from '~/components/forms/contact-form';
 
@@ -24,13 +25,15 @@ const phone = computed(() => {
 });
 
 const email = computed(() => runtimeConfig.email);
+const color = { color: '#fff' };
 </script>
 
 <template>
 	<base-section class="section-contact-form" title="Контактная форма">
 		<div class="wrapper">
 			<contact-form />
-			<div class="contacts">
+			<contacts :phone="phone" :email="email" :color="color"></contacts>
+			<!-- <div class="contacts">
 				<div class="contacts__links">
 					<nuxt-link :href="phone.uri">{{ phone.text }}</nuxt-link>
 					<nuxt-link :href="`mailto:${email}`">{{ email }}</nuxt-link>
@@ -53,7 +56,7 @@ const email = computed(() => runtimeConfig.email);
 						</svg>
 					</nuxt-link>
 				</div>
-			</div>
+			</div> -->
 			<p class="address">
 				Республика Башкорстостан, м.р-н Иглинский, с.п. Ивано-Казанский сельсовет, д. Поступалово, ул&nbsp;Туляковская,
 				зд.&nbsp;24
@@ -83,34 +86,6 @@ const email = computed(() => runtimeConfig.email);
 			@include breakpoints.media-down('xl') {
 				height: 100%;
 				min-height: #{utility.rem(288)};
-			}
-		}
-	}
-}
-
-.contacts {
-	display: flex;
-	justify-content: space-between;
-	color: #fff;
-	@include breakpoints.media-down('xl') {
-		flex-direction: column;
-		gap: #{utility.rem(16)};
-	}
-
-	& &__links {
-		display: grid;
-		color: #fff;
-		font-weight: 500;
-		font-style: normal;
-		font-size: #{utility.rem(24)};
-		line-height: 135%;
-		letter-spacing: #{utility.rem(-0.96)};
-
-		a {
-			text-decoration: none;
-
-			@include utility.has-hover {
-				text-decoration: underline;
 			}
 		}
 	}
