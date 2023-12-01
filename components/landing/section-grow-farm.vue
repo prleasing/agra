@@ -35,7 +35,6 @@
 <script setup lang="ts">
 import { ref } from '#imports';
 import BasePicture from '~/components/elements/base-picture';
-
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
@@ -187,7 +186,7 @@ import BasePicture from '~/components/elements/base-picture';
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.48)};
 		@include breakpoints.media-down('xl') {
-			color: rgba(29, 41, 57, 0.80);
+			color: rgba(29, 41, 57, 0.8);
 			font-size: #{utility.rem(18)};
 			font-style: normal;
 			font-weight: 500;
