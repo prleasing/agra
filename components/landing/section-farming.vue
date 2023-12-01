@@ -138,7 +138,7 @@ import { Pages } from '~/utils/pages';
 		position: absolute;
 		top: #{utility.rem(24)};
 		left: #{utility.rem(24)};
-		color: #FFF;
+		color: #fff;
 		font-size: #{utility.rem(24)};
 		font-style: normal;
 		font-weight: 500;
@@ -171,6 +171,7 @@ import { Pages } from '~/utils/pages';
 	}
 	&__image-mobile-wrapper {
 		position: relative;
+		display: none;
 		.picture {
 			display: none;
 			border-radius: #{utility.rem(16)};
