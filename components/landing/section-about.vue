@@ -272,7 +272,7 @@ const commands = computed<People[]>(() => {
 				top: 0;
 				width: 100%;
 				height: 100%;
-				background: linear-gradient(180deg, #FBFDFC 5%, rgba(251, 253, 252, 0.00) 73.5%);
+				background: linear-gradient(180deg, #fbfdfc 5%, rgba(251, 253, 252, 0) 73.5%);
 			}
 		}
 		:deep(img) {
