@@ -10,6 +10,11 @@ const props = defineProps({
 		type: Boolean as PropType<boolean>,
 		required: true,
 		default: false
+	},
+	transform: {
+		type: Object,
+		required: false,
+		default: () => ({ opacity: [0, 1], transform: ['scale(1.4)', 'scale(1)'] })
 	}
 });
 const emit = defineEmits<{
@@ -64,17 +69,11 @@ const preferredMotion = usePreferredReducedMotion();
 const durationTime = computed(() => (preferredMotion.value === 'reduce' ? 0 : 200));
 function animate(el: Element, done: () => void, direction: PlaybackDirection = 'normal') {
 	if (durationTime.value > 0) {
-		const animation = el.animate(
-			{
-				opacity: [0, 1],
-				transform: ['scale(1.4)', 'scale(1)']
-			},
-			{
-				duration: durationTime.value,
-				easing: 'cubic-bezier(0.42, 0, 0.19, 1)',
-				direction
-			}
-		);
+		const animation = el.animate(props.transform, {
+			duration: durationTime.value,
+			easing: 'cubic-bezier(0.42, 0, 0.19, 1)',
+			direction
+		});
 
 		animation.onfinish = () => {
 			done();
