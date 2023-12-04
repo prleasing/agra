@@ -382,7 +382,6 @@ import { Pages } from '~/utils/pages';
 				font-weight: 500;
 				line-height: 115%;
 				letter-spacing: #{utility.rem(-0.32)};
-				// width: #{utility.rem(226)};
 				width: 90%;
 			}
 		}
