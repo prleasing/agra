@@ -79,10 +79,14 @@ const noBasket = computed(() => {
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
+@use 'assets/styles/breakpoints';
 
 .section {
 	display: grid;
 	margin-top: #{utility.rem(156)};
+	@include breakpoints.media-down('xl') {
+		margin-top: #{utility.rem(67)};
+	}
 }
 .icon--trash-x {
 	display: grid;
@@ -102,6 +106,9 @@ const noBasket = computed(() => {
 		border: 1px solid #eaecf0;
 		border-radius: #{utility.rem(16)};
 		background-color: var(--brand);
+		@include breakpoints.media-down('xl') {
+			grid-template-columns: 1fr;
+		}
 	}
 	&__to-main {
 		display: flex;
@@ -130,12 +137,22 @@ const noBasket = computed(() => {
 			line-height: normal;
 			letter-spacing: #{utility.rem(-0.48)};
 			order: 1;
+			@include breakpoints.media-down('xl') {
+				font-size: #{utility.rem(18)};
+				font-style: normal;
+				font-weight: 500;
+				line-height: 135%;
+				letter-spacing: #{utility.rem(-1.08)};
+			}
 		}
 		svg {
 			display: flex;
 			order: 2;
 			justify-self: flex-end;
 			pointer-events: none;
+			@include breakpoints.media-down('xl') {
+				width: #{utility.rem(24)};
+			}
 		}
 	}
 	&__not-oferta {
@@ -147,6 +164,16 @@ const noBasket = computed(() => {
 		font-size: #{utility.rem(18)};
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.72)};
+		@include breakpoints.media-down('xl') {
+			border-right: none;
+			border-bottom: 1px solid rgb(255 255 255 / 64%);
+			padding-bottom: #{utility.rem(8)};
+			font-size: #{utility.rem(12)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 125%;
+			letter-spacing: #{utility.rem(-0.48)};
+		}
 	}
 	&__total-sum-wrapper {
 		display: flex;
@@ -154,6 +181,12 @@ const noBasket = computed(() => {
 		align-items: center;
 		width: 100%;
 		padding-left: #{utility.rem(20)};
+		@include breakpoints.media-down('xl') {
+			flex-direction: column;
+			align-items: flex-end;
+			gap: #{utility.rem(4)};
+			padding-top: #{utility.rem(8)};
+		}
 	}
 
 	&__total-sum-title {
@@ -165,6 +198,13 @@ const noBasket = computed(() => {
 		font-size: #{utility.rem(24)};
 		line-height: normal;
 		letter-spacing: #{utility.rem(-0.48)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(16)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 115%;
+			letter-spacing: #{utility.rem(-0.32)};
+		}
 	}
 
 	&__total-sum {
@@ -175,6 +215,13 @@ const noBasket = computed(() => {
 		font-size: #{utility.rem(32)};
 		line-height: normal;
 		letter-spacing: #{utility.rem(-0.64)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+			letter-spacing: #{utility.rem(-0.36)};
+		}
 	}
 
 	&__cultures-title {
@@ -221,6 +268,10 @@ const noBasket = computed(() => {
 	}
 	.basket__not-oferta {
 		border-right: 1px solid rgba(29, 41, 57, 0.64);
+		@include breakpoints.media-down('xl') {
+			border-right: none;
+			border-bottom: 1px solid rgba(29, 41, 57, 0.64);
+		}
 	}
 }
 .icon--arrow-up {
