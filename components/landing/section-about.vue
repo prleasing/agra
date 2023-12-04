@@ -260,6 +260,13 @@ const commands = computed<People[]>(() => {
 		font-size: #{utility.rem(24)};
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.36)};
+		}
 	}
 
 	.picture {
@@ -311,7 +318,7 @@ hr {
 	gap: #{utility.rem(8)};
 	@include breakpoints.media-down('xl') {
 		display: block;
-		width: #{utility.rem(290)};
+		width: #{utility.rem(260)};
 	}
 	&__cover {
 		margin-bottom: #{utility.rem(8)};
@@ -331,6 +338,7 @@ hr {
 		@include breakpoints.media-down('xl') {
 			display: block;
 			width: #{utility.rem(290)};
+			// width: 100%;
 		}
 	}
 
