@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		<div class="mobile-menu">
-			<menu-items></menu-items>
+			<menu-items @click="close"></menu-items>
 			<div class="mobile-menu__separator"></div>
 			<contacts :phone="phone" :email="email" :color="colorSocial" :color-contacts="color"></contacts>
 		</div>
