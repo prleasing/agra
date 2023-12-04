@@ -25,14 +25,14 @@ const phone = computed(() => {
 });
 
 const email = computed(() => runtimeConfig.email);
-const color = { color: '#fff' };
+const color = { color: '#000' };
 </script>
 
 <template>
 	<base-section class="section-contact-form" title="Контактная форма">
 		<div class="wrapper">
 			<contact-form />
-			<contacts :phone="phone" :email="email" :color="color"></contacts>
+			<contacts :phone="phone" :email="email"></contacts>
 			<!-- <div class="contacts">
 				<div class="contacts__links">
 					<nuxt-link :href="phone.uri">{{ phone.text }}</nuxt-link>
@@ -91,13 +91,14 @@ const color = { color: '#fff' };
 	}
 }
 
-.social-links {
+:deep(.social-links) {
 	display: flex;
 	gap: #{utility.rem(8)};
 
 	a {
 		border-radius: 50%;
-		background-color: #fff;
+		// background-color: #fff;
+		background-color: #000;
 		transition:
 			background-color 200ms ease-in-out,
 			color 200ms ease-in-out;
@@ -108,20 +109,26 @@ const color = { color: '#fff' };
 		}
 
 		&[data-type='vk'] {
-			color: #07f;
+			// color: #07f;
+			color: #fff;
 
 			@include utility.has-hover {
-				background-color: #07f;
-				color: #fff;
+				// background-color: #07f;
+				// color: #fff;
+				background-color: #fff;
+				color: #07f;
 			}
 		}
 
 		&[data-type='telegram'] {
-			color: #2aabee;
+			// color: #2aabee;
+			color: #fff;
 
 			@include utility.has-hover {
-				background-color: #2aabee;
-				color: #fff;
+				// background-color: #2aabee;
+				// color: #fff;
+				background-color: #fff;
+				color: #2aabee;
 			}
 		}
 	}
