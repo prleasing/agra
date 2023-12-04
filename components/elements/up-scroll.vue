@@ -1,5 +1,5 @@
 <template>
-	<button @click="scrollTop" class="up-scroll">
+	<button class="up-scroll" @click="scrollTop">
 		<base-icon :icon="Icons32ArrowUp"></base-icon>
 	</button>
 </template>

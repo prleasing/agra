@@ -12,6 +12,7 @@
 </template>
 <script lang="ts" setup>
 import { definePageMeta } from '#imports';
+import upScroll from '~/components/elements/up-scroll';
 import SectionAbout from '~/components/landing/section-about';
 import SectionContactForm from '~/components/landing/section-contact-form';
 import SectionDirections from '~/components/landing/section-directions';
@@ -21,7 +22,6 @@ import sectionGrowing from '~/components/landing/section-growing';
 import SectionVacancy from '~/components/landing/section-vacancy';
 import ThePage from '~/components/the-page';
 import { Pages } from '~/utils/pages';
-import upScroll from '~/components/elements/up-scroll';
 
 definePageMeta({
 	name: Pages.Home
