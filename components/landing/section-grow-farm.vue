@@ -33,7 +33,6 @@
 	</div>
 </template>
 <script setup lang="ts">
-import { ref } from '#imports';
 import BasePicture from '~/components/elements/base-picture';
 </script>
 <style scoped lang="scss">

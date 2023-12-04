@@ -25,7 +25,7 @@ const phone = computed(() => {
 });
 
 const email = computed(() => runtimeConfig.email);
-const color = { color: '#000' };
+// const color = { color: '#000' };
 </script>
 
 <template>

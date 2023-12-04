@@ -37,8 +37,7 @@
 	</div>
 </template>
 <script lang="ts" setup>
-import { Checkbox, FieldPhone, FieldText, ModalRoot } from '@ui';
-import type { PropType } from 'vue';
+import { ModalRoot } from '@ui';
 
 import { Icons24Menu, Icons24ShoppingCart } from '#icons';
 import { computed, ref, useWindowSize, watch } from '#imports';
@@ -97,7 +96,6 @@ watch(width, (value) => {
 	justify-content: space-between;
 	align-items: center;
 	width: var(--container);
-	// height: #{utility.rem(97)};
 	background-color: #fff;
 	border-radius: #{utility.rem(16)};
 	padding: #{utility.rem(8)};

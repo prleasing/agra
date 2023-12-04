@@ -25,22 +25,24 @@
 	</div>
 </template>
 <script setup lang="ts">
-const props = defineProps({
+import type { PropType } from 'vue';
+
+defineProps({
 	phone: {
-		type: Object,
+		type: Object as PropType<object>,
 		required: true
 	},
 	email: {
-		type: String,
+		type: String as PropType<string>,
 		required: true
 	},
 	color: {
-		type: Object,
+		type: Object as PropType<object>,
 		required: false,
 		default: () => {}
 	},
 	colorContacts: {
-		type: Object,
+		type: Object as PropType<object>,
 		required: false,
 		default: () => {}
 	}

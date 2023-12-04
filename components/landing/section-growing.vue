@@ -98,7 +98,7 @@ import {
 	Icons44Discount,
 	Icons44Growth
 } from '#icons';
-import { computed, onMounted, ref, useWindowSize, watch } from '#imports';
+import { onMounted, ref, useWindowSize, watch } from '#imports';
 import BaseSection from '~/components/base-section.vue';
 import BaseIcon from '~/components/elements/base-icon';
 import BaseMasonry from '~/components/elements/base-masonry';
@@ -114,7 +114,6 @@ const growingTasks = ref([
 ]);
 const { width } = useWindowSize();
 const isMobile = ref<boolean>(false);
-const twoColumns = ref<boolean>(false);
 watch(width, (value) => {
 	if (value < 1200) {
 		isMobile.value = true;

@@ -35,7 +35,7 @@ import BaseIcon from '~/components/elements/base-icon';
 
 const props = defineProps({
 	modelValue: {
-		type: Number,
+		type: Number as PropType<number>,
 		required: true,
 		default: 1
 	},
@@ -45,7 +45,7 @@ const props = defineProps({
 		default: (count: number) => count.toString()
 	},
 	measure: {
-		type: String,
+		type: String as PropType<string>,
 		required: false,
 		default: 'кг'
 	}
@@ -72,10 +72,10 @@ function counterMinus() {
 function counterPlus() {
 	model.value++;
 }
-function shieldActivate(e) {
-	isShield.value = true;
-	e.target.value = 1;
-}
+// function shieldActivate(e) {
+// 	isShield.value = true;
+// 	e.target.value = 1;
+// }
 function onInput(event: Event) {
 	const input = event.target as HTMLInputElement;
 	model.value = Number(input.value);

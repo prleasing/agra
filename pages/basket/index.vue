@@ -29,7 +29,7 @@
 <script setup lang="ts">
 import type { Basket } from '/pages/basket/index';
 import { Icons44ArrowUp } from '#icons';
-import { computed, definePageMeta, onMounted, ref, watch } from '#imports';
+import { computed, definePageMeta } from '#imports';
 import BaseSection from '~/components/base-section.vue';
 import BaseIcon from '~/components/elements/base-icon';
 import BasketForm from '~/components/forms/basket-form';

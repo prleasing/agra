@@ -32,22 +32,19 @@
 </template>
 <script setup lang="ts">
 import parsePhoneNumber, { getCountryCallingCode } from 'libphonenumber-js';
-import { onMounted, type PropType } from 'vue';
+import { type PropType } from 'vue';
 
 import { Icons24Close, Icons24ShoppingCart } from '#icons';
-import { computed, ref, useRuntimeConfig, watch } from '#imports';
-import TheHeader from '~/components/core/the-header.vue';
+import { computed, useRuntimeConfig } from '#imports';
 import BaseIcon from '~/components/elements/base-icon.vue';
 import BaseLogo from '~/components/elements/base-logo.vue';
 import Contacts from '~/components/elements/contacts';
 import MenuItems from '~/components/elements/menu-items';
-import MobileMenu from '~/components/elements/mobile-menu';
 import srOnly from '~/components/utils/srOnly.vue';
-import { useStoreBasket } from '~/store/storeBasket';
 import { Pages } from '~/utils/pages';
 
 // const menu = ref<HTMLDialogElement>();
-const props = defineProps({
+defineProps({
 	showInfo: {
 		type: Boolean as PropType<boolean>,
 		required: true,

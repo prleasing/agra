@@ -96,9 +96,7 @@
 	</base-section>
 </template>
 <script setup lang="ts">
-// import { Pages } from '#imports';
 import BaseSection from '~/components/base-section.vue';
-import BaseIcon from '~/components/elements/base-icon';
 import BasePicture from '~/components/elements/base-picture';
 import { Pages } from '~/utils/pages';
 </script>
