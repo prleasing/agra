@@ -41,7 +41,7 @@ const vacancies = computed(() => {
 	display: flex;
 	flex-direction: column;
 	gap: #{utility.rem(4)};
-	max-width: #{utility.rem(735)};
+	// max-width: #{utility.rem(735)};
 
 	& &__info-block {
 		display: flex;
