@@ -7,6 +7,7 @@
 		<section-vacancy id="vacancy" />
 		<section-about id="about-company" />
 		<section-contact-form id="contact-form" name="contact-form" />
+		<up-scroll></up-scroll>
 	</the-page>
 </template>
 <script lang="ts" setup>
@@ -20,6 +21,7 @@ import sectionGrowing from '~/components/landing/section-growing';
 import SectionVacancy from '~/components/landing/section-vacancy';
 import ThePage from '~/components/the-page';
 import { Pages } from '~/utils/pages';
+import upScroll from '~/components/elements/up-scroll';
 
 definePageMeta({
 	name: Pages.Home
