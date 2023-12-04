@@ -102,6 +102,7 @@ watch(width, (value) => {
 	position: sticky;
 	z-index: 3;
 	top: #{utility.rem(16)};
+	border: 1px solid rgba(255, 255, 255, 0.32);
 	@include breakpoints.media-down('xl') {
 		width: var(--mobile-container);
 		background-color: rgba(255, 255, 255, 0.01);
