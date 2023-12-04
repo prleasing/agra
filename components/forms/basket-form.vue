@@ -13,7 +13,7 @@
 			</div>
 			<div class="form__confirm">
 				<button :disabled="isLoading || !state.agree" type="button" @click.prevent.stop="send">
-					Обратный звонок <base-icon :icon="Icons32ArrowUpRight" />
+					Отправить заявку <base-icon :icon="Icons32ArrowUpRight" />
 				</button>
 				<checkbox v-model="state.agree" name="agree">Я согласен на обработку персональных данных</checkbox>
 			</div>
@@ -95,6 +95,7 @@ function success() {
 <style scoped lang="scss">
 @use 'assets/styles/utility';
 @use 'assets/styles/components/button';
+@use 'assets/styles/breakpoints';
 .form {
 	&__container {
 		background-color: #1d2939;
@@ -108,11 +109,18 @@ function success() {
 		display: grid;
 		grid-template-columns: 8fr 4fr;
 		gap: #{utility.rem(16)};
+		@include breakpoints.media-down('xl') {
+			grid-template-columns: 1fr;
+		}
 	}
 	&__confirm {
 		display: flex;
 		gap: #{utility.rem(24)};
 		align-items: center;
+		@include breakpoints.media-down('xl') {
+			flex-direction: column;
+			align-items: flex-start;
+		}
 		.icon {
 			width: #{utility.rem(32)};
 		}
@@ -134,6 +142,17 @@ function success() {
 				background-color 200ms ease-in-out,
 				color 200ms ease-in-out;
 			cursor: pointer;
+			@include breakpoints.media-down('xl') {
+				order: 2;
+				font-size: #{utility.rem(18)};
+				font-style: normal;
+				font-weight: 500;
+				line-height: 135%;
+				letter-spacing: #{utility.rem(-1.08)};
+				background-color: #fff;
+				align-items: center;
+				justify-content: space-between;
+			}
 			&:disabled {
 				opacity: 0.5;
 				pointer-events: none;
