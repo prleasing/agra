@@ -1,40 +1,53 @@
 <template>
 	<div class="basket-product">
 		<div class="basket-product__container">
-			<div class="basket-product__image">
-				<base-picture :width="80" :height="80" alt="culture-photo" :src="item.image"></base-picture>
+			<div class="basket-product__upper">
+				<div class="basket-product__image">
+					<base-picture :width="80" :height="80" alt="culture-photo" :src="item.image"></base-picture>
+				</div>
+				<div class="basket-product__cultures-info">
+					<div class="basket-product__cultures-title">{{ item.title }}</div>
+					<span v-if="item.subtitle" class="basket-product__cultures-subtitle">{{ item.subtitle }}</span>
+					<div class="basket-product__info-wrapper">
+						<div v-if="discount" class="basket-product__price-discount">
+							{{
+								item.cost.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 })
+							}}/{{ item.measure }}
+						</div>
+						<div class="basket-product__price-info">
+							{{
+								discountCost.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 })
+							}}/{{ item.measure }}
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="basket-product__cultures-info">
-				<div class="basket-product__cultures-title">{{ item.title }}</div>
-				<span v-if="item.subtitle" class="basket-product__cultures-subtitle">{{ item.subtitle }}</span>
-				<div class="basket-product__cultures-cost">
+			<!-- <div> -->
+			<!-- <div v-if="discount" class="basket-product__price-discount">
 					{{ item.cost.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 }) }}/{{
 						item.measure
 					}}
-				</div>
-			</div>
-			<div>
-				<div v-if="discount" class="basket-product__price-discount">
-					{{ item.cost.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 }) }}/{{
-						item.measure
-					}}
-				</div>
-				<div class="basket-product__price-info">
+				</div> -->
+			<!-- <div class="basket-product__price-info">
 					{{
 						discountCost.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 })
 					}}/{{ item.measure }}
+				</div> -->
+			<!-- <div></div> -->
+			<!-- </div> -->
+			<div class="basket-product__lower">
+				<div class="basket-product__sum-stepper-wrapper">
+					<div class="basket-product__stepper">
+						<stepper v-model="basket.items[item.id]" :format="formatter" :measure="item.measure"></stepper>
+					</div>
+					<div class="basket-product__sum">
+						{{ item.sum?.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 }) }}
+					</div>
 				</div>
-				<div></div>
+				<button class="basket-product__icon-wrapper" @click="deleteItem">
+					<base-icon :icon="Icons44TrashX"></base-icon>
+				</button>
 			</div>
-			<div class="basket-product__stepper">
-				<stepper v-model="basket.items[item.id]" :format="formatter" :measure="item.measure"></stepper>
-			</div>
-			<div class="basket-product__sum">
-				{{ item.sum?.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 }) }}
-			</div>
-			<button class="basket-product__icon-wrapper" @click="deleteItem">
-				<base-icon :icon="Icons44TrashX"></base-icon>
-			</button>
 		</div>
 	</div>
 </template>
@@ -82,6 +95,7 @@ formatter(basket.items[props.item.id], props.item.measure);
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
+@use 'assets/styles/breakpoints';
 
 .icon--trash-x {
 	display: grid;
@@ -89,6 +103,9 @@ formatter(basket.items[props.item.id], props.item.measure);
 	width: #{utility.rem(44)};
 	height: #{utility.rem(44)};
 	color: #e22b29;
+	@include breakpoints.media-down('xl') {
+		width: #{utility.rem(24)};
+	}
 }
 
 .basket-product {
@@ -105,6 +122,10 @@ formatter(basket.items[props.item.id], props.item.measure);
 		align-self: flex-start;
 		width: 100%;
 		height: 100%;
+		@include breakpoints.media-down('xl') {
+			height: auto;
+			align-self: stretch;
+		}
 	}
 
 	&__image {
@@ -115,20 +136,34 @@ formatter(basket.items[props.item.id], props.item.measure);
 
 	&__container {
 		display: grid;
-		grid-template-columns: 1fr 4fr 2fr 3fr 2fr 1fr;
+		width: 100%;
+		// grid-template-columns: 1fr 4fr 2fr 3fr 2fr 1fr;
+		grid-template-columns: 6fr 6fr;
 		gap: #{utility.rem(16)};
-		place-items: center center;
 		padding-bottom: #{utility.rem(24)};
+		@include breakpoints.media-down('xl') {
+			display: flex;
+			flex-direction: column;
+		}
 	}
 
 	&__stepper {
 		display: grid;
-		grid-template-columns: 4fr;
+		max-width: 50%;
+		@include breakpoints.media-down('xl') {
+			display: flex;
+			flex-direction: column;
+			max-width: #{utility.rem(140)};
+		}
+		// grid-template-columns: 4fr;
 
 		.stepper__counter-deck {
 			border-radius: #{utility.rem(12)};
 			background-color: #f6f7f7;
 			backdrop-filter: blur(12px);
+			@include breakpoints.media-down('xl') {
+				padding: #{utility.rem(10)};
+			}
 		}
 
 		.stepper__counter-button {
@@ -138,7 +173,7 @@ formatter(basket.items[props.item.id], props.item.measure);
 
 	&__add-info {
 		display: grid;
-		grid-template-columns: 7fr 3fr 2fr;
+		// grid-template-columns: 7fr 3fr 2fr;
 		justify-content: space-between;
 		align-items: center;
 		padding: #{utility.rem(16)} #{utility.rem(20)} #{utility.rem(16)} #{utility.rem(20)};
@@ -177,6 +212,13 @@ formatter(basket.items[props.item.id], props.item.measure);
 		line-height: normal;
 		letter-spacing: #{utility.rem(-0.64)};
 	}
+	&__info-wrapper {
+		display: flex;
+		gap: #{utility.rem(16)};
+		@include breakpoints.media-down('xl') {
+			gap: #{utility.rem(8)};
+		}
+	}
 
 	&__price-info {
 		color: #1d2939;
@@ -186,6 +228,26 @@ formatter(basket.items[props.item.id], props.item.measure);
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
 		text-align: center;
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.54)};
+		}
+	}
+	&__upper {
+		display: flex;
+		gap: #{utility.rem(16)};
+	}
+	&__lower {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__sum-stepper-wrapper {
+		display: flex;
+		gap: #{utility.rem(16)};
+		align-items: center;
 	}
 
 	&__price-discount {
@@ -197,6 +259,14 @@ formatter(basket.items[props.item.id], props.item.measure);
 		letter-spacing: #{utility.rem(-0.48)};
 		text-align: center;
 		text-decoration-line: line-through;
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 400;
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.54)};
+			text-decoration-line: strikethrough;
+		}
 	}
 
 	&__sum {
@@ -207,6 +277,15 @@ formatter(basket.items[props.item.id], props.item.measure);
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
 		text-align: center;
+		justify-content: center;
+		width: 50%;
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 115%;
+			letter-spacing: #{utility.rem(-0.36)};
+		}
 	}
 
 	&__cultures-title {
@@ -216,6 +295,13 @@ formatter(basket.items[props.item.id], props.item.measure);
 		font-size: #{utility.rem(24)};
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 115%;
+			letter-spacing: #{utility.rem(-0.36)};
+		}
 	}
 	&__cultures-subtitle {
 		color: #667085;
@@ -224,6 +310,13 @@ formatter(basket.items[props.item.id], props.item.measure);
 		font-weight: 500;
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.54)};
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(14)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.42)};
+		}
 	}
 
 	&__cultures-cost {
