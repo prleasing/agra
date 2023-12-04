@@ -61,6 +61,12 @@ import BasePicture from '~/components/elements/base-picture';
 			display: block;
 			width: 100%;
 		}
+		:deep(img) {
+			@include breakpoints.media-up('mmd') {
+				width: #{utility.rem(600)};
+				height: auto;
+			}
+		}
 	}
 	&__picture-desktop {
 		@include breakpoints.media-down('xl') {
