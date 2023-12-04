@@ -150,7 +150,7 @@ const color = { color: '#1D2939' };
 .header {
 	background-color: #eaecf0;
 	background-image: url('/images/background.png');
-	background-size: 1200px;
+	background-size: #{utility.rem(1200)};
 	background-repeat: no-repeat;
 	position: absolute;
 	top: 0px;
@@ -158,6 +158,9 @@ const color = { color: '#1D2939' };
 	width: 100%;
 	height: #{utility.rem(100)};
 	z-index: -1;
+	@include breakpoints.media-down('xl') {
+		background-image: none;
+	}
 }
 .header {
 	margin: 0 auto;
@@ -182,6 +185,7 @@ const color = { color: '#1D2939' };
 		height: #{utility.rem(100)};
 		padding-bottom: #{utility.rem(20)};
 		// border-radius: 0 0 #{utility.rem(16)} #{utility.rem(16)};
+		background-color: #fff;
 	}
 	&__items-wrapper {
 		gap: #{utility.rem(16)};
@@ -281,7 +285,7 @@ const color = { color: '#1D2939' };
 		border: 1px solid #1d2939;
 		transition: background-color 0.2s ease-in-out;
 		@include breakpoints.media-down('xl') {
-			border: none;
+			// border: none;
 			width: #{utility.rem(48)};
 			height: #{utility.rem(48)};
 		}
