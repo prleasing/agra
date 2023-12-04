@@ -337,8 +337,8 @@ hr {
 	.picture {
 		@include breakpoints.media-down('xl') {
 			display: block;
-			width: #{utility.rem(290)};
-			// width: 100%;
+			// width: #{utility.rem(290)};
+			width: 100%;
 		}
 	}
 
