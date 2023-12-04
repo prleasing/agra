@@ -39,12 +39,18 @@ const vacancies = computed(() => {
 @use 'assets/styles/breakpoints';
 
 .section-vacancy {
+	@include breakpoints.media-down('xl') {
+		width: unset;
+		display: grid;
+		width: 100%;
+	}
 	:deep(.section-content) {
 		display: flex;
 		gap: #{utility.rem(16)};
 		background-color: #1d2939;
 		box-shadow: 0 #{utility.rem(24)} #{utility.rem(64)} #{utility.rem(-24)} rgb(29 41 57 / 24%);
 		@include breakpoints.media-down('xl') {
+			width: unset;
 			flex-direction: column;
 		}
 	}
@@ -54,13 +60,14 @@ const vacancies = computed(() => {
 	display: flex;
 	flex-direction: column;
 	gap: #{utility.rem(4)};
-	max-width: #{utility.rem(775)};
+	// max-width: #{utility.rem(775)};
 	@include breakpoints.media-down('xl') {
 		gap: #{utility.rem(8)};
 	}
 	:deep(picture) {
 		position: sticky;
 		top: 0;
+		width: 100%;
 	}
 	:deep(img) {
 		width: 100%;
