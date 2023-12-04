@@ -7,6 +7,10 @@ import TheHeader from '~/components/core/the-header.vue';
 	<div>
 		<the-header />
 		<nuxt-page />
-		<the-footer />
 	</div>
 </template>
+<style scoped lang="scss">
+#__nuxt {
+	display: grid;
+}
+</style>
