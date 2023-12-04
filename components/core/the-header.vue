@@ -243,7 +243,7 @@ watch(width, (value) => {
 		border-radius: #{utility.rem(100)};
 		background-color: var(--brand);
 		text-align: center;
-		display: flex;
+		// display: flex;
 		@include breakpoints.media-down('xl') {
 			display: flex;
 			justify-content: center;
@@ -277,7 +277,7 @@ watch(width, (value) => {
 		text-decoration: none;
 	}
 }
-.header__menu-item:hover a {
+:deep(.header__menu-item:hover a) {
 	text-decoration: underline;
 }
 :deep(.mobile__menu-item) {
