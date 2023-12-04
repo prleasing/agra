@@ -172,6 +172,13 @@ onClickOutside(target, () => {
 	letter-spacing: #{utility.rem(-0.48)};
 	text-align: center;
 	appearance: none;
+	@include breakpoints.media-down('xl') {
+		font-size: #{utility.rem(18)};
+		font-style: normal;
+		font-weight: 500;
+		line-height: 115%;
+		letter-spacing: #{utility.rem(-0.36)};
+	}
 }
 
 input[type='number']::-webkit-inner-spin-button {
