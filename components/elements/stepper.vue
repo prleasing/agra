@@ -111,6 +111,7 @@ onClickOutside(target, () => {
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
+	color: #1d2939;
 	@include breakpoints.media-down('xl') {
 		padding: 0;
 	}
