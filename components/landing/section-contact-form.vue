@@ -84,8 +84,10 @@ const email = computed(() => runtimeConfig.email);
 			border: 1px solid #eaecf0;
 			border-radius: #{utility.rem(16)};
 			@include breakpoints.media-down('xl') {
-				height: 100%;
-				min-height: #{utility.rem(288)};
+				// height: 100%;
+				// min-height: #{utility.rem(288)};
+				// max-height: #{utility.rem(288)};
+				height: #{utility.rem(288)};
 			}
 		}
 	}
