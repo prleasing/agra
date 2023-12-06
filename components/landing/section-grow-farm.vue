@@ -51,7 +51,7 @@ import BasePicture from '~/components/elements/base-picture';
 		flex-direction: column;
 		align-items: center;
 		padding: var(--ears);
-		margin-top: unset;
+		margin-top: #{utility.rem(16)};
 		justify-self: center;
 	}
 	&__picture-mobile {
