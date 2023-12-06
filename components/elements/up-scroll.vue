@@ -32,6 +32,7 @@ const scrollTop = () => {
 		position: unset;
 		margin: 0 auto;
 		max-width: #{utility.rem(64)};
+		margin-bottom: #{utility.rem(42)};
 	}
 	.icon {
 		width: #{utility.rem(32)};
