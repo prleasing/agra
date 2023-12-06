@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<header class="header">
+	<div :style="basketHeaderContainer.value" class="header-container">
+		<header :style="basketHeaderStyle.value" class="header">
 			<div class="header__logo-wrapper">
 				<base-logo />
 				<nuxt-link to="/">
@@ -40,7 +40,7 @@
 import { ModalRoot } from '@ui';
 
 import { Icons24Menu, Icons24ShoppingCart } from '#icons';
-import { computed, ref, useWindowSize, watch } from '#imports';
+import { computed, onMounted, ref, useRoute, useWindowSize, watch } from '#imports';
 import BaseIcon from '~/components/elements/base-icon.vue';
 import BaseLogo from '~/components/elements/base-logo.vue';
 import MenuItems from '~/components/elements/menu-items';
@@ -63,11 +63,18 @@ const showInfo = computed(() => {
 	}
 	return false;
 });
+const stylesHeader = ref<string>('position: unset; background-color: #EAECF0');
+const stylesNoBasket = ref<string>('position: fixed; background-color: #fff');
+const stylesContainer = ref<string>('background-color: transparent');
+const styleMobile = ref<string>('background-color: unset; position: fixed');
+const stylesBasketMobile = ref<string>('position: unset; background-color: transparent');
 const { width } = useWindowSize();
+const route = useRoute();
 const length = computed(() => {
 	return Object.keys(basket.items).length;
 });
 const show = ref<boolean>(false);
+const isMobile = ref<boolean>(false);
 const transform = {
 	opacity: [0, 1],
 	transform: ['translateX(180px)', 'translateY(0px)']
@@ -83,13 +90,45 @@ function openModal() {
 watch(width, (value) => {
 	if (value >= 1200) {
 		show.value = false;
+		isMobile.value = false;
+		console.log(isMobile.value);
 	}
+	if (value < 1200) {
+		isMobile.value = true;
+	}
+});
+onMounted(() => {
+	if (width.value < 1200) {
+		isMobile.value = true;
+	}
+});
+const basketHeaderStyle = computed(() => {
+	if (route.path === '/' && !isMobile.value) {
+		return stylesNoBasket;
+	}
+	if (route.path === '/basket' && !isMobile.value) {
+		return stylesHeader;
+	}
+	if (route.path === '/basket' && isMobile.value) {
+		return stylesBasketMobile;
+	}
+	return styleMobile;
+});
+const basketHeaderContainer = computed(() => {
+	if (route.path === '/' && isMobile.value) {
+		return stylesContainer;
+	}
+	return stylesHeader;
 });
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
 @use 'assets/styles/breakpoints';
 
+.header-container {
+	display: flex;
+	justify-content: center;
+}
 .header {
 	margin: 0 auto;
 	display: flex;
@@ -99,7 +138,7 @@ watch(width, (value) => {
 	background-color: #fff;
 	border-radius: #{utility.rem(16)};
 	padding: #{utility.rem(8)};
-	position: sticky;
+	position: fixed;
 	z-index: 3;
 	top: #{utility.rem(16)};
 	border: 1px solid rgba(255, 255, 255, 0.32);
