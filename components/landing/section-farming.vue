@@ -40,21 +40,51 @@
 					<span>В течение года приобретено порядка 200 голов (телки и нетели) племенного скота 2-х пород</span>
 				</div>
 			</div>
-			<div class="farming__cows-background">
-				<base-picture
-					:width="1170"
-					:height="336"
-					alt="background-photo"
-					src="/images/landing/farming/background-cows.jpg"
-				></base-picture>
-			</div>
-			<div class="farming__cows-background-mobile">
-				<base-picture
-					:width="288"
-					:height="496"
-					alt="background-photo"
-					src="/images/landing/farming/background-cows-mobile.jpg"
-				></base-picture>
+			<div class="farming__cows-container">
+				<div class="farming__cows-background">
+					<base-picture
+						:width="1170"
+						:height="336"
+						alt="background-photo"
+						src="/images/landing/farming/background-cows.jpg"
+					></base-picture>
+				</div>
+				<div class="farming__cows-background-mobile">
+					<base-picture
+						:width="288"
+						:height="496"
+						alt="background-photo"
+						src="/images/landing/farming/background-cows-mobile.jpg"
+					></base-picture>
+				</div>
+				<div class="farming__cows-info">
+					<div class="farming__categories">
+						<div class="farming__category-wrapper">
+							<div class="farming__category-mark"></div>
+							<span class="farming__category">Телята от 3-х мес и старше</span>
+						</div>
+						<div class="farming__category-wrapper">
+							<div class="farming__category-mark"></div>
+							<span class="farming__category">Нетели, бычки</span>
+						</div>
+						<div class="farming__category-wrapper">
+							<div class="farming__category-mark"></div>
+							<span class="farming__category">Порода: Казахская белоголовая, Черно-пестрая, Красно-пестрая</span>
+						</div>
+					</div>
+					<div class="farming__call">
+						<div class="farming__call-wrapper">
+							<nuxt-link no-prefetch :to="{ name: Pages.Home, hash: '#contact-form' }">
+								<span class="farming__call-title">Обратный звонок</span>
+							</nuxt-link>
+						</div>
+					</div>
+					<div class="farming__weight-price">
+						<span>Цена зависит от веса </span>
+						<div class="farming__point-separator"></div>
+						<span>от 200 ₽/кг за живой вес</span>
+					</div>
+				</div>
 			</div>
 			<div class="farming__cows">
 				<base-picture
@@ -63,34 +93,6 @@
 					alt="background-photo"
 					src="/images/landing/farming/cows.png"
 				></base-picture>
-			</div>
-			<div class="farming__cows-info">
-				<div class="farming__categories">
-					<div class="farming__category-wrapper">
-						<div class="farming__category-mark"></div>
-						<span class="farming__category">Телята от 3-х мес и старше</span>
-					</div>
-					<div class="farming__category-wrapper">
-						<div class="farming__category-mark"></div>
-						<span class="farming__category">Нетели, бычки</span>
-					</div>
-					<div class="farming__category-wrapper">
-						<div class="farming__category-mark"></div>
-						<span class="farming__category">Порода: Казахская белоголовая, Черно-пестрая, Красно-пестрая</span>
-					</div>
-				</div>
-				<div class="farming__call">
-					<div class="farming__call-wrapper">
-						<nuxt-link no-prefetch :to="{ name: Pages.Home, hash: '#contact-form' }">
-							<span class="farming__call-title">Обратный звонок</span>
-						</nuxt-link>
-					</div>
-				</div>
-				<div class="farming__weight-price">
-					<span>Цена зависит от веса </span>
-					<div class="farming__point-separator"></div>
-					<span>от 200 ₽/кг за живой вес</span>
-				</div>
 			</div>
 		</div>
 	</base-section>
@@ -159,6 +161,7 @@ import { Pages } from '~/utils/pages';
 		}
 		.picture {
 			border-radius: #{utility.rem(16)};
+			background: linear-gradient(180deg, rgba(29, 41, 57, 0) 0%, rgba(29, 41, 57, 0.54) 100%);
 		}
 		:deep(img) {
 			@include breakpoints.media-down('xl') {
@@ -170,6 +173,9 @@ import { Pages } from '~/utils/pages';
 	&__image-mobile-wrapper {
 		position: relative;
 		display: none;
+		@include breakpoints.media-down('xl') {
+			display: flex;
+		}
 		.picture {
 			display: none;
 			border-radius: #{utility.rem(16)};
@@ -185,6 +191,9 @@ import { Pages } from '~/utils/pages';
 				object-fit: cover;
 			}
 		}
+	}
+	&__cows-container {
+		position: relative;
 	}
 	&__cows-background {
 		.picture {
@@ -196,17 +205,21 @@ import { Pages } from '~/utils/pages';
 	}
 	&__cows-background-mobile {
 		display: none;
+		// position: relative;
 		@include breakpoints.media-down('xl') {
 			display: block;
 			width: 100%;
+			min-height: #{utility.rem(512)};
 			.picture {
 				border-radius: #{utility.rem(16)};
+				height: 100%;
 			}
 		}
 		:deep(img) {
 			@include breakpoints.media-down('xl') {
 				object-fit: cover;
 				width: 100%;
+				height: #{utility.rem(512)};
 			}
 		}
 	}
@@ -261,6 +274,7 @@ import { Pages } from '~/utils/pages';
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.54)};
 		display: flex;
+		align-items: center;
 		@include breakpoints.media-down('xl') {
 			font-size: #{utility.rem(16)};
 			font-style: normal;
@@ -269,6 +283,7 @@ import { Pages } from '~/utils/pages';
 			letter-spacing: #{utility.rem(-0.48)};
 			display: flex;
 			flex-direction: column;
+			align-items: flex-start;
 		}
 		.farming__point-separator {
 			display: inline-block;
@@ -346,6 +361,8 @@ import { Pages } from '~/utils/pages';
 				letter-spacing: #{utility.rem(-0.36)};
 				bottom: #{utility.rem(16)};
 				left: #{utility.rem(16)};
+				// top: #{utility.rem(16)};
+				display: flex;
 			}
 		}
 		:deep(img) {
@@ -355,14 +372,25 @@ import { Pages } from '~/utils/pages';
 			}
 		}
 	}
+	&__cows-background-mobile {
+		@include breakpoints.media-down('xl') {
+			position: relative;
+		}
+	}
 	&__cows-info {
 		position: absolute;
 		bottom: 0;
 		padding: #{utility.rem(24)};
-		display: grid;
+		display: flex;
+		flex-direction: column;
 		gap: #{utility.rem(24)};
 		@include breakpoints.media-down('xl') {
-			bottom: #{utility.rem(196)};
+			padding: #{utility.rem(16)};
+			gap: #{utility.rem(0)};
+			top: 0;
+		}
+		@include breakpoints.media-down('mmmd') {
+			top: 0;
 			padding: #{utility.rem(16)};
 			gap: #{utility.rem(0)};
 		}
