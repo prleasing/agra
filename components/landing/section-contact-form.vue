@@ -150,4 +150,21 @@ const email = computed(() => runtimeConfig.email);
 	gap: #{utility.rem(48)};
 	align-items: start;
 }
+.section-contact-form:after {
+	content: url('/images/background-bottom.png');
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+	overflow: hidden;
+	@include breakpoints.media-down('xl') {
+		content: url('/images/background-bottom.png');
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+		width: 100%;
+		z-index: -1;
+	}
+}
 </style>
