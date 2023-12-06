@@ -81,6 +81,9 @@ const noBasket = computed(() => {
 @use 'assets/styles/utility';
 @use 'assets/styles/breakpoints';
 
+.section-basket {
+	margin-bottom: #{utility.rem(16)};
+}
 .section {
 	display: grid;
 	margin-top: #{utility.rem(156)};
