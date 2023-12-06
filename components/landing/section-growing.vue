@@ -153,9 +153,17 @@ onMounted(() => {
 		height: #{utility.rem(56)};
 		border-radius: #{utility.rem(100)};
 		display: flex;
+		@include breakpoints.media-down('xl') {
+			width: #{utility.rem(32)};
+			height: #{utility.rem(32)};
+			padding: #{utility.rem(4)};
+		}
 		.icon {
 			width: #{utility.rem(32)};
 			color: #fff;
+			@include breakpoints.media-down('xl') {
+				width: #{utility.rem(24)};
+			}
 		}
 	}
 	&__warning {
@@ -170,6 +178,12 @@ onMounted(() => {
 		border: 1px solid #eaecf0;
 		@include breakpoints.media-down('xl') {
 			border-radius: unset;
+			align-items: flex-start;
+			padding: #{utility.rem(16)};
+			padding-right: #{utility.rem(16)};
+			gap: #{utility.rem(16)};
+			display: grid;
+			grid-template-columns: 1fr 7fr;
 		}
 		> span {
 			color: #1d2939;
@@ -194,7 +208,8 @@ onMounted(() => {
 		}
 		.icon-wrapper {
 			@include breakpoints.media-down('xl') {
-				width: #{utility.rem(24)};
+				// width: #{utility.rem(24)};
+				// min-width: 52px;
 			}
 		}
 	}
@@ -210,6 +225,7 @@ onMounted(() => {
 			width: 100%;
 			max-width: unset;
 			border-radius: unset;
+			padding: #{utility.rem(16)};
 		}
 		.icon {
 			width: #{utility.rem(32)};
@@ -261,6 +277,7 @@ onMounted(() => {
 			border-radius: 0px 0px #{utility.rem(16)} #{utility.rem(16)};
 			width: 100%;
 			max-width: unset;
+			padding: #{utility.rem(16)};
 		}
 		.icon {
 			width: #{utility.rem(32)};
