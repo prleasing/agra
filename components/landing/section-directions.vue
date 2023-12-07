@@ -87,9 +87,6 @@ import BasePicture from '~/components/elements/base-picture';
 	:deep(.section__content) {
 		background-color: #1d2939;
 	}
-	@include breakpoints.media-down('xl') {
-		// width: 100%;
-	}
 }
 
 .directions {
@@ -261,7 +258,6 @@ import BasePicture from '~/components/elements/base-picture';
 		max-width: #{utility.rem(924)};
 		border-radius: #{utility.rem(16)};
 		@include breakpoints.media-down('xl') {
-			// max-width: #{utility.rem(800)};
 		}
 		> span {
 			color: #fff;
@@ -333,7 +329,6 @@ import BasePicture from '~/components/elements/base-picture';
 	@include breakpoints.media-down('xl') {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		// grid-template-rows: 1fr auto;
 		> div:not(:last-child) {
 			:deep(img) {
 				aspect-ratio: 1/1;
@@ -345,17 +340,11 @@ import BasePicture from '~/components/elements/base-picture';
 			:deep(img) {
 				aspect-ratio: 2/1;
 			}
-			// grid-area:  /;
 		}
 	}
 }
 .directions__categories-wrapper {
 	@include breakpoints.media-down('xl') {
-		// display: block;
-		.picture {
-			// max-height: 144px;
-			// width: 100%;
-		}
 		:deep(img) {
 			display: block;
 			width: 100%;
@@ -364,46 +353,4 @@ import BasePicture from '~/components/elements/base-picture';
 		}
 	}
 }
-// .directions__categories-wrapper:nth-child(2) {
-// 	@include breakpoints.media-down('xl') {
-// 		display: flex;
-// 		// flex: 1 0 auto;
-// 		.picture {
-// 			// max-height: 144px;
-// 			width: 100%;
-// 		}
-// 		:deep(img) {
-// 			height: 100%;
-// 			width: 100%;
-// 			// display: flex;
-// 			justify-content: center;
-// 			align-items: center;
-// 			object-fit: cover;
-// 		}
-// 	}
-// }
-// .directions__categories-wrapper:last-child {
-// 	@include breakpoints.media-down('xl') {
-// 		display: flex;
-// 		width: 100%;
-// 		.picture {
-// 			width: 100%;
-// 			// max-height: 144px;
-// 			max-width: 100%;
-// 		}
-// 		:deep(picture) {
-// 			display: flex;
-// 			height: 100%;
-// 			justify-content: center;
-// 			align-items: center;
-// 		}
-// 		:deep(img) {
-// 			width: 100%;
-// 			display: flex;
-// 			justify-content: center;
-// 			align-items: center;
-// 			object-fit: cover;
-// 		}
-// 	}
-// }
 </style>

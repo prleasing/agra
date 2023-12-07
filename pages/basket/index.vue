@@ -69,9 +69,7 @@ const sum = computed(() => {
 	}, 0);
 });
 const noBasket = computed(() => {
-	console.log(Object.entries(basket.items).length);
 	if (!Object.entries(basket.items).length) {
-		console.log(Object.entries(basket.items).length);
 		return true;
 	}
 	return false;
@@ -132,7 +130,6 @@ const noBasket = computed(() => {
 			justify-content: center;
 			align-items: center;
 			text-decoration: none;
-			// margin-left: #{utility.rem(44)};
 			color: #1d2939;
 			font-size: #{utility.rem(24)};
 			font-style: normal;

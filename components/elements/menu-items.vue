@@ -20,7 +20,6 @@ const emit = defineEmits<{
 function close(e) {
 	setTimeout(() => {
 		router.push(e.target.attributes.href.value);
-		console.log(e.target.attributes.href.value);
 	}, 1000);
 	emit('click');
 }

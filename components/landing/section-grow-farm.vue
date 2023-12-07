@@ -132,7 +132,6 @@ import BasePicture from '~/components/elements/base-picture';
 			order: 1;
 			margin-left: #{utility.rem(-16)};
 			margin-right: #{utility.rem(-16)};
-			// width: 100%;
 		}
 	}
 	&__call {

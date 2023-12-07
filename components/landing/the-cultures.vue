@@ -21,11 +21,9 @@ const productStore = useStoreProduct();
 	aspect-ratio: 1/1;
 	@include breakpoints.media-down('xl') {
 		grid-template-columns: 1fr 1fr;
-		// grid-template-columns: repeat(1, 1fr);
 	}
 	@include breakpoints.media-down('mmd') {
 		grid-template-columns: 1fr;
-		// grid-template-columns: repeat(1, 1fr);
 	}
 }
 </style>

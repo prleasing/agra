@@ -135,7 +135,6 @@ onMounted(() => {
 		@include breakpoints.media-down('xl') {
 			object-fit: cover;
 			width: 100%;
-			// height: auto;
 		}
 	}
 	&__picture {
@@ -206,12 +205,6 @@ onMounted(() => {
 				height: unset;
 			}
 		}
-		.icon-wrapper {
-			@include breakpoints.media-down('xl') {
-				// width: #{utility.rem(24)};
-				// min-width: 52px;
-			}
-		}
 	}
 	&__pack {
 		display: flex;
@@ -248,7 +241,6 @@ onMounted(() => {
 				font-weight: 500;
 				line-height: 115%;
 				letter-spacing: #{utility.rem(-0.36)};
-				// width: max-content;
 			}
 		}
 	}
@@ -300,7 +292,6 @@ onMounted(() => {
 				font-weight: 500;
 				line-height: 115%;
 				letter-spacing: #{utility.rem(-0.36)};
-				// width: max-content;
 				padding-left: #{utility.rem(8)};
 				padding-right: #{utility.rem(8)};
 			}

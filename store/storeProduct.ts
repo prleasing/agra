@@ -20,7 +20,6 @@ interface Discount {
 export const useStoreProduct = defineStore(
 	'products',
 	() => {
-		// const counterValue = ref<number>(1);
 		const items = ref<Product[]>([
 			{
 				id: 1,

@@ -50,13 +50,6 @@ import { useStoreBasket } from '~/store/storeBasket';
 import { Pages } from '~/utils/pages';
 
 const basket = useStoreBasket();
-// const menu = ref([
-// 	{ id: 1, title: 'Вакансии', link: 'vacancy' },
-// 	{ id: 2, title: 'О Компании', link: 'about-company' },
-// 	{ id: 3, title: 'Направление деятельности', link: 'directions' },
-// 	{ id: 4, title: 'Cобственная продукция', link: 'products' },
-// 	{ id: 5, title: 'Контакты', link: 'contact-form' }
-// ]);
 const showInfo = computed(() => {
 	if (Object.keys(basket.items).length) {
 		return true;
@@ -81,7 +74,6 @@ const transform = {
 };
 
 function close() {
-	console.log(show.value);
 	show.value = false;
 }
 function openModal() {
@@ -91,7 +83,6 @@ watch(width, (value) => {
 	if (value >= 1200) {
 		show.value = false;
 		isMobile.value = false;
-		console.log(isMobile.value);
 	}
 	if (value < 1200) {
 		isMobile.value = true;
@@ -197,8 +188,6 @@ const basketHeaderContainer = computed(() => {
 		@include breakpoints.media-down('xl') {
 			display: flex;
 			flex-direction: column;
-			// position: absolute;
-			// top: 0;
 		}
 	}
 
@@ -281,7 +270,6 @@ const basketHeaderContainer = computed(() => {
 		border-radius: #{utility.rem(100)};
 		background-color: var(--brand);
 		text-align: center;
-		// display: flex;
 		@include breakpoints.media-down('xl') {
 			display: flex;
 			justify-content: center;

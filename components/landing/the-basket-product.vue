@@ -137,7 +137,6 @@ formatter(basket.items[props.item.id], props.item.measure);
 	&__container {
 		display: grid;
 		width: 100%;
-		// grid-template-columns: 1fr 4fr 2fr 3fr 2fr 1fr;
 		grid-template-columns: 6fr 6fr;
 		gap: #{utility.rem(16)};
 		padding-bottom: #{utility.rem(24)};
@@ -155,7 +154,6 @@ formatter(basket.items[props.item.id], props.item.measure);
 			flex-direction: column;
 			max-width: #{utility.rem(140)};
 		}
-		// grid-template-columns: 4fr;
 
 		.stepper__counter-deck {
 			border-radius: #{utility.rem(12)};
@@ -173,7 +171,6 @@ formatter(basket.items[props.item.id], props.item.measure);
 
 	&__add-info {
 		display: grid;
-		// grid-template-columns: 7fr 3fr 2fr;
 		justify-content: space-between;
 		align-items: center;
 		padding: #{utility.rem(16)} #{utility.rem(20)} #{utility.rem(16)} #{utility.rem(20)};

@@ -43,7 +43,6 @@ import MenuItems from '~/components/elements/menu-items';
 import srOnly from '~/components/utils/srOnly.vue';
 import { Pages } from '~/utils/pages';
 
-// const menu = ref<HTMLDialogElement>();
 defineProps({
 	showInfo: {
 		type: Boolean as PropType<boolean>,
@@ -59,7 +58,6 @@ const emit = defineEmits<{
 	(e: 'close'): void;
 }>();
 function close() {
-	console.log('233');
 	emit('close');
 }
 const runtimeConfig = useRuntimeConfig().public;
@@ -165,23 +163,18 @@ const color = { color: '#1D2939' };
 	justify-content: space-between;
 	align-items: center;
 	width: var(--container);
-	// height: #{utility.rem(97)};
 	background-color: #eaecf0;
-	// border-radius: #{utility.rem(16)};
 	padding: #{utility.rem(8)};
 	position: sticky;
 	z-index: 3;
 	top: #{utility.rem(16)};
 	@include breakpoints.media-down('xl') {
 		width: var(--mobile-container);
-		// background-color: rgba(255, 255, 255, 0.01);
 		padding-left: #{utility.rem(16)};
 		padding-right: #{utility.rem(16)};
-		// backdrop-filter: blur(20px);
 		top: #{utility.rem(0)};
 		height: #{utility.rem(100)};
 		padding-bottom: #{utility.rem(20)};
-		// border-radius: 0 0 #{utility.rem(16)} #{utility.rem(16)};
 		background-color: #fff;
 	}
 	&__items-wrapper {
@@ -214,7 +207,6 @@ const color = { color: '#1D2939' };
 		border: none;
 		@include breakpoints.media-down('xl') {
 			display: flex;
-			// height: 48px;
 			background-color: #eb5757;
 			padding: #{utility.rem(12)};
 			border-radius: 100%;
@@ -232,8 +224,6 @@ const color = { color: '#1D2939' };
 		@include breakpoints.media-down('xl') {
 			display: flex;
 			flex-direction: column;
-			// position: absolute;
-			// top: 0;
 		}
 	}
 
@@ -282,7 +272,6 @@ const color = { color: '#1D2939' };
 		border: 1px solid #1d2939;
 		transition: background-color 0.2s ease-in-out;
 		@include breakpoints.media-down('xl') {
-			// border: none;
 			width: #{utility.rem(48)};
 			height: #{utility.rem(48)};
 		}

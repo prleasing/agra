@@ -205,7 +205,6 @@ import { Pages } from '~/utils/pages';
 	}
 	&__cows-background-mobile {
 		display: none;
-		// position: relative;
 		@include breakpoints.media-down('xl') {
 			display: block;
 			width: 100%;
@@ -361,7 +360,6 @@ import { Pages } from '~/utils/pages';
 				letter-spacing: #{utility.rem(-0.36)};
 				bottom: #{utility.rem(16)};
 				left: #{utility.rem(16)};
-				// top: #{utility.rem(16)};
 				display: flex;
 			}
 		}

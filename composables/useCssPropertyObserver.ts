@@ -13,7 +13,6 @@ export function useCssPropertyCalculateGutter(name: string, scope: Ref<HTMLEleme
 			Object.assign(div.style, {
 				height: `var(${name})`,
 				zIndex: -9999,
-				// pointerEvents: 'none',
 				opacity: 0,
 				visibility: 'hidden',
 				position: 'absolute',

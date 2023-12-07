@@ -47,12 +47,8 @@ const vacancies = computed(() => {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-
-		// height: #{utility.rem(96)};
 		padding: #{utility.rem(16)} #{utility.rem(16)} #{utility.rem(16)} #{utility.rem(24)};
 		border-radius: #{utility.rem(16)};
-
-		// background-color: #1d2939;
 		background: rgb(255 255 255 / 4%);
 	}
 

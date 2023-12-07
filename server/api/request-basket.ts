@@ -76,7 +76,6 @@ export default defineEventHandler(async (event) => {
 					<td style="${styleBorder}${styleCollapse}${center}${padding}">${item.sum}₽</td></tr><br>`
 			)
 			.join('');
-		console.log(result);
 		if (!result.success) {
 			const errors = result.issues.map((item) => {
 				return [item.path?.at(0)?.key, item.message];

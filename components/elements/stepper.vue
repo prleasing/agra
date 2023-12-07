@@ -54,13 +54,6 @@ const emit = defineEmits<{
 	(e: 'update:modelValue', value: number): void;
 }>();
 
-// const unit = computed(() => {
-// 	if (props.item.measure === 'кг') {
-// 		return 'т';
-// 	}
-// 	return 'шт';
-// });
-
 const target = ref<HTMLElement>();
 const model = ref<number>(props.modelValue);
 const isShield = ref<boolean>(true);
@@ -72,10 +65,7 @@ function counterMinus() {
 function counterPlus() {
 	model.value++;
 }
-// function shieldActivate(e) {
-// 	isShield.value = true;
-// 	e.target.value = 1;
-// }
+
 function onInput(event: Event) {
 	const input = event.target as HTMLInputElement;
 	model.value = Number(input.value);
@@ -93,7 +83,6 @@ watch(model, () => {
 watch(
 	() => props.modelValue,
 	() => {
-		// model.value = 1;
 		model.value = props.modelValue;
 	}
 );
@@ -127,8 +116,6 @@ onClickOutside(target, () => {
 	align-items: center;
 	padding: #{utility.rem(16)};
 	border-radius: 0 #{utility.rem(8)} #{utility.rem(8)} 0;
-
-	// width: 50%;
 	background-color: var(--brand);
 }
 
@@ -138,9 +125,6 @@ onClickOutside(target, () => {
 	height: 100%;
 	border: none;
 	color: #1d2939;
-
-	// width: 100%;
-	// text-align: center;
 	outline: none;
 	font-weight: 500;
 	font-style: normal;
