@@ -19,7 +19,7 @@
 </template>
 <script setup lang="ts">
 import { Icons32ArrowUpRight, Icons44ExclamationMark } from '#icons';
-import { computed, useFetch } from '#imports';
+import { computed, useFetch, useRuntimeConfig } from '#imports';
 import BaseSection from '~/components/base-section.vue';
 import BaseIcon from '~/components/elements/base-icon.vue';
 import BasePicture from '~/components/elements/base-picture.vue';
@@ -29,7 +29,8 @@ interface Vacancy {
 	apply_alternate_url: string;
 	id: number;
 }
-const { data } = await useFetch<{ items: Vacancy[] }>('https://api.hh.ru/vacancies?employer_id=2061416');
+const runtimeConfig = useRuntimeConfig();
+const { data } = await useFetch<{ items: Vacancy[] }>(runtimeConfig.public.apiHhLink);
 const vacancies = computed(() => {
 	return data.value?.items ?? [];
 });
@@ -45,13 +46,15 @@ const vacancies = computed(() => {
 		width: 100%;
 	}
 	:deep(.section-content) {
-		display: flex;
+		display: grid;
+		grid-template-columns: 8fr 4fr;
 		gap: #{utility.rem(16)};
 		background-color: #1d2939;
 		box-shadow: 0 #{utility.rem(24)} #{utility.rem(64)} #{utility.rem(-24)} rgb(29 41 57 / 24%);
 		@include breakpoints.media-down('xl') {
 			width: unset;
 			flex-direction: column;
+			grid-template-columns: 1fr;
 		}
 	}
 }
