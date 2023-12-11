@@ -147,8 +147,10 @@ const isSuccess = ref(false);
 		}
 
 		&:disabled {
-			opacity: 0.5;
+			// opacity: 0.5;
 			pointer-events: none;
+			background: rgba(255, 255, 255, 0.17);
+			color: rgba(255, 255, 255, 0.22);
 		}
 
 		@include utility.has-hover {
