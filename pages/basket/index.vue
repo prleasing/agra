@@ -34,12 +34,12 @@ import { computed, definePageMeta } from '#imports';
 import BaseSection from '~/components/base-section.vue';
 import BaseIcon from '~/components/elements/base-icon';
 import BasketForm from '~/components/forms/basket-form';
+import SectionContactForm from '~/components/landing/section-contact-form';
 import TheBasketProduct from '~/components/landing/the-basket-product';
 import ThePage from '~/components/the-page';
 import { useStoreBasket } from '~/store/storeBasket';
 import type { Product } from '~/store/storeProduct';
 import { useStoreProduct } from '~/store/storeProduct';
-import SectionContactForm from '~/components/landing/section-contact-form';
 import { Pages } from '~/utils/pages';
 
 definePageMeta({
