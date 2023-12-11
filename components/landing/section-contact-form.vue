@@ -116,11 +116,16 @@ const email = computed(() => runtimeConfig.email);
 	align-items: start;
 }
 .section-contact-form:after {
-	content: url('/images/background-bottom.png');
+	// content: url('/images/background-bottom.png');
+	content: '';
 	position: absolute;
 	bottom: 0;
 	left: 0;
+	background-image: url('/images/background-bottom.png');
+	background-repeat: no-repeat;
+	background-size: #{utility.rem(1920)} #{utility.rem(644)};
 	width: 100%;
+	height: #{utility.rem(644)};
 	z-index: -1;
 	overflow: hidden;
 	@include breakpoints.media-down('xl') {
@@ -131,5 +136,9 @@ const email = computed(() => runtimeConfig.email);
 		width: 100%;
 		z-index: -1;
 	}
+}
+:deep(.field__control::placeholder) {
+	// background: #fff;
+	color: rgba(255, 255, 255, 0.42);
 }
 </style>
