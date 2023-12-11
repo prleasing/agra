@@ -129,12 +129,12 @@ const email = computed(() => runtimeConfig.email);
 	z-index: -1;
 	overflow: hidden;
 	@include breakpoints.media-down('xl') {
-		content: url('/images/background-bottom.png');
-		position: absolute;
-		bottom: 0px;
-		left: 0;
-		width: 100%;
-		z-index: -1;
+		// content: url('/images/background-bottom.png');
+		// position: absolute;
+		// bottom: 0px;
+		// left: 0;
+		// width: 100%;
+		// z-index: -1;
 	}
 }
 :deep(.field__control::placeholder) {
