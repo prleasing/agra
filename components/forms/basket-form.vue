@@ -15,7 +15,7 @@
 				<button :disabled="isLoading || !state.agree" type="button" @click.prevent.stop="send">
 					Отправить заявку <base-icon :icon="Icons32ArrowUpRight" />
 				</button>
-				<checkbox v-model="state.agree" name="agree">Я согласен на обработку персональных данных</checkbox>
+				<checkbox v-model="state.agree" name="agree-basket">Я согласен на обработку персональных данных</checkbox>
 			</div>
 		</div>
 		<modal-root v-model="isSuccess">
@@ -98,7 +98,8 @@ function success() {
 @use 'assets/styles/breakpoints';
 .form {
 	&__container {
-		background-color: #1d2939;
+		// background-color: #1d2939;
+		background-color: #F6F7F7;
 		padding: #{utility.rem(24)};
 		display: grid;
 		gap: #{utility.rem(16)};
@@ -154,16 +155,21 @@ function success() {
 				justify-content: space-between;
 			}
 			&:disabled {
-				opacity: 0.5;
+				// opacity: 0.5;
 				pointer-events: none;
+				color: #fff;
+				background: rgba(29, 41, 57, 0.16);
 			}
 			@include utility.has-hover {
 				background-color: var(--brand);
-				color: #fff;
+				color: rgba(255, 255, 255, 1);
 			}
 		}
 		.checkbox {
 			align-items: center;
+			:deep(svg) {
+				width: #{utility.rem(20)};
+			}
 		}
 	}
 }
@@ -207,5 +213,26 @@ function success() {
 			color: #fff;
 		}
 	}
+}
+:deep(.field) {
+	background: #fff;
+	color: #1D2939;
+}
+:deep(.field__control::placeholder) {
+	// background: #fff;
+	color: rgba(29, 41, 57, 0.42);
+}
+:deep(.checkbox) {
+	color: #1D2939;
+	.checkbox__indicator {
+		border: 2px solid #1D2939;
+		display: flex;
+		justify-content: center;
+	}
+}
+:deep(.checkbox.checkbox--checked .checkbox__indicator) {
+	background-color: var(--brand);
+	color: #fff;
+	border: none;
 }
 </style>
