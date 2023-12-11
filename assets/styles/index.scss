@@ -22,6 +22,7 @@ body {
 	background-color: #eaecf0;
 	background-image: url('/images/background-main.png');
 	background-repeat: no-repeat;
+	background-size: 1920px 704px;
 	// padding: 0 var(--ears);
 	font-family: Inter, sans-serif;
 	@include breakpoints.media-down('xl') {
