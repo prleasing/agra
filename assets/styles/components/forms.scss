@@ -44,11 +44,11 @@
 	appearance: none;
 
 	&::placeholder {
-		@include placeholder;
+		// @include placeholder;
 	}
 }
 
-@mixin placeholder {
-	color: rgb(255 255 255 / 42%);
-	font: inherit;
-}
+// @mixin placeholder {
+// 	color: rgb(255 255 255 / 42%);
+// 	font: inherit;
+// }
