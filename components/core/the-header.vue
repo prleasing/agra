@@ -1,6 +1,7 @@
 <template>
 	<div :style="basketHeaderContainer.value" class="header-container">
-		<header :style="basketHeaderStyle.value" class="header">
+		<!-- <header :style="basketHeaderStyle.value" class="header"> -->
+		<header class="header">
 			<div class="header__logo-wrapper">
 				<base-logo />
 				<nuxt-link to="/">
@@ -82,29 +83,29 @@ function openModal() {
 watch(width, (value) => {
 	if (value >= 1200) {
 		show.value = false;
-		isMobile.value = false;
+		// isMobile.value = false;
 	}
-	if (value < 1200) {
-		isMobile.value = true;
-	}
+	// if (value < 1200) {
+	// 	isMobile.value = true;
+	// }
 });
 onMounted(() => {
-	if (width.value < 1200) {
-		isMobile.value = true;
-	}
+	// if (width.value < 1200) {
+	// 	isMobile.value = true;
+	// }
 });
-const basketHeaderStyle = computed(() => {
-	if (route.path === '/' && !isMobile.value) {
-		return stylesNoBasket;
-	}
-	if (route.path === '/basket' && !isMobile.value) {
-		return stylesHeader;
-	}
-	if (route.path === '/basket' && isMobile.value) {
-		return stylesBasketMobile;
-	}
-	return styleMobile;
-});
+// const basketHeaderStyle = computed(() => {
+// 	if (route.path === '/' && !isMobile.value) {
+// 		return stylesNoBasket;
+// 	}
+// 	if (route.path === '/basket' && !isMobile.value) {
+// 		return stylesHeader;
+// 	}
+// 	if (route.path === '/basket' && isMobile.value) {
+// 		return stylesBasketMobile;
+// 	}
+// 	return styleMobile;
+// });
 const basketHeaderContainer = computed(() => {
 	if (route.path === '/' && isMobile.value) {
 		return stylesContainer;
