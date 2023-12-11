@@ -59,12 +59,12 @@
 					<div class="directions__location-wrapper">
 						<base-icon :icon="Icons32MapPinShare"></base-icon>
 						<span>Деревня Поступалово</span>
-						<nuxt-link to="#"></nuxt-link>
+						<nuxt-link to="https://yandex.ru/maps/-/CDqNN8ju"></nuxt-link>
 					</div>
 					<div class="directions__location-wrapper">
 						<base-icon :icon="Icons32MapPinShare"></base-icon>
 						<span>Деревня Ивано-Казанка</span>
-						<nuxt-link to="#"></nuxt-link>
+						<nuxt-link to="https://yandex.ru/maps/-/CDqNNLpF"></nuxt-link>
 					</div>
 				</div>
 			</div>
