@@ -47,7 +47,7 @@ const commands = computed<People[]>(() => {
 				<div class="message__bubble">
 					<p>Основана на базе ранее действовавшего небольшого хозяйства в Иглинском районе.</p>
 				</div>
-				<nuxt-link class="message__link" href="go.2gis.com/aft4n" target="_blank">Ссылка на 2гис</nuxt-link>
+				<nuxt-link class="message__link" href="https://go.2gis.com/y90vq" target="_blank">Ссылка на 2гис</nuxt-link>
 			</div>
 			<div class="message">
 				<div class="message__bubble"><p>Как обстоят дела на данный момент?</p></div>
