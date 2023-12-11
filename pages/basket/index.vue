@@ -23,6 +23,7 @@
 				</div>
 				<basket-form :items="items"></basket-form>
 			</base-section>
+			<section-contact-form id="contact-form" name="contact-form" />
 		</client-only>
 	</the-page>
 </template>
@@ -38,6 +39,7 @@ import ThePage from '~/components/the-page';
 import { useStoreBasket } from '~/store/storeBasket';
 import type { Product } from '~/store/storeProduct';
 import { useStoreProduct } from '~/store/storeProduct';
+import SectionContactForm from '~/components/landing/section-contact-form';
 import { Pages } from '~/utils/pages';
 
 definePageMeta({
@@ -277,5 +279,8 @@ const noBasket = computed(() => {
 .icon--arrow-up {
 	width: #{utility.rem(44)};
 	transform: rotate(45deg);
+}
+:deep(.section-contact-form) {
+	margin-top: unset;
 }
 </style>
