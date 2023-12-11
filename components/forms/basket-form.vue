@@ -99,7 +99,7 @@ function success() {
 .form {
 	&__container {
 		// background-color: #1d2939;
-		background-color: #F6F7F7;
+		background-color: #f6f7f7;
 		padding: #{utility.rem(24)};
 		display: grid;
 		gap: #{utility.rem(16)};
@@ -216,16 +216,16 @@ function success() {
 }
 :deep(.field) {
 	background: #fff;
-	color: #1D2939;
+	color: #1d2939;
 }
 :deep(.field__control::placeholder) {
 	// background: #fff;
 	color: rgba(29, 41, 57, 0.42);
 }
 :deep(.checkbox) {
-	color: #1D2939;
+	color: #1d2939;
 	.checkbox__indicator {
-		border: 2px solid #1D2939;
+		border: 2px solid #1d2939;
 		display: flex;
 		justify-content: center;
 	}
