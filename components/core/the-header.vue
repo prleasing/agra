@@ -58,10 +58,10 @@ const showInfo = computed(() => {
 	return false;
 });
 const stylesHeader = ref<string>('position: unset; background-color: #EAECF0');
-const stylesNoBasket = ref<string>('position: fixed; background-color: #fff');
+// const stylesNoBasket = ref<string>('position: fixed; background-color: #fff');
 const stylesContainer = ref<string>('background-color: transparent');
-const styleMobile = ref<string>('background-color: unset; position: fixed');
-const stylesBasketMobile = ref<string>('position: unset; background-color: transparent');
+// const styleMobile = ref<string>('background-color: unset; position: fixed');
+// const stylesBasketMobile = ref<string>('position: unset; background-color: transparent');
 const { width } = useWindowSize();
 const route = useRoute();
 const length = computed(() => {
