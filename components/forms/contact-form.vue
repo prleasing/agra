@@ -78,6 +78,7 @@ const isSuccess = ref(false);
 <style scoped lang="scss">
 @use 'assets/styles/utility';
 @use 'assets/styles/components/button';
+@use 'assets/styles/breakpoints';
 
 .form {
 	:deep(.field-group) {
@@ -168,7 +169,11 @@ const isSuccess = ref(false);
 	padding: #{utility.rem(24)};
 	border-radius: #{utility.rem(16)};
 	background-color: var(--brand);
-
+	@include breakpoints.media-down('xl') {
+		width: 100%;
+		padding: #{utility.rem(16)};
+		gap: #{utility.rem(16)};
+	}
 	p {
 		color: #fff;
 		font-weight: 600;
@@ -176,6 +181,13 @@ const isSuccess = ref(false);
 		font-size: #{utility.rem(42)};
 		line-height: 110%;
 		letter-spacing: #{utility.rem(-2.1)};
+		@include breakpoints.media-down('xl') {
+			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(22)};
+			line-height: 110%;
+			letter-spacing: #{utility.rem(-2.1)};
+		}
 	}
 
 	button {
@@ -194,7 +206,10 @@ const isSuccess = ref(false);
 			background-color 200ms ease-in-out,
 			color 200ms ease-in-out;
 		backdrop-filter: blur(12px);
-
+		@include breakpoints.media-down('xl') {
+			padding: #{utility.rem(16)};
+			font-size: #{utility.rem(20)};
+		}
 		@include utility.has-hover {
 			background-color: #1d2939;
 			color: #fff;
