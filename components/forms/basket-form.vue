@@ -181,7 +181,11 @@ function success() {
 	padding: #{utility.rem(24)};
 	border-radius: #{utility.rem(16)};
 	background-color: var(--brand);
-
+	@include breakpoints.media-down('xl') {
+		width: 100%;
+		gap: #{utility.rem(16)};
+		padding: #{utility.rem(16)};
+	}
 	p {
 		color: #fff;
 		font-weight: 600;
@@ -189,6 +193,11 @@ function success() {
 		font-size: #{utility.rem(42)};
 		line-height: 110%;
 		letter-spacing: #{utility.rem(-2.1)};
+		@include breakpoints.media-down('xl') {
+			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(22)};
+		}
 	}
 
 	button {
@@ -207,7 +216,13 @@ function success() {
 			background-color 200ms ease-in-out,
 			color 200ms ease-in-out;
 		backdrop-filter: blur(12px);
-
+		@include breakpoints.media-down('xl') {
+			padding: #{utility.rem(16)};
+			font-size: #{utility.rem(20)};
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 		@include utility.has-hover {
 			background-color: #1d2939;
 			color: #fff;
