@@ -147,6 +147,7 @@ import BasePicture from '~/components/elements/base-picture';
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
+				border-radius: #{utility.rem(16)};
 			}
 		}
 	}
