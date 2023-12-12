@@ -153,6 +153,7 @@ const basketHeaderContainer = computed(() => {
 	}
 	&__logo-wrapper {
 		svg {
+			display: block;
 			@include breakpoints.media-down('xl') {
 				max-width: #{utility.rem(170)};
 			}
