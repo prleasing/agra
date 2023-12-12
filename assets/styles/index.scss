@@ -23,6 +23,7 @@ body {
 	background-image: url('/images/background-main.png');
 	background-repeat: no-repeat;
 	background-size: 1920px 704px;
+	-webkit-text-size-adjust: 100%;
 	// padding: 0 var(--ears);
 	font-family: Inter, sans-serif;
 	@include breakpoints.media-down('xl') {
