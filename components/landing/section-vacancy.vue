@@ -19,7 +19,7 @@
 </template>
 <script setup lang="ts">
 import { Icons32ArrowUpRight, Icons44ExclamationMark } from '#icons';
-import { computed, useFetch, useRuntimeConfig, useAsyncData } from '#imports';
+import { computed, useAsyncData, useRuntimeConfig } from '#imports';
 import BaseSection from '~/components/base-section.vue';
 import BaseIcon from '~/components/elements/base-icon.vue';
 import BasePicture from '~/components/elements/base-picture.vue';
