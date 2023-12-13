@@ -2,15 +2,22 @@
 	<form class="form" @submit.prevent.stop="send">
 		<div class="form__container">
 			<div class="form__inputs">
-				<field-text id="name" v-model="state.name" v-model:error="errors.name" label="Имя" placeholder="Ваше имя" />
+				<field-text
+					id="name-basket"
+					v-model="state.name"
+					v-model:error="errors.name"
+					label="Имя"
+					placeholder="Ваше имя"
+				/>
 				<field-phone
-					id="phone"
+					id="phone-basket"
 					v-model="state.phone"
 					v-model:error="errors.phone"
 					label="Телефон"
 					placeholder="+7 999 99-99-999"
 				/>
 			</div>
+			<span v-if="errors.items" class="field-error">{{ errors.items }}{{ errors.length }}</span>
 			<div class="form__confirm">
 				<button :disabled="isLoading || !state.agree" type="button" @click.prevent.stop="send">
 					Отправить заявку <base-icon :icon="Icons32ArrowUpRight" />
@@ -249,5 +256,17 @@ function success() {
 	background-color: var(--brand);
 	color: #fff;
 	border: none;
+}
+:deep(.field-error) {
+	display: block;
+	width: 100%;
+	padding: #{utility.rem(8)} #{utility.rem(24)} #{utility.rem(16)};
+	border-radius: inherit;
+	color: #e03533;
+	font-weight: 500;
+	font-style: normal;
+	font-size: #{utility.rem(18)};
+	line-height: 135%;
+	letter-spacing: #{utility.rem(-0.72)};
 }
 </style>
