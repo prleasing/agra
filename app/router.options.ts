@@ -1,8 +1,16 @@
 import type { RouterOptions } from '@nuxt/schema';
+import type { RouteRecordRaw } from 'vue-router';
 
 import { useNuxtApp } from '#imports';
 
+function removeIconsPage(routes: readonly RouteRecordRaw[]) {
+	const index = routes.findIndex((route) => route.name === 'icons-page');
+	routes[index].redirect = '/';
+}
 export default <RouterOptions>{
+	routes(_routes) {
+		return removeIconsPage(_routes);
+	},
 	scrollBehavior(to, from, savedPosition) {
 		const nuxtApp = useNuxtApp();
 		if (to.meta.name !== from.meta.name) {
