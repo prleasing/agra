@@ -58,6 +58,7 @@
 					></base-picture>
 				</div>
 				<div class="farming__cows-info">
+					<h4 class="farming__categories-title">Реализуем КРС</h4>
 					<div class="farming__categories">
 						<div class="farming__category-wrapper">
 							<div class="farming__category-mark"></div>
@@ -208,7 +209,7 @@ import { Pages } from '~/utils/pages';
 		@include breakpoints.media-down('xl') {
 			display: block;
 			width: 100%;
-			min-height: #{utility.rem(512)};
+			height: #{utility.rem(548)};
 			.picture {
 				border-radius: #{utility.rem(16)};
 				height: 100%;
@@ -218,7 +219,7 @@ import { Pages } from '~/utils/pages';
 			@include breakpoints.media-down('xl') {
 				object-fit: cover;
 				width: 100%;
-				height: #{utility.rem(512)};
+				height: #{utility.rem(548)};
 			}
 		}
 	}
@@ -309,6 +310,21 @@ import { Pages } from '~/utils/pages';
 			border-radius: #{utility.rem(16)};
 		}
 	}
+	&__cows-container {
+		min-height: #{utility.rem(410)};
+	}
+	&__cows-background {
+		height: 100%;
+		.picture {
+			height: 100%;
+			display: block;
+		}
+		:deep(img) {
+			// width: 100%;
+			// object-fit: cover;
+			height: 100%;
+		}
+	}
 	&__minselhos-title {
 		display: flex;
 		flex-direction: column;
@@ -373,6 +389,19 @@ import { Pages } from '~/utils/pages';
 	&__cows-background-mobile {
 		@include breakpoints.media-down('xl') {
 			position: relative;
+		}
+	}
+	&__categories-title {
+		color: #fff;
+		font-size: #{utility.rem(48)};
+		font-style: normal;
+		font-weight: 700;
+		line-height: 115%;
+		letter-spacing: #{utility.rem(-0.96)};
+		display: flex;
+		@include breakpoints.media-down('xl') {
+			font-size: #{utility.rem(24)};
+			margin-bottom: #{utility.rem(16)};
 		}
 	}
 	&__cows-info {
