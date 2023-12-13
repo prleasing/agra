@@ -19,7 +19,7 @@
 </template>
 <script setup lang="ts">
 import { Icons32ArrowUpRight, Icons44ExclamationMark } from '#icons';
-import { computed, useFetch, useRuntimeConfig } from '#imports';
+import { computed, useFetch, useRuntimeConfig, useAsyncData } from '#imports';
 import BaseSection from '~/components/base-section.vue';
 import BaseIcon from '~/components/elements/base-icon.vue';
 import BasePicture from '~/components/elements/base-picture.vue';
@@ -30,7 +30,8 @@ interface Vacancy {
 	id: number;
 }
 const runtimeConfig = useRuntimeConfig();
-const { data } = await useFetch<{ items: Vacancy[] }>(runtimeConfig.public.apiHhLink);
+// const { data } = await useFetch<{ items: Vacancy[] }>(runtimeConfig.public.apiHhLink);
+const { data } = await useAsyncData('items', () => $fetch<{ items: Vacancy[] }>(runtimeConfig.public.apiHhLink));
 const vacancies = computed(() => {
 	return data.value?.items ?? [];
 });
