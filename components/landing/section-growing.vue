@@ -34,17 +34,23 @@
 				<div class="growing__delivery-info">
 					<div class="growing__pack">
 						<base-icon :icon="Icons32Moneybag"></base-icon>
-						<span>1 мешок</span>
+						<span class="growing__pack-info">1 мешок</span>
 						<div class="growing__separator"></div>
-						<span>20 ₽</span>
+						<span class="growing__pack-info">20 ₽</span>
+					</div>
+					<div class="growing__big-pack">
+						<base-icon :icon="Icons32Moneybag"></base-icon>
+						<span class="growing__pack-info">1 биг-бэг</span>
+						<div class="growing__separator"></div>
+						<span class="growing__pack-info">800 ₽</span>
 					</div>
 					<div class="growing__delivery">
 						<base-icon :icon="Icons32TruckDelivery"></base-icon>
-						<span>Доставка</span>
+						<span class="growing__delivery-title">Доставка</span>
 						<div class="growing__separator-nomobile"></div>
-						<span>1 км</span>
+						<span class="growing__pack-info">1 км</span>
 						<div class="growing__separator"></div>
-						<span>40 ₽</span>
+						<span class="growing__pack-info">40 ₽</span>
 					</div>
 				</div>
 			</div>
@@ -55,13 +61,13 @@
 				<div>
 					<div class="growing__grain-wrapper">
 						<div class="growing__grain-solo">
-							<div class="growing__grain">
+							<div class="growing__grain-title">
 								<base-icon :icon="Icons24Seeding" />
-								<span>Ячмень</span>
+								<span>Урожай 2023</span>
 							</div>
 							<div class="growing__grain">
 								<base-icon :icon="Icons24Seeding" />
-								<span>Пшеница</span>
+								<span>Ячмень</span>
 							</div>
 							<div class="growing__grain">
 								<base-icon :icon="Icons24Seeding" />
@@ -70,7 +76,11 @@
 							<div class="growing__grain-binary">
 								<base-icon :icon="Icons24Seeding" />
 								Бинарный посев
-								<span>ячмень + горох</span>
+								<!-- <span>ячмень + горох</span> -->
+							</div>
+							<div class="growing__grain">
+								<base-icon :icon="Icons24Seeding" />
+								<span>Пшеница</span>
 							</div>
 						</div>
 					</div>
@@ -106,7 +116,7 @@ import BasePicture from '~/components/elements/base-picture.vue';
 import TheCultures from '~/components/landing/the-cultures.vue';
 
 const growingTasks = ref([
-	{ id: 1, title: 'обеспечение высоких урожайности и качества сельскохозяйственной продукции' },
+	{ id: 1, title: 'обеспечение высокой урожайности и качества сельскохозяйственной продукции' },
 	{ id: 2, title: 'сохранение и улучшение плодородия почвы' },
 	{ id: 3, title: 'оптимизация использования агротехнических методов и механизации возделывания растений' },
 	{ id: 4, title: 'борьба с болезнями, вредителями и сорняками' },
@@ -173,8 +183,9 @@ onMounted(() => {
 		margin-top: #{utility.rem(24)};
 		padding: #{utility.rem(24)};
 		padding-right: #{utility.rem(32)};
-		border-radius: #{utility.rem(16)} #{utility.rem(16)} #{utility.rem(16)} 0px;
+		border-radius: #{utility.rem(16)} #{utility.rem(16)} 0px 0px;
 		border: 1px solid #eaecf0;
+		border-bottom: unset;
 		@include breakpoints.media-down('xl') {
 			border-radius: unset;
 			align-items: flex-start;
@@ -183,6 +194,7 @@ onMounted(() => {
 			gap: #{utility.rem(16)};
 			display: grid;
 			grid-template-columns: 1fr 7fr;
+			border-bottom: 1px solid #eaecf0;
 		}
 		> span {
 			color: #1d2939;
@@ -206,12 +218,13 @@ onMounted(() => {
 			}
 		}
 	}
+	&__big-pack,
 	&__pack {
 		display: flex;
 		align-items: center;
 		border: 1px solid #eaecf0;
-		border-top: unset;
-		max-width: #{utility.rem(319)};
+		// border-top: unset;
+		// max-width: #{utility.rem(319)};
 		border-radius: 0px 0px 0px #{utility.rem(16)};
 		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
 		@include breakpoints.media-down('xl') {
@@ -219,6 +232,7 @@ onMounted(() => {
 			max-width: unset;
 			border-radius: unset;
 			padding: #{utility.rem(16)};
+			border-top: unset;
 		}
 		.icon {
 			width: #{utility.rem(32)};
@@ -244,6 +258,13 @@ onMounted(() => {
 			}
 		}
 	}
+	&__big-pack {
+		border-radius: unset;
+		border-left: unset;
+		@include breakpoints.media-down('xl') {
+			border-left: 1px solid #eaecf0;
+		}
+	}
 	&__separator {
 		border-left: 1px solid #667085;
 		height: #{utility.rem(16)};
@@ -260,9 +281,9 @@ onMounted(() => {
 		align-items: center;
 		border: 1px solid #eaecf0;
 		border-left: unset;
-		border-top: unset;
+		// border-top: unset;
 		max-width: #{utility.rem(404)};
-		border-radius: 0px 0px #{utility.rem(16)} 0px;
+		border-radius: 0px #{utility.rem(16)} #{utility.rem(16)} 0px;
 		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
 		@include breakpoints.media-down('xl') {
 			border-left: 1px solid #eaecf0;
@@ -270,6 +291,7 @@ onMounted(() => {
 			width: 100%;
 			max-width: unset;
 			padding: #{utility.rem(16)};
+			border-top: unset;
 		}
 		.icon {
 			width: #{utility.rem(32)};
@@ -277,7 +299,7 @@ onMounted(() => {
 				width: #{utility.rem(24)};
 			}
 		}
-		> span {
+		.growing__pack-info {
 			padding-left: #{utility.rem(16)};
 			padding-right: #{utility.rem(16)};
 			color: #1d2939;
@@ -318,7 +340,23 @@ onMounted(() => {
 			color: var(--brand);
 		}
 	}
-
+	&__delivery-title {
+		padding-left: #{utility.rem(16)};
+		padding-right: #{utility.rem(16)};
+		font-size: #{utility.rem(24)};
+		font-style: normal;
+		font-weight: 500;
+		line-height: 115%;
+		letter-spacing: #{utility.rem(-0.48)};
+		@include breakpoints.media-down('xl') {
+			color: #1d2939;
+			font-size: #{utility.rem(18)};
+			font-style: normal;
+			font-weight: 500;
+			line-height: 115%;
+			letter-spacing: #{utility.rem(-0.36)};
+		}
+	}
 	&__description {
 		display: flex;
 		margin-top: #{utility.rem(24)};
@@ -370,7 +408,7 @@ onMounted(() => {
 			letter-spacing: #{utility.rem(-0.36)};
 		}
 	}
-
+	&__grain-title,
 	&__grain,
 	&__grain-binary {
 		border: 1px solid #eaecf0;
@@ -394,7 +432,6 @@ onMounted(() => {
 			color: var(--brand);
 		}
 	}
-
 	&__grain-binary {
 		display: flex;
 		gap: #{utility.rem(12)};
@@ -424,7 +461,7 @@ onMounted(() => {
 			}
 		}
 	}
-
+	&__grain-title,
 	&__grain {
 		display: flex;
 		gap: #{utility.rem(12)};
@@ -435,7 +472,13 @@ onMounted(() => {
 			padding-right: #{utility.rem(16)};
 		}
 	}
-
+	&__grain-title {
+		background-color: var(--brand);
+		color: #fff;
+		.icon {
+			color: #fff;
+		}
+	}
 	&__grain-solo {
 		display: flex;
 		gap: #{utility.rem(12)};
