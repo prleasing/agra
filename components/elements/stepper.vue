@@ -14,6 +14,7 @@
 					min="0"
 					@input="onInput"
 					@focus="onFocus"
+					@change="onChange"
 					@blur="isShield = true"
 				/>
 				<client-only>
@@ -83,13 +84,35 @@ function counterPlus() {
 function onInput(event: Event) {
 	const input = event.target as HTMLInputElement;
 	model.value = Number(input.value);
-	if (Number(input.value) < 0) {
+	if (Number(input.value) < 1) {
 		model.value = 0;
+	}
+	if (model.value < 1) {
+		const element: String | undefined = Object.keys(basket.items).find((element) => +element === props.item.id);
+		if (element) {
+			delete basket.items[Number(element)];
+		}
 	}
 }
 function onFocus(event: Event) {
 	const input = event.target as HTMLInputElement;
 	isShield.value = false;
+	if (model.value < 1) {
+		const element: String | undefined = Object.keys(basket.items).find((element) => +element === props.item.id);
+		if (element) {
+			delete basket.items[Number(element)];
+		}
+	}
+}
+function onChange(event: Event) {
+	// const input = event.target as HTMLInputElement;
+	// isShield.value = false;
+	if (model.value < 1) {
+		const element: String | undefined = Object.keys(basket.items).find((element) => +element === props.item.id);
+		if (element) {
+			delete basket.items[Number(element)];
+		}
+	}
 }
 watch(model, () => {
 	emit('update:modelValue', model.value);
