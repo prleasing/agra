@@ -10,7 +10,7 @@
 						alt="grow-photo"
 						src="/images/landing/directions/grow.jpg"
 					></base-picture>
-					<span>растиниеводство</span>
+					<span>растениеводство</span>
 				</div>
 				<div class="directions__categories-wrapper">
 					<base-picture
