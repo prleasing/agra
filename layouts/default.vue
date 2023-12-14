@@ -4,6 +4,7 @@ import TheHeader from '~/components/core/the-header.vue';
 
 <template>
 	<div class="page-container">
+		<YandexVerification />
 		<the-header />
 		<nuxt-page />
 	</div>
