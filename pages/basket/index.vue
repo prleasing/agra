@@ -1,6 +1,7 @@
 <template>
 	<the-page>
 		<client-only>
+			<the-social-meta :title="title" :description="description" :cover="cover" :template="false" />
 			<base-section class="section-basket" :title="noBasket ? 'В корзине отсутствуют товары' : 'Товары в корзине'">
 				<div class="basket__section-container">
 					<the-basket-product v-for="item in items" :key="item.id" :item="item" />
@@ -37,10 +38,12 @@ import BasketForm from '~/components/forms/basket-form';
 import SectionContactForm from '~/components/landing/section-contact-form';
 import TheBasketProduct from '~/components/landing/the-basket-product';
 import ThePage from '~/components/the-page';
+import { useHost } from '~/composables/useHost';
 import { useStoreBasket } from '~/store/storeBasket';
 import type { Product } from '~/store/storeProduct';
 import { useStoreProduct } from '~/store/storeProduct';
 import { Pages } from '~/utils/pages';
+import TheSocialMeta from '~/utils/TheSocialMeta.vue';
 
 definePageMeta({
 	name: Pages.Basket
@@ -53,6 +56,11 @@ const products = computed(() => {
 		return map;
 	}, new Map<number, Product>());
 });
+
+const title = computed(() => 'ПР-АГРО - Корзина');
+const description = computed(() => 'ПР-АГРО - Ваш источник натуральных продуктов');
+const host = useHost();
+const cover = computed(() => `${host.value}/images/cover.png`);
 const items = computed(() => {
 	return Object.entries(basket.items).map(([id, count]) => {
 		const item = products.value.get(+id) as Product;
