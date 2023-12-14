@@ -60,7 +60,7 @@ const products = computed(() => {
 const title = computed(() => 'ПР-АГРО - Корзина');
 const description = computed(() => 'ПР-АГРО - Ваш источник натуральных продуктов');
 const host = useHost();
-const cover = computed(() => `${host.value}/images/cover.png`);
+const cover = computed(() => `${host.value}images/cover.png`);
 const items = computed(() => {
 	return Object.entries(basket.items).map(([id, count]) => {
 		const item = products.value.get(+id) as Product;

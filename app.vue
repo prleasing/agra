@@ -20,5 +20,5 @@ import TheSocialMeta from '~/utils/TheSocialMeta.vue';
 const title = computed(() => 'ПР-АГРО - Ваш источник натуральных продуктов');
 const description = computed(() => 'ПР-АГРО - Ваш источник натуральных продуктов');
 const host = useHost();
-const cover = computed(() => `${host.value}/images/cover.png`);
+const cover = computed(() => `${host.value}images/cover.png`);
 </script>
