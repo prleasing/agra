@@ -26,7 +26,7 @@ export const useStoreProduct = defineStore(
 				title: 'Тритикале',
 				subtitle: null,
 				measure: 'кг',
-				cost: 12,
+				cost: 10.5,
 				multifyer: 1000,
 				discount: {
 					amount: 1,
@@ -39,7 +39,7 @@ export const useStoreProduct = defineStore(
 				title: 'Ячмень',
 				subtitle: null,
 				measure: 'кг',
-				cost: 11,
+				cost: 10,
 				multifyer: 1000,
 				discount: {
 					amount: 1,
@@ -52,7 +52,7 @@ export const useStoreProduct = defineStore(
 				title: 'Пшеница',
 				subtitle: null,
 				measure: 'кг',
-				cost: 10,
+				cost: 11,
 				multifyer: 1000,
 				discount: {
 					amount: 1,
