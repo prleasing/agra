@@ -10,17 +10,11 @@ import ContactForm from '~/components/forms/contact-form';
 const runtimeConfig = useRuntimeConfig().public;
 
 const phone = computed(() => {
-	const parse = parsePhoneNumber(runtimeConfig.phone);
-	const code = '+' + (parse?.country ? getCountryCallingCode(parse.country) : '');
+	const parse = parsePhoneNumber(runtimeConfig.phone, 'RU');
 
 	return {
 		uri: parse?.getURI(),
-		text:
-			code +
-			' ' +
-			parse?.format('NATIONAL', {
-				nationalPrefix: false
-			})
+		text: parse?.format('NATIONAL')
 	};
 });
 
