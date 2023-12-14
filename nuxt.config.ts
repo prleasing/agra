@@ -2,6 +2,10 @@
 import { fileURLToPath } from 'url';
 
 export default defineNuxtConfig({
+	routeRules: {
+		'/basket': { ssr: false, index: false },
+		'/_icons': { index: false }
+	},
 	components: false,
 	imports: {
 		autoImport: false
@@ -24,14 +28,14 @@ export default defineNuxtConfig({
 		debug: process.env.NODE_ENV !== 'production',
 		delay: 0,
 		cdn: false,
-		verification: null,
+		verification: '20ee7a0b15694b5b',
 		options: {
 			webvisor: true
 		}
 	},
 	robots: {
 		// mergeWithRobotsTxtPath: 'assets/custom/robots.txt'
-		disallow: ['/secret', '/admin'],
+		disallow: ['/secret', '/admin', 'basket'],
 		allow: '/admin/login'
 	},
 	site: {
@@ -40,6 +44,8 @@ export default defineNuxtConfig({
 	svgSprite: {
 		input: '~/assets/sprite/svg',
 		output: '~/assets/sprite/gen'
+		// publicPath: null,
+		// iconsPath: null
 	},
 	postcss: {
 		plugins: {
