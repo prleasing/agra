@@ -5,8 +5,9 @@
 			<span class="grow-farm__title-green">натуральных продуктов</span
 			><span class="grow-farm__title">животноводства и растениеводства</span>
 			<div class="grow-farm__special">
-				<span class="grow-farm__special-title">Специализируемся на продаже</span>
-				<span class="grow-farm__special-title">животноводства и растениеводства</span>
+				<span class="grow-farm__special-title">Специализация хозяйства -</span>
+				<span class="grow-farm__special-title">животноводство мясного направления</span>
+				<span class="grow-farm__special-title">и растениеводство</span>
 			</div>
 			<div class="grow-farm__call">
 				<nuxt-link to="/#contact-form"><span class="grow-farm__call-title">Обратный звонок</span></nuxt-link>
