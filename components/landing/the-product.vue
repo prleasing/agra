@@ -7,7 +7,7 @@
 				<span v-if="item.subtitle">{{ item.subtitle }}</span>
 			</div>
 			<div v-show="count > 0" class="product__counter">
-				<stepper v-model="count" :format="formatter" :measure="item.measure"></stepper>
+				<stepper v-model="count" :item="item" :format="formatter" :measure="item.measure"></stepper>
 				<button
 					class="product__total-price"
 					@mouseover="textShow"
@@ -72,6 +72,7 @@ const count = computed({
 		return basket.items[props.item.id];
 	},
 	set(value) {
+		console.log(value);
 		basket.items[props.item.id] = value;
 	}
 });

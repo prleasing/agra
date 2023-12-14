@@ -38,7 +38,7 @@
 			<div class="basket-product__lower">
 				<div class="basket-product__sum-stepper-wrapper">
 					<div class="basket-product__stepper">
-						<stepper v-model="basket.items[item.id]" :format="formatter" :measure="item.measure"></stepper>
+						<stepper v-model="basket.items[item.id]" :item="item" :format="formatter" :measure="item.measure"></stepper>
 					</div>
 					<div class="basket-product__sum">
 						{{ item.sum?.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 }) }}

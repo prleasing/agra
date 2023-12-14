@@ -32,7 +32,10 @@
 import { Icons44Minus, Icons44Plus } from '#icons';
 import { onClickOutside, type PropType, ref, watch } from '#imports';
 import BaseIcon from '~/components/elements/base-icon';
+import type { Basket } from '~/components/landing/the-basket-product';
+import { useStoreBasket } from '~/store/storeBasket';
 
+const basket = useStoreBasket();
 const props = defineProps({
 	modelValue: {
 		type: Number as PropType<number>,
@@ -48,6 +51,11 @@ const props = defineProps({
 		type: String as PropType<string>,
 		required: false,
 		default: 'кг'
+	},
+	item: {
+		type: Object as PropType<Basket>,
+		required: false,
+		default: () => {}
 	}
 });
 const emit = defineEmits<{
@@ -60,6 +68,12 @@ const isShield = ref<boolean>(true);
 function counterMinus() {
 	if (model.value > 1) {
 		model.value--;
+	}
+	if (model.value <= 1) {
+		const element: String | undefined = Object.keys(basket.items).find((element) => +element === props.item.id);
+		if (element) {
+			delete basket.items[Number(element)];
+		}
 	}
 }
 function counterPlus() {
