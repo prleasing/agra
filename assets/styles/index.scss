@@ -21,11 +21,13 @@ body {
 	overflow-x: hidden;
 	background-color: #eaecf0;
 	background-image: url('/images/background-main.png');
-	background-repeat: no-repeat;
 	background-size: 1920px 704px;
-	-webkit-text-size-adjust: 100%;
+	background-repeat: no-repeat;
+
 	// padding: 0 var(--ears);
 	font-family: Inter, sans-serif;
+	text-size-adjust: 100%;
+
 	@include breakpoints.media-down('xl') {
 		background-size: cover;
 	}

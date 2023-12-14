@@ -65,6 +65,7 @@ const classes = computed(() => {
 	background: rgb(255 255 255 / 17%);
 	color: #fff;
 	transition: background-color 100ms ease-in-out;
+
 	@include breakpoints.media-down('xl') {
 		padding: #{utility.rem(12)} #{utility.rem(16)};
 	}
@@ -78,10 +79,11 @@ const classes = computed(() => {
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.54)};
 		cursor: text;
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(16)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(16)};
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.48)};
 		}
@@ -98,8 +100,8 @@ const classes = computed(() => {
 		@include forms.reset;
 		@include forms.base;
 
-		color: inherit;
 		width: 100%;
+		color: inherit;
 
 		&:-internal-autofill-selected:not(:focus) {
 			-webkit-text-fill-color: #fff !important;

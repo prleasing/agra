@@ -63,17 +63,11 @@ function close() {
 const runtimeConfig = useRuntimeConfig().public;
 
 const phone = computed(() => {
-	const parse = parsePhoneNumber(runtimeConfig.phone);
-	const code = '+' + (parse?.country ? getCountryCallingCode(parse.country) : '');
+	const parse = parsePhoneNumber(runtimeConfig.phone, 'RU');
 
 	return {
 		uri: parse?.getURI(),
-		text:
-			code +
-			' ' +
-			parse?.format('NATIONAL', {
-				nationalPrefix: false
-			})
+		text: parse?.format('NATIONAL')
 	};
 });
 
@@ -81,20 +75,6 @@ const email = computed(() => runtimeConfig.email);
 
 const colorSocial = { 'background-color': 'rgba(29, 41, 57, 0.04)', color: '#1D2939' };
 const color = { color: '#1D2939' };
-
-// watch(
-// 	() => props.modelValue,
-// 	(value) => {
-// 		console.log('1');
-// 		if (value) {
-// 			menu.value?.showModal();
-// 			document.body.style.overflow = 'hidden';
-// 		} else {
-// 			menu.value?.close();
-// 			document.body.style.overflow = 'unset';
-// 		}
-// 	}
-// );
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
@@ -102,133 +82,138 @@ const color = { color: '#1D2939' };
 
 .mobile-menu {
 	display: none;
+
 	@include breakpoints.media-down('xl') {
-		display: grid;
 		position: absolute;
 		top: 0;
+		z-index: 3;
+		display: grid;
 		width: 100%;
-		background-color: #fff;
-		z-index: 2;
+		margin-top: #{utility.rem(79)};
 		padding: #{utility.rem(16)};
 		border-radius: #{utility.rem(24)};
-		margin-top: #{utility.rem(79)};
-		z-index: 3;
+		background-color: #fff;
 	}
+
 	&__separator {
-		border-bottom: 1px solid #eaecf0;
 		margin-top: #{utility.rem(16)};
 		margin-bottom: #{utility.rem(16)};
+		border-bottom: 1px solid #eaecf0;
 	}
 }
+
 :deep(.mobile__menu-item) {
 	@include breakpoints.media-down('xl') {
 		padding: #{utility.rem(16)} 0 #{utility.rem(16)};
 		color: #1d2939;
-		font-weight: 500;
+		font-weight: 600;
 		font-style: normal;
 		font-size: #{utility.rem(18)};
-		line-height: 135%;
-		letter-spacing: #{utility.rem(-0.54)};
 		font-size: #{utility.rem(20)};
-		font-style: normal;
-		font-weight: 600;
 		line-height: 115%;
+		letter-spacing: #{utility.rem(-0.54)};
 		letter-spacing: #{utility.rem(-0.8)};
 	}
+
 	a {
 		text-decoration: none;
 	}
 }
+
 .mobile__menu-item:hover a {
 	text-decoration: underline;
 }
+
 .header {
-	background-color: #eaecf0;
-	background-image: url('/images/background.png');
-	background-size: #{utility.rem(1200)};
-	background-repeat: no-repeat;
+	position: sticky;
 	position: absolute;
-	top: 0px;
+	top: #{utility.rem(16)};
+	top: 0;
 	left: 0;
-	width: 100%;
-	height: #{utility.rem(100)};
 	z-index: -1;
-	@include breakpoints.media-down('xl') {
-		background-image: none;
-	}
-}
-.header {
-	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: var(--container);
-	background-color: #eaecf0;
+	width: 100%;
+	height: #{utility.rem(100)};
+	margin: 0 auto;
 	padding: #{utility.rem(8)};
-	position: sticky;
-	z-index: 3;
-	top: #{utility.rem(16)};
+	background-color: #eaecf0;
+	background-image: url('/images/background.png');
+	background-size: #{utility.rem(1200)};
+	background-repeat: no-repeat;
+
 	@include breakpoints.media-down('xl') {
-		width: var(--mobile-container);
-		padding-left: #{utility.rem(16)};
-		padding-right: #{utility.rem(16)};
+		background-image: none;
+	}
+
+	@include breakpoints.media-down('xl') {
 		top: #{utility.rem(0)};
+		width: var(--mobile-container);
 		height: #{utility.rem(100)};
+		padding-right: #{utility.rem(16)};
 		padding-bottom: #{utility.rem(20)};
+		padding-left: #{utility.rem(16)};
 		background-color: #fff;
 	}
+
 	&__items-wrapper {
+		display: flex;
 		gap: #{utility.rem(16)};
+
+		@include breakpoints.media-down('xl') {
+			display: flex;
+			flex-direction: column;
+		}
+
 		:deep(.header__menu-item) {
 			@include breakpoints.media-down('xl') {
 				display: none;
 			}
 		}
 	}
-	&__logo-wrapper {
-		svg {
-			@include breakpoints.media-down('xl') {
-				max-width: #{utility.rem(170)};
-			}
-		}
-	}
+
 	&__menu-cart-wrapper {
 		display: flex;
+		gap: #{utility.rem(8)};
 		justify-content: flex-end;
 		align-items: center;
-		gap: #{utility.rem(8)};
 		height: 100%;
+
 		@include breakpoints.media-down('xl') {
 			width: 100%;
 		}
 	}
+
 	&__closer {
 		display: none;
 		border: none;
+
 		@include breakpoints.media-down('xl') {
 			display: flex;
-			background-color: #eb5757;
-			padding: #{utility.rem(12)};
-			border-radius: 100%;
+			justify-content: center;
+			align-items: center;
 			width: #{utility.rem(48)};
 			height: #{utility.rem(48)};
-			align-items: center;
-			justify-content: center;
+			padding: #{utility.rem(12)};
+			border-radius: 100%;
+			background-color: #eb5757;
 		}
+
 		.icon {
 			width: #{utility.rem(24)};
-		}
-	}
-	&__items-wrapper {
-		display: flex;
-		@include breakpoints.media-down('xl') {
-			display: flex;
-			flex-direction: column;
 		}
 	}
 
 	&__logo-wrapper {
 		position: relative;
+
+		svg {
+			@include breakpoints.media-down('xl') {
+				max-width: #{utility.rem(170)};
+			}
+		}
 
 		> a {
 			position: absolute;
@@ -247,13 +232,16 @@ const color = { color: '#1D2939' };
 		font-size: #{utility.rem(18)};
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.54)};
+
 		@include breakpoints.media-down('xl') {
 			display: flex;
 		}
+
 		a {
 			text-decoration: none;
 		}
 	}
+
 	&__menu-item:hover a {
 		text-decoration: underline;
 	}
@@ -263,41 +251,48 @@ const color = { color: '#1D2939' };
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: #{utility.rem(12)};
 		width: #{utility.rem(56)};
 		height: #{utility.rem(56)};
 		margin-left: #{utility.rem(16)};
+		padding: #{utility.rem(12)};
+		border: 1px solid #1d2939;
 		border-radius: #{utility.rem(100)};
 		background-color: #fff;
-		border: 1px solid #1d2939;
 		transition: background-color 0.2s ease-in-out;
+
 		@include breakpoints.media-down('xl') {
 			width: #{utility.rem(48)};
 			height: #{utility.rem(48)};
 		}
+
 		.icon {
 			width: #{utility.rem(24)};
 			transition: background-color 0.2s ease-in-out;
 		}
+
 		> a {
 			position: absolute;
-			width: 100%;
-			height: 100%;
 			display: flex;
 			justify-content: center;
+			width: 100%;
+			height: 100%;
 		}
 	}
+
 	&__cart:hover .icon {
 		color: #fff;
 	}
+
 	&__cart:hover {
 		background-color: #1d2939;
 	}
+
 	&__cart-info {
 		position: absolute;
 		top: #{utility.rem(-3)};
 		right: 0;
 		display: inline;
+		display: flex;
 		width: #{utility.rem(24)};
 		height: #{utility.rem(24)};
 		margin: 0;
@@ -305,7 +300,7 @@ const color = { color: '#1D2939' };
 		border-radius: #{utility.rem(100)};
 		background-color: var(--brand);
 		text-align: center;
-		display: flex;
+
 		@include breakpoints.media-down('xl') {
 			display: flex;
 			justify-content: center;

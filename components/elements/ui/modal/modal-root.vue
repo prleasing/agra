@@ -172,11 +172,11 @@ html.overflow-hidden {
 	overflow: hidden;
 
 	body {
-		min-height: auto;
-		height: auto;
 		position: fixed;
 		inset: var(--overlay-scroll-position) 0 0 0;
 		overflow: hidden;
+		height: auto;
+		min-height: auto;
 		padding-right: var(--scroll-width-offset);
 	}
 }

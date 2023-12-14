@@ -97,5 +97,4 @@ export default defineNuxtConfig({
 	}
 });
 
-
 // , 'assets/styles/production.scss'

@@ -103,6 +103,7 @@ formatter(basket.items[props.item.id], props.item.measure);
 	width: #{utility.rem(44)};
 	height: #{utility.rem(44)};
 	color: #e22b29;
+
 	@include breakpoints.media-down('xl') {
 		width: #{utility.rem(24)};
 	}
@@ -122,9 +123,10 @@ formatter(basket.items[props.item.id], props.item.measure);
 		align-self: flex-start;
 		width: 100%;
 		height: 100%;
+
 		@include breakpoints.media-down('xl') {
-			height: auto;
 			align-self: stretch;
+			height: auto;
 		}
 	}
 
@@ -136,10 +138,11 @@ formatter(basket.items[props.item.id], props.item.measure);
 
 	&__container {
 		display: grid;
-		width: 100%;
 		grid-template-columns: 6fr 6fr;
 		gap: #{utility.rem(16)};
+		width: 100%;
 		padding-bottom: #{utility.rem(24)};
+
 		@include breakpoints.media-down('xl') {
 			display: flex;
 			flex-direction: column;
@@ -149,6 +152,7 @@ formatter(basket.items[props.item.id], props.item.measure);
 	&__stepper {
 		display: grid;
 		max-width: 50%;
+
 		@include breakpoints.media-down('xl') {
 			display: flex;
 			flex-direction: column;
@@ -159,6 +163,7 @@ formatter(basket.items[props.item.id], props.item.measure);
 			border-radius: #{utility.rem(12)};
 			background-color: #f6f7f7;
 			backdrop-filter: blur(12px);
+
 			@include breakpoints.media-down('xl') {
 				padding: #{utility.rem(10)};
 			}
@@ -209,9 +214,11 @@ formatter(basket.items[props.item.id], props.item.measure);
 		line-height: normal;
 		letter-spacing: #{utility.rem(-0.64)};
 	}
+
 	&__info-wrapper {
 		display: flex;
 		gap: #{utility.rem(16)};
+
 		@include breakpoints.media-down('xl') {
 			gap: #{utility.rem(8)};
 		}
@@ -225,22 +232,26 @@ formatter(basket.items[props.item.id], props.item.measure);
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
 		text-align: center;
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(18)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(18)};
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.54)};
 		}
 	}
+
 	&__upper {
 		display: flex;
 		gap: #{utility.rem(16)};
 	}
+
 	&__lower {
 		display: flex;
 		justify-content: space-between;
 	}
+
 	&__sum-stepper-wrapper {
 		display: flex;
 		gap: #{utility.rem(16)};
@@ -256,10 +267,11 @@ formatter(basket.items[props.item.id], props.item.measure);
 		letter-spacing: #{utility.rem(-0.48)};
 		text-align: center;
 		text-decoration-line: line-through;
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(18)};
-			font-style: normal;
 			font-weight: 400;
+			font-style: normal;
+			font-size: #{utility.rem(18)};
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.54)};
 			text-decoration-line: strikethrough;
@@ -267,6 +279,8 @@ formatter(basket.items[props.item.id], props.item.measure);
 	}
 
 	&__sum {
+		justify-content: center;
+		width: 50%;
 		color: #1d2939;
 		font-weight: 500;
 		font-style: normal;
@@ -274,12 +288,11 @@ formatter(basket.items[props.item.id], props.item.measure);
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
 		text-align: center;
-		justify-content: center;
-		width: 50%;
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(18)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(18)};
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.36)};
 		}
@@ -292,25 +305,28 @@ formatter(basket.items[props.item.id], props.item.measure);
 		font-size: #{utility.rem(24)};
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(18)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(18)};
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.36)};
 		}
 	}
+
 	&__cultures-subtitle {
 		color: #667085;
-		font-size: #{utility.rem(18)};
-		font-style: normal;
 		font-weight: 500;
+		font-style: normal;
+		font-size: #{utility.rem(18)};
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.54)};
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(14)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(14)};
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.42)};
 		}

@@ -24,4 +24,3 @@ function close(e) {
 	emit('click');
 }
 </script>
-<style lang="scss"></style>

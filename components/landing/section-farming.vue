@@ -106,115 +106,149 @@ import { Pages } from '~/utils/pages';
 <style scoped lang="scss">
 @use 'assets/styles/utility';
 @use 'assets/styles/breakpoints';
+
 .farming {
+	position: relative;
 	display: grid;
 	gap: #{utility.rem(16)};
-	position: relative;
+
 	@include breakpoints.media-down('xl') {
 		gap: #{utility.rem(8)};
 	}
+
 	&__cows {
 		position: absolute;
-		bottom: 0;
 		right: 0;
+		bottom: 0;
+
 		@include breakpoints.media-down('xl') {
 			width: 100%;
 		}
+
 		:deep(img) {
 			@include breakpoints.media-down('xl') {
 				width: #{utility.rem(288)};
 				height: #{utility.rem(210)};
 			}
 		}
+
 		:deep(picture) {
 			@include breakpoints.media-down('xl') {
 				display: flex;
-				width: 100%;
-				align-items: center;
 				justify-content: center;
+				align-items: center;
+				width: 100%;
 			}
 		}
 	}
+
 	&__meat-info {
 		position: absolute;
 		top: #{utility.rem(24)};
 		left: #{utility.rem(24)};
 		color: #fff;
-		font-size: #{utility.rem(24)};
-		font-style: normal;
 		font-weight: 500;
+		font-style: normal;
+		font-size: #{utility.rem(24)};
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.48)};
+
 		@include breakpoints.media-down('xl') {
 			top: #{utility.rem(16)};
 			left: #{utility.rem(16)};
-			font-size: #{utility.rem(18)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(18)};
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.36)};
 		}
 	}
+
 	&__image-wrapper {
 		position: relative;
+
 		@include breakpoints.media-down('xl') {
 			display: none;
 		}
+
 		.picture {
 			border-radius: #{utility.rem(16)};
-			background: linear-gradient(180deg, rgba(29, 41, 57, 0) 0%, rgba(29, 41, 57, 0.54) 100%);
+			background: linear-gradient(180deg, rgb(29 41 57 / 0%) 0%, rgb(29 41 57 / 54%) 100%);
 		}
+
 		:deep(img) {
 			@include breakpoints.media-down('xl') {
-				max-width: 100%;
 				object-fit: cover;
+				max-width: 100%;
 			}
 		}
 	}
+
 	&__image-mobile-wrapper {
 		position: relative;
 		display: none;
+
 		@include breakpoints.media-down('xl') {
 			display: flex;
 		}
+
 		.picture {
 			display: none;
 			border-radius: #{utility.rem(16)};
+
 			@include breakpoints.media-down('xl') {
 				display: flex;
 				max-width: 100%;
 			}
 		}
+
 		:deep(img) {
 			@include breakpoints.media-down('xl') {
 				display: flex;
-				max-width: 100%;
 				object-fit: cover;
+				max-width: 100%;
 			}
 		}
 	}
+
 	&__cows-container {
 		position: relative;
+		min-height: #{utility.rem(410)};
 	}
+
 	&__cows-background {
+		height: 100%;
+
+		:deep(img) {
+			height: 100%;
+		}
+
 		.picture {
+			display: block;
+			height: 100%;
 			border-radius: #{utility.rem(16)};
 		}
+
 		@include breakpoints.media-down('xl') {
 			display: none;
 		}
 	}
+
 	&__cows-background-mobile {
 		display: none;
+
 		@include breakpoints.media-down('xl') {
+			position: relative;
 			display: block;
 			width: 100%;
 			height: #{utility.rem(548)};
+
 			.picture {
-				border-radius: #{utility.rem(16)};
 				height: 100%;
+				border-radius: #{utility.rem(16)};
 			}
 		}
+
 		:deep(img) {
 			@include breakpoints.media-down('xl') {
 				object-fit: cover;
@@ -223,13 +257,16 @@ import { Pages } from '~/utils/pages';
 			}
 		}
 	}
+
 	&__call {
 		max-width: #{utility.rem(286)};
+
 		@include breakpoints.media-down('xl') {
 			margin-top: #{utility.rem(24)};
 			margin-bottom: #{utility.rem(8)};
 		}
 	}
+
 	&__call-wrapper {
 		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
 		border: 1px solid var(--brand);
@@ -237,94 +274,92 @@ import { Pages } from '~/utils/pages';
 		background-color: transparent;
 		cursor: pointer;
 		transition: border 0.2s ease-in-out;
+
 		@include breakpoints.media-down('xl') {
-			padding: #{utility.rem(16)} #{utility.rem(24)} #{utility.rem(16)} #{utility.rem(24)};
 			display: flex;
 			justify-content: center;
+			padding: #{utility.rem(16)} #{utility.rem(24)} #{utility.rem(16)} #{utility.rem(24)};
 		}
+
 		a {
 			color: var(--brand);
-			font-size: #{utility.rem(24)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(24)};
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.48)};
 			text-decoration: none;
 			transition: color 0.2s ease-in-out;
+
 			@include breakpoints.media-down('xl') {
-				font-size: #{utility.rem(18)};
-				font-style: normal;
 				font-weight: 500;
+				font-style: normal;
+				font-size: #{utility.rem(18)};
 				line-height: 135%;
 				letter-spacing: #{utility.rem(-1.08)};
 			}
 		}
 	}
+
 	&__call-wrapper:hover {
 		border: 1px solid #fff;
 	}
+
 	&__call-wrapper:hover a {
 		color: #fff;
 	}
+
 	&__weight-price {
-		color: rgba(255, 255, 255, 0.64);
-		font-size: #{utility.rem(18)};
-		font-style: normal;
-		font-weight: 600;
-		line-height: 135%;
-		letter-spacing: #{utility.rem(-0.54)};
 		display: flex;
 		align-items: center;
+		color: rgb(255 255 255 / 64%);
+		font-weight: 600;
+		font-style: normal;
+		font-size: #{utility.rem(18)};
+		line-height: 135%;
+		letter-spacing: #{utility.rem(-0.54)};
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(16)};
-			font-style: normal;
-			font-weight: 500;
-			line-height: 135%;
-			letter-spacing: #{utility.rem(-0.48)};
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
+			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(16)};
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.48)};
 		}
+
 		.farming__point-separator {
 			display: inline-block;
+			vertical-align: middle;
 			width: #{utility.rem(4)};
 			height: #{utility.rem(4)};
-			background-color: rgba(255, 255, 255, 0.64);
-			border-radius: #{utility.rem(100)};
-			margin-left: #{utility.rem(8)};
 			margin-right: #{utility.rem(8)};
-			vertical-align: middle;
+			margin-left: #{utility.rem(8)};
+			border-radius: #{utility.rem(100)};
+			background-color: rgb(255 255 255 / 64%);
+
 			@include breakpoints.media-down('xl') {
 				display: none;
 			}
 		}
 	}
+
 	&__minselhos {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: #{utility.rem(16)};
+
 		@include breakpoints.media-down('xl') {
 			grid-template-columns: 1fr;
 		}
+
 		:deep(img) {
 			border-radius: #{utility.rem(16)};
 		}
 	}
-	&__cows-container {
-		min-height: #{utility.rem(410)};
-	}
-	&__cows-background {
-		height: 100%;
-		.picture {
-			height: 100%;
-			display: block;
-		}
-		:deep(img) {
-			// width: 100%;
-			// object-fit: cover;
-			height: 100%;
-		}
-	}
+
 	&__minselhos-title {
 		display: flex;
 		flex-direction: column;
@@ -332,124 +367,137 @@ import { Pages } from '~/utils/pages';
 		padding: #{utility.rem(24)};
 		border-radius: #{utility.rem(16)};
 		background-color: #eaecf0;
+
 		@include breakpoints.media-down('xl') {
 			gap: #{utility.rem(42)};
 		}
+
 		:deep(img) {
 			@include breakpoints.media-down('xl') {
 				max-width: #{utility.rem(204)};
 			}
 		}
+
 		> span {
 			color: #1d2939;
-			font-size: #{utility.rem(24)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(24)};
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.48)};
+
 			@include breakpoints.media-down('xl') {
-				font-size: #{utility.rem(18)};
-				font-style: normal;
 				font-weight: 500;
+				font-style: normal;
+				font-size: #{utility.rem(18)};
 				line-height: 135%;
 				letter-spacing: #{utility.rem(-0.36)};
 			}
 		}
 	}
+
 	&__cattle {
 		position: relative;
+
 		> span {
 			position: absolute;
-			color: #fff;
-			font-size: #{utility.rem(24)};
 			bottom: #{utility.rem(24)};
 			left: #{utility.rem(24)};
+			margin-right: #{utility.rem(24)};
+			color: #fff;
 			font-weight: 500;
+			font-size: #{utility.rem(24)};
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.48)};
-			margin-right: #{utility.rem(24)};
+
 			@include breakpoints.media-down('xl') {
-				font-size: #{utility.rem(18)};
-				font-style: normal;
-				font-weight: 500;
-				line-height: 135%;
-				letter-spacing: #{utility.rem(-0.36)};
 				bottom: #{utility.rem(16)};
 				left: #{utility.rem(16)};
 				display: flex;
+				font-weight: 500;
+				font-style: normal;
+				font-size: #{utility.rem(18)};
+				line-height: 135%;
+				letter-spacing: #{utility.rem(-0.36)};
 			}
 		}
+
 		:deep(img) {
 			@include breakpoints.media-down('xl') {
-				width: 100%;
 				object-fit: cover;
+				width: 100%;
 			}
 		}
 	}
-	&__cows-background-mobile {
-		@include breakpoints.media-down('xl') {
-			position: relative;
-		}
-	}
+
 	&__categories-title {
+		display: flex;
 		color: #fff;
-		font-size: #{utility.rem(48)};
-		font-style: normal;
 		font-weight: 700;
+		font-style: normal;
+		font-size: #{utility.rem(48)};
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.96)};
-		display: flex;
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(24)};
 			margin-bottom: #{utility.rem(16)};
+			font-size: #{utility.rem(24)};
 		}
 	}
+
 	&__cows-info {
 		position: absolute;
 		bottom: 0;
-		padding: #{utility.rem(24)};
 		display: flex;
 		flex-direction: column;
 		gap: #{utility.rem(24)};
+		padding: #{utility.rem(24)};
+
 		@include breakpoints.media-down('xl') {
-			padding: #{utility.rem(16)};
-			gap: #{utility.rem(0)};
 			top: 0;
+			gap: #{utility.rem(0)};
+			padding: #{utility.rem(16)};
 		}
+
 		@include breakpoints.media-down('mmmd') {
 			top: 0;
-			padding: #{utility.rem(16)};
 			gap: #{utility.rem(0)};
+			padding: #{utility.rem(16)};
 		}
+
 		.farming__category {
+			max-width: #{utility.rem(460)};
 			color: #fff;
-			font-size: #{utility.rem(24)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(24)};
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.48)};
-			max-width: #{utility.rem(460)};
+
 			@include breakpoints.media-down('xl') {
-				font-size: #{utility.rem(16)};
-				font-style: normal;
+				width: 90%;
 				font-weight: 500;
+				font-style: normal;
+				font-size: #{utility.rem(16)};
 				line-height: 115%;
 				letter-spacing: #{utility.rem(-0.32)};
-				width: 90%;
 			}
 		}
 	}
+
 	&__category-wrapper {
 		display: flex;
-		align-items: center;
 		gap: #{utility.rem(16)};
+		align-items: center;
 	}
+
 	&__category-mark {
 		width: #{utility.rem(16)};
 		height: #{utility.rem(16)};
-		border-radius: #{utility.rem(9)};
 		border: 2px solid var(--brand);
+		border-radius: #{utility.rem(9)};
 	}
+
 	&__categories {
 		display: grid;
 		gap: #{utility.rem(16)};

@@ -4,7 +4,7 @@ import TheHeader from '~/components/core/the-header.vue';
 
 <template>
 	<div class="page-container">
-		<YandexVerification />
+		<yandex-verification />
 		<the-header />
 		<nuxt-page />
 	</div>
@@ -12,11 +12,13 @@ import TheHeader from '~/components/core/the-header.vue';
 <style scoped lang="scss">
 @use 'assets/styles/utility';
 @use 'assets/styles/breakpoints';
-#__nuxt {
-	display: grid;
-}
+
+// #__nuxt {
+// 	display: grid;
+// }
+
 .page-container {
-	padding-bottom: #{utility.rem(16)};
 	position: relative;
+	padding-bottom: #{utility.rem(16)};
 }
 </style>

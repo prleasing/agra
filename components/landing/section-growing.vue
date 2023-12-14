@@ -142,39 +142,47 @@ onMounted(() => {
 .growing {
 	:deep(img) {
 		border-radius: #{utility.rem(16)};
+
 		@include breakpoints.media-down('xl') {
 			object-fit: cover;
 			width: 100%;
 		}
 	}
+
 	&__picture {
 		position: relative;
 		margin-bottom: #{utility.rem(24)};
+
 		> span {
 			position: absolute;
 			bottom: 0;
 		}
 	}
+
 	&__icon-wrapper {
-		padding: #{utility.rem(12)};
-		background-color: var(--brand);
+		display: flex;
 		width: #{utility.rem(56)};
 		height: #{utility.rem(56)};
+		padding: #{utility.rem(12)};
 		border-radius: #{utility.rem(100)};
-		display: flex;
+		background-color: var(--brand);
+
 		@include breakpoints.media-down('xl') {
 			width: #{utility.rem(32)};
 			height: #{utility.rem(32)};
 			padding: #{utility.rem(4)};
 		}
+
 		.icon {
 			width: #{utility.rem(32)};
 			color: #fff;
+
 			@include breakpoints.media-down('xl') {
 				width: #{utility.rem(24)};
 			}
 		}
 	}
+
 	&__warning {
 		display: flex;
 		gap: #{utility.rem(24)};
@@ -183,34 +191,38 @@ onMounted(() => {
 		margin-top: #{utility.rem(24)};
 		padding: #{utility.rem(24)};
 		padding-right: #{utility.rem(32)};
-		border-radius: #{utility.rem(16)} #{utility.rem(16)} 0px 0px;
 		border: 1px solid #eaecf0;
 		border-bottom: unset;
+		border-radius: #{utility.rem(16)} #{utility.rem(16)} 0 0;
+
 		@include breakpoints.media-down('xl') {
-			border-radius: unset;
+			display: grid;
+			grid-template-columns: 1fr 7fr;
+			gap: #{utility.rem(16)};
 			align-items: flex-start;
 			padding: #{utility.rem(16)};
 			padding-right: #{utility.rem(16)};
-			gap: #{utility.rem(16)};
-			display: grid;
-			grid-template-columns: 1fr 7fr;
 			border-bottom: 1px solid #eaecf0;
+			border-radius: unset;
 		}
+
 		> span {
 			color: #1d2939;
-			font-size: #{utility.rem(24)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(24)};
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.48)};
+
 			@include breakpoints.media-down('xl') {
-				font-size: #{utility.rem(18)};
-				font-style: normal;
 				font-weight: 500;
+				font-style: normal;
+				font-size: #{utility.rem(18)};
 				line-height: 115%;
 				letter-spacing: #{utility.rem(-0.36)};
 			}
 		}
+
 		.icon {
 			@include breakpoints.media-down('xl') {
 				width: unset;
@@ -218,113 +230,135 @@ onMounted(() => {
 			}
 		}
 	}
+
 	&__big-pack,
 	&__pack {
 		display: flex;
 		align-items: center;
+		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
 		border: 1px solid #eaecf0;
+
 		// border-top: unset;
 		// max-width: #{utility.rem(319)};
-		border-radius: 0px 0px 0px #{utility.rem(16)};
-		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
+		border-radius: 0 0 0 #{utility.rem(16)};
+
 		@include breakpoints.media-down('xl') {
 			width: 100%;
 			max-width: unset;
-			border-radius: unset;
 			padding: #{utility.rem(16)};
 			border-top: unset;
+			border-radius: unset;
 		}
+
 		.icon {
 			width: #{utility.rem(32)};
+
 			@include breakpoints.media-down('xl') {
 				width: #{utility.rem(24)};
 			}
 		}
+
 		> span {
-			padding-left: #{utility.rem(16)};
 			padding-right: #{utility.rem(16)};
+			padding-left: #{utility.rem(16)};
 			color: #1d2939;
-			font-size: #{utility.rem(24)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(24)};
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.48)};
+
 			@include breakpoints.media-down('xl') {
-				font-size: #{utility.rem(18)};
-				font-style: normal;
 				font-weight: 500;
+				font-style: normal;
+				font-size: #{utility.rem(18)};
 				line-height: 115%;
 				letter-spacing: #{utility.rem(-0.36)};
 			}
 		}
 	}
+
 	&__big-pack {
-		border-radius: unset;
 		border-left: unset;
+		border-radius: unset;
+
 		@include breakpoints.media-down('xl') {
 			border-left: 1px solid #eaecf0;
 		}
 	}
+
 	&__separator {
-		border-left: 1px solid #667085;
 		height: #{utility.rem(16)};
+		border-left: 1px solid #667085;
 	}
+
 	&__separator-nomobile {
-		border-left: 1px solid #667085;
 		height: #{utility.rem(16)};
+		border-left: 1px solid #667085;
+
 		@include breakpoints.media-down('xl') {
 			border-left: unset;
 		}
 	}
+
 	&__delivery {
 		display: flex;
 		align-items: center;
-		border: 1px solid #eaecf0;
-		border-left: unset;
+
 		// border-top: unset;
 		max-width: #{utility.rem(404)};
-		border-radius: 0px #{utility.rem(16)} #{utility.rem(16)} 0px;
 		padding: #{utility.rem(24)} #{utility.rem(32)} #{utility.rem(24)} #{utility.rem(32)};
+		border: 1px solid #eaecf0;
+		border-left: unset;
+		border-radius: 0 #{utility.rem(16)} #{utility.rem(16)} 0;
+
 		@include breakpoints.media-down('xl') {
-			border-left: 1px solid #eaecf0;
-			border-radius: 0px 0px #{utility.rem(16)} #{utility.rem(16)};
 			width: 100%;
 			max-width: unset;
 			padding: #{utility.rem(16)};
 			border-top: unset;
+			border-left: 1px solid #eaecf0;
+			border-radius: 0 0 #{utility.rem(16)} #{utility.rem(16)};
 		}
+
 		.icon {
 			width: #{utility.rem(32)};
+
 			@include breakpoints.media-down('xl') {
 				width: #{utility.rem(24)};
 			}
 		}
+
 		.growing__pack-info {
-			padding-left: #{utility.rem(16)};
 			padding-right: #{utility.rem(16)};
+			padding-left: #{utility.rem(16)};
 			color: #1d2939;
-			font-size: #{utility.rem(24)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(24)};
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.48)};
+
 			@include breakpoints.media-down('xl') {
-				font-size: #{utility.rem(18)};
-				font-style: normal;
+				padding-right: #{utility.rem(8)};
+				padding-left: #{utility.rem(8)};
 				font-weight: 500;
+				font-style: normal;
+				font-size: #{utility.rem(18)};
 				line-height: 115%;
 				letter-spacing: #{utility.rem(-0.36)};
-				padding-left: #{utility.rem(8)};
-				padding-right: #{utility.rem(8)};
 			}
 		}
 	}
+
 	&__delivery-info {
 		display: flex;
+
 		@include breakpoints.media-down('xl') {
 			flex-direction: column;
 		}
 	}
+
 	&__masonry-item {
 		display: flex;
 		flex-direction: column;
@@ -340,24 +374,28 @@ onMounted(() => {
 			color: var(--brand);
 		}
 	}
+
 	&__delivery-title {
-		padding-left: #{utility.rem(16)};
 		padding-right: #{utility.rem(16)};
-		font-size: #{utility.rem(24)};
-		font-style: normal;
+		padding-left: #{utility.rem(16)};
 		font-weight: 500;
+		font-style: normal;
+		font-size: #{utility.rem(24)};
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
+
 		@include breakpoints.media-down('xl') {
 			color: #1d2939;
-			font-size: #{utility.rem(18)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(18)};
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.36)};
 		}
 	}
+
 	&__description {
+		z-index: 1;
 		display: flex;
 		margin-top: #{utility.rem(24)};
 		margin-bottom: #{utility.rem(32)};
@@ -368,11 +406,11 @@ onMounted(() => {
 		line-height: normal;
 		letter-spacing: #{utility.rem(-0.64)};
 		text-align: center;
-		z-index: 1;
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(20)};
-			font-style: normal;
 			font-weight: 600;
+			font-style: normal;
+			font-size: #{utility.rem(20)};
 			line-height: normal;
 			letter-spacing: #{utility.rem(-0.4)};
 		}
@@ -386,6 +424,7 @@ onMounted(() => {
 		padding-top: #{utility.rem(42)};
 		padding-bottom: #{utility.rem(42)};
 		border-top: 1px solid #eaecf0;
+
 		@include breakpoints.media-down('xl') {
 			grid-template-columns: 1fr;
 			padding-top: #{utility.rem(16)};
@@ -400,14 +439,16 @@ onMounted(() => {
 		font-size: #{utility.rem(24)};
 		line-height: normal;
 		letter-spacing: #{utility.rem(-0.48)};
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(18)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(18)};
 			line-height: normal;
 			letter-spacing: #{utility.rem(-0.36)};
 		}
 	}
+
 	&__grain-title,
 	&__grain,
 	&__grain-binary {
@@ -419,10 +460,11 @@ onMounted(() => {
 		font-size: #{utility.rem(24)};
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.48)};
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(18)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(18)};
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.36)};
 		}
@@ -432,6 +474,7 @@ onMounted(() => {
 			color: var(--brand);
 		}
 	}
+
 	&__grain-binary {
 		display: flex;
 		gap: #{utility.rem(12)};
@@ -451,38 +494,45 @@ onMounted(() => {
 			font-size: #{utility.rem(24)};
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.72)};
+
 			@include breakpoints.media-down('xl') {
-				font-size: #{utility.rem(18)};
-				font-style: normal;
+				display: none;
 				font-weight: 500;
+				font-style: normal;
+				font-size: #{utility.rem(18)};
 				line-height: 135%;
 				letter-spacing: #{utility.rem(-0.36)};
-				display: none;
 			}
 		}
 	}
+
 	&__grain-title,
 	&__grain {
 		display: flex;
 		gap: #{utility.rem(12)};
 		padding: #{utility.rem(16)};
 		padding-right: #{utility.rem(24)};
+
 		@include breakpoints.media-down('xl') {
 			padding: #{utility.rem(8)};
 			padding-right: #{utility.rem(16)};
 		}
 	}
+
 	&__grain-title {
 		background-color: var(--brand);
 		color: #fff;
+
 		.icon {
 			color: #fff;
 		}
 	}
+
 	&__grain-solo {
 		display: flex;
-		gap: #{utility.rem(12)};
 		flex-wrap: wrap;
+		gap: #{utility.rem(12)};
+
 		@include breakpoints.media-down('xl') {
 			gap: #{utility.rem(8)};
 		}
@@ -516,20 +566,23 @@ onMounted(() => {
 		font-size: #{utility.rem(24)};
 		line-height: normal;
 		letter-spacing: #{utility.rem(-0.48)};
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(16)};
-			font-style: normal;
-			font-weight: 500;
-			line-height: normal;
-			letter-spacing: #{utility.rem(-0.32)};
+			right: #{utility.rem(16)};
 			flex-direction: column;
+			gap: #{utility.rem(8)};
 			justify-content: flex-start;
 			align-items: flex-start;
-			gap: #{utility.rem(8)};
-			right: #{utility.rem(16)};
+			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(16)};
+			line-height: normal;
+			letter-spacing: #{utility.rem(-0.32)};
 		}
+
 		.icon {
 			width: #{utility.rem(44)};
+
 			@include breakpoints.media-down('xl') {
 				width: #{utility.rem(24)};
 			}
@@ -545,15 +598,17 @@ onMounted(() => {
 		padding-left: #{utility.rem(20)};
 		border: 1px solid #eaecf0;
 		border-radius: #{utility.rem(16)};
+
 		@include breakpoints.media-down('md') {
 			flex-direction: column;
 		}
 
 		.icon {
 			width: #{utility.rem(44)};
+
 			@include breakpoints.media-down('xl') {
-				width: #{utility.rem(24)};
 				display: block;
+				width: #{utility.rem(24)};
 			}
 		}
 
@@ -569,13 +624,15 @@ onMounted(() => {
 			font-size: #{utility.rem(24)};
 			line-height: normal;
 			letter-spacing: #{utility.rem(-0.48)};
+
 			@include breakpoints.media-down('xl') {
-				font-size: #{utility.rem(18)};
-				font-style: normal;
 				font-weight: 500;
+				font-style: normal;
+				font-size: #{utility.rem(18)};
 				line-height: normal;
 				letter-spacing: #{utility.rem(-0.36)};
 			}
+
 			@include breakpoints.media-down('md') {
 				justify-content: flex-start;
 			}

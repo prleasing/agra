@@ -29,6 +29,7 @@ definePageMeta({
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/utility';
+
 .section {
 	display: grid;
 }

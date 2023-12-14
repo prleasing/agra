@@ -103,83 +103,98 @@ function success() {
 @use 'assets/styles/utility';
 @use 'assets/styles/components/button';
 @use 'assets/styles/breakpoints';
+
 .form {
 	&__container {
-		// background-color: #1d2939;
-		background-color: #f6f7f7;
-		padding: #{utility.rem(24)};
 		display: grid;
 		gap: #{utility.rem(16)};
-		border-radius: #{utility.rem(16)};
 		margin-top: #{utility.rem(24)};
+		padding: #{utility.rem(24)};
+		border-radius: #{utility.rem(16)};
+
+		// background-color: #1d2939;
+		background-color: #f6f7f7;
 	}
+
 	&__inputs {
 		display: grid;
 		grid-template-columns: 8fr 4fr;
 		gap: #{utility.rem(16)};
+
 		@include breakpoints.media-down('xl') {
 			grid-template-columns: 1fr;
 		}
 	}
+
 	&__confirm {
 		display: flex;
 		gap: #{utility.rem(24)};
 		align-items: center;
+
 		@include breakpoints.media-down('xl') {
 			flex-direction: column;
 			align-items: flex-start;
 		}
+
 		.icon {
 			width: #{utility.rem(32)};
 		}
+
 		button {
 			display: flex;
-			background-color: #fff;
-			border: none;
-			color: #29a13e;
-			font-size: #{utility.rem(24)};
-			font-style: normal;
-			font-weight: 500;
-			line-height: 135%;
-			letter-spacing: #{utility.rem(-0.96)};
+			gap: #{utility.rem(16)};
 			padding: #{utility.rem(16)};
 			padding-left: #{utility.rem(24)};
-			gap: #{utility.rem(16)};
+			border: none;
 			border-radius: #{utility.rem(12)};
+			background-color: #fff;
+			color: #29a13e;
+			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(24)};
+			line-height: 135%;
+			letter-spacing: #{utility.rem(-0.96)};
+			cursor: pointer;
 			transition:
 				background-color 200ms ease-in-out,
 				color 200ms ease-in-out;
-			cursor: pointer;
+
 			@include breakpoints.media-down('xl') {
+				justify-content: space-between;
+				align-items: center;
 				order: 2;
-				font-size: #{utility.rem(18)};
-				font-style: normal;
+				background-color: #fff;
 				font-weight: 500;
+				font-style: normal;
+				font-size: #{utility.rem(18)};
 				line-height: 135%;
 				letter-spacing: #{utility.rem(-1.08)};
-				background-color: #fff;
-				align-items: center;
-				justify-content: space-between;
 			}
+
 			&:disabled {
+				background: rgb(29 41 57 / 16%);
+				color: #fff;
+
 				// opacity: 0.5;
 				pointer-events: none;
-				color: #fff;
-				background: rgba(29, 41, 57, 0.16);
 			}
+
 			@include utility.has-hover {
 				background-color: var(--brand);
-				color: rgba(255, 255, 255, 1);
+				color: rgb(255 255 255 / 100%);
 			}
 		}
+
 		.checkbox {
 			align-items: center;
+
 			:deep(svg) {
 				width: #{utility.rem(20)};
 			}
 		}
 	}
 }
+
 .success {
 	display: flex;
 	justify-content: space-between;
@@ -188,11 +203,13 @@ function success() {
 	padding: #{utility.rem(24)};
 	border-radius: #{utility.rem(16)};
 	background-color: var(--brand);
+
 	@include breakpoints.media-down('xl') {
-		width: 100%;
 		gap: #{utility.rem(16)};
+		width: 100%;
 		padding: #{utility.rem(16)};
 	}
+
 	p {
 		color: #fff;
 		font-weight: 600;
@@ -200,6 +217,7 @@ function success() {
 		font-size: #{utility.rem(42)};
 		line-height: 110%;
 		letter-spacing: #{utility.rem(-2.1)};
+
 		@include breakpoints.media-down('xl') {
 			font-weight: 500;
 			font-style: normal;
@@ -223,40 +241,48 @@ function success() {
 			background-color 200ms ease-in-out,
 			color 200ms ease-in-out;
 		backdrop-filter: blur(12px);
+
 		@include breakpoints.media-down('xl') {
-			padding: #{utility.rem(16)};
-			font-size: #{utility.rem(20)};
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			padding: #{utility.rem(16)};
+			font-size: #{utility.rem(20)};
 		}
+
 		@include utility.has-hover {
 			background-color: #1d2939;
 			color: #fff;
 		}
 	}
 }
+
 :deep(.field) {
 	background: #fff;
 	color: #1d2939;
 }
+
 :deep(.field__control::placeholder) {
 	// background: #fff;
-	color: rgba(29, 41, 57, 0.42);
+	color: rgb(29 41 57 / 42%);
 }
+
 :deep(.checkbox) {
 	color: #1d2939;
+
 	.checkbox__indicator {
-		border: 2px solid #1d2939;
 		display: flex;
 		justify-content: center;
+		border: 2px solid #1d2939;
 	}
 }
+
 :deep(.checkbox.checkbox--checked .checkbox__indicator) {
+	border: none;
 	background-color: var(--brand);
 	color: #fff;
-	border: none;
 }
+
 :deep(.field-error) {
 	display: block;
 	width: 100%;

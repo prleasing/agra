@@ -99,12 +99,14 @@ onClickOutside(target, () => {
 	align-items: center;
 	border: none;
 	background-color: transparent;
-	cursor: pointer;
 	color: #1d2939;
+	cursor: pointer;
+
 	@include breakpoints.media-down('xl') {
 		padding: 0;
 	}
 }
+
 .stepper__counter-button:hover .icon {
 	color: var(--brand);
 }
@@ -157,10 +159,11 @@ onClickOutside(target, () => {
 	letter-spacing: #{utility.rem(-0.48)};
 	text-align: center;
 	appearance: none;
+
 	@include breakpoints.media-down('xl') {
-		font-size: #{utility.rem(18)};
-		font-style: normal;
 		font-weight: 500;
+		font-style: normal;
+		font-size: #{utility.rem(18)};
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.36)};
 	}
@@ -202,10 +205,11 @@ input[type='number']::-webkit-outer-spin-button {
 	line-height: 115%;
 	letter-spacing: #{utility.rem(-0.48)};
 	pointer-events: none;
+
 	@include breakpoints.media-down('xl') {
-		font-size: #{utility.rem(18)};
-		font-style: normal;
 		font-weight: 500;
+		font-style: normal;
+		font-size: #{utility.rem(18)};
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.36)};
 	}

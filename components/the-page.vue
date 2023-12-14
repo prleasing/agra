@@ -13,6 +13,7 @@
 .page {
 	display: grid;
 	gap: #{utility.rem(150)};
+
 	@include breakpoints.media-down('xl') {
 		gap: #{utility.rem(64)};
 	}

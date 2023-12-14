@@ -80,14 +80,15 @@ const classes = computed(() => {
 	line-height: 135%;
 	letter-spacing: #{utility.rem(-0.72)};
 	cursor: pointer;
+
 	@include breakpoints.media-down('xl') {
-		font-size: #{utility.rem(16)};
-		font-style: normal;
-		font-weight: 500;
-		line-height: 115%;
-		letter-spacing: #{utility.rem(-0.64)};
 		gap: #{utility.rem(12)};
 		align-items: center;
+		font-weight: 500;
+		font-style: normal;
+		font-size: #{utility.rem(16)};
+		line-height: 115%;
+		letter-spacing: #{utility.rem(-0.64)};
 	}
 
 	& &__indicator {

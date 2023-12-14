@@ -121,75 +121,44 @@ const basketHeaderContainer = computed(() => {
 	display: flex;
 	justify-content: center;
 }
+
 .header {
-	margin: 0 auto;
+	position: fixed;
+	top: #{utility.rem(16)};
+	z-index: 3;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: var(--container);
-	background-color: #fff;
-	border-radius: #{utility.rem(16)};
+	margin: 0 auto;
 	padding: #{utility.rem(8)};
-	position: fixed;
-	z-index: 3;
-	top: #{utility.rem(16)};
-	border: 1px solid rgba(255, 255, 255, 0.32);
+	border: 1px solid rgb(255 255 255 / 32%);
+	border-radius: #{utility.rem(16)};
+	background-color: #fff;
+
 	@include breakpoints.media-down('xl') {
-		width: var(--mobile-container);
-		background-color: rgba(255, 255, 255, 0.01);
-		padding-left: #{utility.rem(16)};
-		padding-right: #{utility.rem(16)};
-		backdrop-filter: blur(20px);
 		top: #{utility.rem(0)};
+		width: var(--mobile-container);
+		padding-right: #{utility.rem(16)};
+		padding-left: #{utility.rem(16)};
 		border-radius: 0 0 #{utility.rem(16)} #{utility.rem(16)};
+		background-color: rgb(255 255 255 / 1%);
+		backdrop-filter: blur(20px);
 	}
+
 	&__items-wrapper {
+		display: flex;
 		gap: #{utility.rem(16)};
+
+		@include breakpoints.media-down('xl') {
+			display: flex;
+			flex-direction: column;
+		}
+
 		:deep(.header__menu-item) {
 			@include breakpoints.media-down('xl') {
 				display: none;
 			}
-		}
-	}
-	&__logo-wrapper {
-		svg {
-			display: block;
-			@include breakpoints.media-down('xl') {
-				max-width: #{utility.rem(170)};
-			}
-		}
-	}
-	&__menu-cart-wrapper {
-		display: flex;
-		gap: #{utility.rem(8)};
-		height: 100%;
-		@include breakpoints.media-down('xl') {
-			width: 100%;
-		}
-	}
-	&__burger {
-		display: none;
-		border: none;
-		@include breakpoints.media-down('xl') {
-			display: flex;
-			// height: 48px;
-			background-color: var(--brand);
-			padding: #{utility.rem(12)};
-			border-radius: 100%;
-			min-width: #{utility.rem(48)};
-			min-height: #{utility.rem(48)};
-			align-items: center;
-			justify-content: center;
-		}
-		.icon {
-			width: #{utility.rem(24)};
-		}
-	}
-	&__items-wrapper {
-		display: flex;
-		@include breakpoints.media-down('xl') {
-			display: flex;
-			flex-direction: column;
 		}
 	}
 
@@ -203,6 +172,46 @@ const basketHeaderContainer = computed(() => {
 			width: 100%;
 			height: 100%;
 		}
+
+		svg {
+			display: block;
+
+			@include breakpoints.media-down('xl') {
+				max-width: #{utility.rem(170)};
+			}
+		}
+	}
+
+	&__menu-cart-wrapper {
+		display: flex;
+		gap: #{utility.rem(8)};
+		height: 100%;
+
+		@include breakpoints.media-down('xl') {
+			width: 100%;
+		}
+	}
+
+	&__burger {
+		display: none;
+		border: none;
+
+		@include breakpoints.media-down('xl') {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-width: #{utility.rem(48)};
+			min-height: #{utility.rem(48)};
+			padding: #{utility.rem(12)};
+			border-radius: 100%;
+
+			// height: 48px;
+			background-color: var(--brand);
+		}
+
+		.icon {
+			width: #{utility.rem(24)};
+		}
 	}
 
 	&__menu-item {
@@ -213,13 +222,16 @@ const basketHeaderContainer = computed(() => {
 		font-size: #{utility.rem(18)};
 		line-height: 135%;
 		letter-spacing: #{utility.rem(-0.54)};
+
 		@include breakpoints.media-down('xl') {
 			display: flex;
 		}
+
 		a {
 			text-decoration: none;
 		}
 	}
+
 	&__menu-item:hover a {
 		text-decoration: underline;
 	}
@@ -229,37 +241,43 @@ const basketHeaderContainer = computed(() => {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: #{utility.rem(12)};
 		width: #{utility.rem(56)};
 		height: #{utility.rem(56)};
 		margin-left: #{utility.rem(16)};
+		padding: #{utility.rem(12)};
+		border: 1px solid #1d2939;
 		border-radius: #{utility.rem(100)};
 		background-color: #fff;
-		border: 1px solid #1d2939;
 		transition: background-color 0.2s ease-in-out;
+
 		@include breakpoints.media-down('xl') {
-			border: none;
 			width: #{utility.rem(48)};
 			height: #{utility.rem(48)};
+			border: none;
 		}
+
 		.icon {
 			width: #{utility.rem(24)};
 			transition: background-color 0.2s ease-in-out;
 		}
+
 		> a {
 			position: absolute;
-			width: 100%;
-			height: 100%;
 			display: flex;
 			justify-content: center;
+			width: 100%;
+			height: 100%;
 		}
 	}
+
 	&__cart:hover .icon {
 		color: #fff;
 	}
+
 	&__cart:hover {
 		background-color: #1d2939;
 	}
+
 	&__cart-info {
 		position: absolute;
 		top: #{utility.rem(-3)};
@@ -272,6 +290,7 @@ const basketHeaderContainer = computed(() => {
 		border-radius: #{utility.rem(100)};
 		background-color: var(--brand);
 		text-align: center;
+
 		@include breakpoints.media-down('xl') {
 			display: flex;
 			justify-content: center;
@@ -288,28 +307,30 @@ const basketHeaderContainer = computed(() => {
 		}
 	}
 }
+
 :deep(.header__menu-item) {
 	padding: #{utility.rem(16)} 0 #{utility.rem(16)};
 	color: #1d2939;
-	font-weight: 500;
+	font-weight: 600;
 	font-style: normal;
 	font-size: #{utility.rem(18)};
-	line-height: 135%;
-	letter-spacing: #{utility.rem(-0.54)};
 	font-size: #{utility.rem(20)};
-	font-style: normal;
-	font-weight: 600;
 	line-height: 115%;
+	letter-spacing: #{utility.rem(-0.54)};
 	letter-spacing: #{utility.rem(-0.8)};
+
 	a {
 		text-decoration: none;
 	}
 }
+
 :deep(.header__menu-item:hover a) {
 	text-decoration: underline;
 }
+
 :deep(.mobile__menu-item) {
 	display: none;
+
 	@include breakpoints.media-down('xl') {
 		display: block;
 	}

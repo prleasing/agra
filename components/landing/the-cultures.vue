@@ -19,9 +19,11 @@ const productStore = useStoreProduct();
 	grid-template-columns: repeat(3, 1fr);
 	gap: #{utility.rem(16)};
 	aspect-ratio: 1/1;
+
 	@include breakpoints.media-down('xl') {
 		grid-template-columns: 1fr 1fr;
 	}
+
 	@include breakpoints.media-down('mmd') {
 		grid-template-columns: 1fr;
 	}

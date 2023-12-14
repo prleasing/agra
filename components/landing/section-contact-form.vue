@@ -45,13 +45,16 @@ const email = computed(() => runtimeConfig.email);
 		grid-template-columns: auto #{utility.rem(616)};
 		gap: #{utility.rem(24)};
 		background-color: #1d2939;
+
 		@include breakpoints.media-down('xl') {
 			grid-template-columns: 1fr;
 		}
+
 		.maps {
 			height: 100%;
 			border: 1px solid #eaecf0;
 			border-radius: #{utility.rem(16)};
+
 			@include breakpoints.media-down('xl') {
 				height: #{utility.rem(288)};
 			}
@@ -109,19 +112,21 @@ const email = computed(() => runtimeConfig.email);
 	gap: #{utility.rem(48)};
 	align-items: start;
 }
-.section-contact-form:after {
+
+.section-contact-form::after {
 	// content: url('/images/background-bottom.png');
 	content: '';
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	background-image: url('/images/background-bottom.png');
-	background-repeat: no-repeat;
-	background-size: #{utility.rem(1920)} #{utility.rem(644)};
-	width: 100%;
-	height: #{utility.rem(644)};
 	z-index: -1;
 	overflow: hidden;
+	width: 100%;
+	height: #{utility.rem(644)};
+	background-image: url('/images/background-bottom.png');
+	background-size: #{utility.rem(1920)} #{utility.rem(644)};
+	background-repeat: no-repeat;
+
 	@include breakpoints.media-down('xl') {
 		// content: url('/images/background-bottom.png');
 		// position: absolute;
@@ -131,8 +136,9 @@ const email = computed(() => runtimeConfig.email);
 		// z-index: -1;
 	}
 }
+
 :deep(.field__control::placeholder) {
 	// background: #fff;
-	color: rgba(255, 255, 255, 0.42);
+	color: rgb(255 255 255 / 42%);
 }
 </style>

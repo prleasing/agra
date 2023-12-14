@@ -51,10 +51,12 @@ defineProps({
 <style lang="scss">
 @use 'assets/styles/utility';
 @use 'assets/styles/breakpoints';
+
 .contacts {
 	display: flex;
 	justify-content: space-between;
 	color: #fff;
+
 	@include breakpoints.media-down('xl') {
 		flex-direction: column;
 		gap: #{utility.rem(16)};
@@ -78,6 +80,7 @@ defineProps({
 		}
 	}
 }
+
 .social-links {
 	display: flex;
 	gap: #{utility.rem(8)};

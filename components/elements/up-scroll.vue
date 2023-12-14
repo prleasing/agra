@@ -17,32 +17,37 @@ const scrollTop = () => {
 <style scoped lang="scss">
 @use 'assets/styles/utility';
 @use 'assets/styles/breakpoints';
+
 .up-scroll {
 	position: absolute;
-	bottom: #{utility.rem(16)};
 	right: #{utility.rem(16)};
-	padding: #{utility.rem(16)};
-	background-color: #fff;
-	border-radius: #{utility.rem(100)};
+	bottom: #{utility.rem(16)};
 	max-height: #{utility.rem(64)};
+	padding: #{utility.rem(16)};
 	border: none;
+	border-radius: #{utility.rem(100)};
+	background-color: #fff;
 	cursor: pointer;
 	transition: background-color 200ms ease-in-out;
+
 	@include breakpoints.media-down('xl') {
 		position: unset;
-		margin: 0 auto;
 		max-width: #{utility.rem(64)};
+		margin: 0 auto;
 		margin-bottom: #{utility.rem(42)};
 	}
+
 	.icon {
 		width: #{utility.rem(32)};
 		color: var(--brand);
 		transition: color 200ms ease-in-out;
 	}
 }
+
 .up-scroll:hover {
 	background-color: var(--brand);
 }
+
 .up-scroll:hover .icon {
 	color: #fff;
 }

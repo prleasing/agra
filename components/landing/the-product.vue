@@ -115,18 +115,21 @@ function summaShow() {
 @use 'assets/styles/breakpoints';
 
 .product {
-	max-height: #{utility.rem(379)};
 	position: relative;
+	max-height: #{utility.rem(379)};
 	border-radius: #{utility.rem(16)};
+
 	@include breakpoints.media-down('xl') {
 		display: grid;
 	}
+
 	@include breakpoints.media-down('mmd') {
 		display: block;
 		width: 100%;
-		max-height: unset;
 		height: auto;
+		max-height: unset;
 	}
+
 	&__counter-button {
 		border: none;
 		background-color: #fff;
@@ -149,16 +152,17 @@ function summaShow() {
 	}
 
 	&__total-price {
+		position: relative;
 		display: flex;
 		gap: #{utility.rem(4)};
 		justify-content: center;
 		align-items: center;
 		width: 50%;
 		padding: #{utility.rem(16)};
+		border: none;
 		border-radius: 0 #{utility.rem(8)} #{utility.rem(8)} 0;
 		background-color: var(--brand);
-		position: relative;
-		border: none;
+
 		> a {
 			position: absolute;
 			top: 0;
@@ -167,56 +171,69 @@ function summaShow() {
 			height: 100%;
 		}
 	}
+
 	&__discount-price {
-		padding-left: #{utility.rem(8)};
-		padding-right: #{utility.rem(8)};
-		border-radius: #{utility.rem(100)};
-		background-color: rgba(255, 255, 255, 0.24);
 		vertical-align: middle;
+		padding-right: #{utility.rem(8)};
+		padding-left: #{utility.rem(8)};
+		border-radius: #{utility.rem(100)};
+		background-color: rgb(255 255 255 / 24%);
 		text-align: center;
 	}
+
 	&__text-price {
 		color: #fff;
-		font-size: #{utility.rem(18)};
-		font-style: normal;
 		font-weight: 500;
+		font-style: normal;
+		font-size: #{utility.rem(18)};
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.36)};
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(14)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(14)};
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.28)};
 		}
 	}
 
 	&__price-title {
-		color: #fff;
-		font-weight: 500;
-		font-style: normal;
-		font-size: #{utility.rem(24)};
-		line-height: 115%;
-		letter-spacing: #{utility.rem(-0.48)};
-		opacity: 1;
 		position: absolute;
 		top: 0;
-		width: 100%;
-		height: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		width: 100%;
+		height: 100%;
+		color: #fff;
+		font-weight: 500;
+		font-style: normal;
+		font-size: #{utility.rem(24)};
+		line-height: 115%;
+		letter-spacing: #{utility.rem(-0.48)};
 		text-align: center;
+		opacity: 1;
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(18)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(18)};
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.36)};
 		}
 	}
+
 	&__price-title1 {
+		position: absolute;
+		top: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		margin: 0, auto;
 		color: #fff;
 		font-weight: 500;
 		font-style: normal;
@@ -224,15 +241,6 @@ function summaShow() {
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
 		opacity: 1;
-		width: 0%;
-		position: absolute;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		margin: 0, auto;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 
 	&__sign-currency {
@@ -250,6 +258,7 @@ function summaShow() {
 		padding: #{utility.rem(16)};
 		border-radius: #{utility.rem(8)} 0 0 #{utility.rem(8)};
 		background-color: #fff;
+
 		@include breakpoints.media-down('xl') {
 			padding: #{utility.rem(10)};
 			padding-top: #{utility.rem(16)};
@@ -268,6 +277,7 @@ function summaShow() {
 	}
 
 	&__title {
+		display: grid;
 		width: fit-content;
 		padding: #{utility.rem(16)};
 		padding-right: #{utility.rem(24)};
@@ -279,20 +289,21 @@ function summaShow() {
 		font-size: #{utility.rem(24)};
 		line-height: 115%;
 		letter-spacing: #{utility.rem(-0.48)};
-		display: grid;
+
 		@include breakpoints.media-down('xl') {
-			font-size: #{utility.rem(18)};
-			font-style: normal;
+			padding: #{utility.rem(8)};
 			font-weight: 600;
+			font-style: normal;
+			font-size: #{utility.rem(18)};
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.36)};
-			padding: #{utility.rem(8)};
 		}
+
 		> span {
 			color: #667085;
-			font-size: #{utility.rem(18)};
-			font-style: normal;
 			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(18)};
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.54)};
 		}
@@ -309,6 +320,7 @@ function summaShow() {
 		padding-bottom: #{utility.rem(16)};
 		border-radius: #{utility.rem(16)};
 		background: linear-gradient(180deg, rgb(29 41 57 / 0%) 0%, rgb(29 41 57 / 80%) 100%);
+
 		@include breakpoints.media-down('xl') {
 			position: absolute;
 			top: 0;
@@ -329,10 +341,11 @@ function summaShow() {
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.96)};
 			text-align: center;
+
 			@include breakpoints.media-down('xl') {
-				font-size: #{utility.rem(24)};
-				font-style: normal;
 				font-weight: 700;
+				font-style: normal;
+				font-size: #{utility.rem(24)};
 				line-height: 115%;
 				letter-spacing: #{utility.rem(-0.48)};
 			}
@@ -345,9 +358,10 @@ function summaShow() {
 		left: 0;
 		height: 100%;
 		border-radius: #{utility.rem(16)};
+
 		@include breakpoints.media-down('xl') {
-			width: 100%;
 			position: relative;
+			width: 100%;
 		}
 	}
 
@@ -369,6 +383,7 @@ function summaShow() {
 		opacity 300ms ease-in-out,
 		background-color 300ms ease-in-out,
 		color 300ms ease-in-out;
+
 	@include breakpoints.media-down('xl') {
 		opacity: 1;
 	}
@@ -408,6 +423,7 @@ img {
 	text-align: center;
 	appearance: none;
 }
+
 // .fade-enter-active,
 // .fade-leave-active {
 // 	transition: opacity 0.2s ease;

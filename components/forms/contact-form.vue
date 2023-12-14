@@ -83,6 +83,7 @@ const isSuccess = ref(false);
 .form {
 	:deep(.field-group) {
 		border-radius: 0;
+
 		.field {
 			border-radius: 0;
 
@@ -148,10 +149,11 @@ const isSuccess = ref(false);
 		}
 
 		&:disabled {
+			background: rgb(255 255 255 / 17%);
+			color: rgb(255 255 255 / 22%);
+
 			// opacity: 0.5;
 			pointer-events: none;
-			background: rgba(255, 255, 255, 0.17);
-			color: rgba(255, 255, 255, 0.22);
 		}
 
 		@include utility.has-hover {
@@ -169,11 +171,13 @@ const isSuccess = ref(false);
 	padding: #{utility.rem(24)};
 	border-radius: #{utility.rem(16)};
 	background-color: var(--brand);
+
 	@include breakpoints.media-down('xl') {
+		gap: #{utility.rem(16)};
 		width: 100%;
 		padding: #{utility.rem(16)};
-		gap: #{utility.rem(16)};
 	}
+
 	p {
 		color: #fff;
 		font-weight: 600;
@@ -181,6 +185,7 @@ const isSuccess = ref(false);
 		font-size: #{utility.rem(42)};
 		line-height: 110%;
 		letter-spacing: #{utility.rem(-2.1)};
+
 		@include breakpoints.media-down('xl') {
 			font-weight: 500;
 			font-style: normal;
@@ -206,10 +211,12 @@ const isSuccess = ref(false);
 			background-color 200ms ease-in-out,
 			color 200ms ease-in-out;
 		backdrop-filter: blur(12px);
+
 		@include breakpoints.media-down('xl') {
 			padding: #{utility.rem(16)};
 			font-size: #{utility.rem(20)};
 		}
+
 		@include utility.has-hover {
 			background-color: #1d2939;
 			color: #fff;
