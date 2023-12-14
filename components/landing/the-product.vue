@@ -72,7 +72,6 @@ const count = computed({
 		return basket.items[props.item.id];
 	},
 	set(value) {
-		console.log(value);
 		basket.items[props.item.id] = value;
 	}
 });
