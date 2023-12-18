@@ -1,7 +1,17 @@
 import { defineEventHandler, readBody, setResponseStatus } from 'h3';
 import parsePhoneNumber from 'libphonenumber-js';
 import nodemailer from 'nodemailer';
-import { boolean, getOutput, getPipeIssues, maxLength, minLength, object, safeParseAsync, string } from 'valibot';
+import {
+	boolean,
+	getOutput,
+	getPipeIssues,
+	maxLength,
+	minLength,
+	nullable,
+	object,
+	safeParseAsync,
+	string
+} from 'valibot';
 
 import { useRuntimeConfig } from '#imports';
 
@@ -23,11 +33,12 @@ const FormRequestSchema = object({
 			}
 			return getPipeIssues('custom', 'Неверный формат номера телефона', input);
 		}
-	])
+	]),
+	text: nullable(string('Имя должно быть строкой', [minLength(3, 'Введите сообщение')]))
 });
 export default defineEventHandler(async (event) => {
 	try {
-		const body = (await readBody(event)) as { name: string; phone: string };
+		const body = (await readBody(event)) as { name: string; phone: string; text: string };
 		const result = await safeParseAsync(FormRequestSchema, body, { abortEarly: false });
 		if (!result.success) {
 			const errors = result.issues.map((item) => {
@@ -51,7 +62,8 @@ export default defineEventHandler(async (event) => {
 		});
 
 		const template = `<span>Имя:  ${body.name}  </span><br>
-				<span> Телефон:  ${body.phone}  </span><br>`;
+				<span> Телефон:  ${body.phone}  </span><br>
+				${body.text ? `<span> Сообщение:  ${body.text}  </span>` : ''}<br>`;
 		await transporter.sendMail({
 			to: requestForm.to,
 			from: smtp.auth.user,
