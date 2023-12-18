@@ -52,6 +52,7 @@ const email = computed(() => runtimeConfig.email);
 
 		.maps {
 			height: 100%;
+			max-height: #{utility.rem(624)};
 			border: 1px solid #eaecf0;
 			border-radius: #{utility.rem(16)};
 
