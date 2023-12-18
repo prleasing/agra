@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { Checkbox, FieldPhone, FieldText, ModalRoot } from '@ui';
+import { Checkbox, FieldPhone, FieldText, FieldTextarea, ModalRoot } from '@ui';
 import { $fetch } from 'ofetch';
 
 import { Icons32ArrowUpRight } from '#icons';
 import { reactive, ref } from '#imports';
 import BaseIcon from '~/components/elements/base-icon';
+import { useStoreForm } from '~/store/storeForm';
 
-const state = reactive({ name: '', phone: '', agree: false });
+// const state = reactive({ name: '', phone: '', text: '', agree: false });
+const formFields = useStoreForm();
 
 interface ResponseError {
 	response: 'error';
@@ -24,14 +26,18 @@ function clearError() {
 }
 const isLoading = ref(false);
 async function send() {
-	if (isLoading.value || !state.agree) {
+	if (isLoading.value || !formFields.state.agree) {
 		return null;
 	}
 	isLoading.value = true;
 	try {
 		const data = await $fetch<ResponseError | { response: 'ok' }>('/api/request', {
 			method: 'POST',
-			body: state,
+			body: {
+				...formFields.state,
+				text: formFields.state.text.length > 0 ? formFields.state.text : null
+			},
+			// body: formFields.state,
 			ignoreResponseError: true
 		});
 		clearError();
@@ -39,30 +45,42 @@ async function send() {
 			Object.assign(errors, data.errors);
 		} else {
 			isSuccess.value = true;
-			Object.assign(state, { name: '', phone: '', agree: false });
+			Object.assign(formFields.state, { name: '', phone: '', text: '', agree: false });
 		}
 	} finally {
 		isLoading.value = false;
 	}
 }
-
 const isSuccess = ref(false);
 </script>
 
 <template>
 	<form class="form" @submit.prevent.stop="send">
 		<div>
-			<field-text id="name" v-model="state.name" v-model:error="errors.name" label="Имя" placeholder="Ваше имя" />
+			<field-text
+				id="name"
+				v-model="formFields.state.name"
+				v-model:error="errors.name"
+				label="Имя"
+				placeholder="Ваше имя"
+			/>
 			<field-phone
 				id="phone"
-				v-model="state.phone"
+				v-model="formFields.state.phone"
 				v-model:error="errors.phone"
 				label="Телефон"
 				placeholder="+7 999 99-99-999"
 			/>
+			<field-textarea
+				id="text"
+				v-model="formFields.state.text"
+				v-model:error="errors.text"
+				label="Сообщение"
+				placeholder="Место для Вашего сообщения"
+			/>
 		</div>
-		<checkbox v-model="state.agree" name="agree">Я согласен на обработку персональных данных</checkbox>
-		<button :disabled="isLoading || !state.agree" type="button" @click.prevent.stop="send">
+		<checkbox v-model="formFields.state.agree" name="agree">Я согласен на обработку персональных данных</checkbox>
+		<button :disabled="isLoading || !formFields.state.agree" type="button" @click.prevent.stop="send">
 			Обратный звонок <base-icon :icon="Icons32ArrowUpRight" />
 		</button>
 		<div v-if="errors.server" class="error">{{ errors.server }}</div>
