@@ -5,6 +5,7 @@
 			<div class="product__title">
 				{{ item.title }}
 				<span v-if="item.subtitle">{{ item.subtitle }}</span>
+				<span v-if="!item.availability" class="product__available">Нет в наличии</span>
 			</div>
 			<div v-show="count > 0" class="product__counter">
 				<stepper v-model="count" :item="item" :format="formatter" :measure="item.measure"></stepper>
@@ -38,11 +39,15 @@
 					<nuxt-link to="/basket"></nuxt-link>
 				</button>
 			</div>
-			<div v-show="!count" class="product__cost">
+			<div v-show="!count && item.availability" class="product__cost">
 				<span>{{ item.cost }} ₽/{{ item.measure }}</span>
 				<button class="product__icon-container" @click="count = 1">
 					<base-icon :icon="Icons32ShoppingCart" />
 				</button>
+			</div>
+			<div v-show="!item.availability" class="product__feedback">
+				<span>Оставить заявку</span>
+				<nuxt-link to="/#contact-form" @click="messagePut"></nuxt-link>
 			</div>
 		</div>
 	</div>
@@ -56,9 +61,11 @@ import BaseIcon from '~/components/elements/base-icon';
 import BasePicture from '~/components/elements/base-picture';
 import Stepper from '~/components/elements/stepper';
 import { useStoreBasket } from '~/store/storeBasket';
+import { useStoreForm } from '~/store/storeForm';
 import type { Product } from '~/store/storeProduct';
 import { formatter } from '~/utils/formatter.ts';
 
+const formField = useStoreForm();
 const props = defineProps({
 	item: {
 		type: Object as PropType<Product>,
@@ -108,6 +115,9 @@ function textShow() {
 }
 function summaShow() {
 	over.value = false;
+}
+function messagePut() {
+	formField.state.text = 'Прошу уведомить о поступлении товара "Сено"';
 }
 </script>
 <style scoped lang="scss">
@@ -196,6 +206,41 @@ function summaShow() {
 			line-height: 115%;
 			letter-spacing: #{utility.rem(-0.28)};
 		}
+	}
+
+	&__feedback {
+		display: flex;
+		justify-content: center;
+		padding: #{utility.rem(18)} #{utility.rem(16)} #{utility.rem(18)};
+		border: 1px solid #fff;
+		border-radius: #{utility.rem(8)};
+		cursor: pointer;
+		backdrop-filter: blur(12px);
+
+		> span {
+			color: #fff;
+			font-weight: 500;
+			font-style: normal;
+			font-size: #{utility.rem(24)};
+			line-height: 115%;
+			letter-spacing: #{utility.rem(-0.48)};
+		}
+
+		> a {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__feedback:hover span {
+		color: var(--brand);
+	}
+
+	&__feedback:hover {
+		border: 1px solid var(--brand);
 	}
 
 	&__price-title {
@@ -299,13 +344,17 @@ function summaShow() {
 			letter-spacing: #{utility.rem(-0.36)};
 		}
 
-		> span {
+		span {
 			color: #667085;
 			font-weight: 500;
 			font-style: normal;
 			font-size: #{utility.rem(18)};
 			line-height: 135%;
 			letter-spacing: #{utility.rem(-0.54)};
+		}
+
+		.product__available {
+			color: #f00;
 		}
 	}
 
