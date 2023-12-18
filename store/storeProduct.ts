@@ -11,6 +11,7 @@ export interface Product {
 	multifyer: number;
 	discount: Discount | null;
 	image: string;
+	availability: boolean;
 	// sum?: number | undefined;
 }
 interface Discount {
@@ -32,7 +33,8 @@ export const useStoreProduct = defineStore(
 					amount: 1,
 					barrier: 10
 				},
-				image: '/images/landing/products/tritikale.jpg'
+				image: '/images/landing/products/tritikale.jpg',
+				availability: true
 			},
 			{
 				id: 2,
@@ -45,7 +47,8 @@ export const useStoreProduct = defineStore(
 					amount: 1,
 					barrier: 10
 				},
-				image: '/images/landing/products/barley.jpg'
+				image: '/images/landing/products/barley.jpg',
+				availability: true
 			},
 			{
 				id: 3,
@@ -58,7 +61,8 @@ export const useStoreProduct = defineStore(
 					amount: 1,
 					barrier: 10
 				},
-				image: '/images/landing/products/wheat.jpg'
+				image: '/images/landing/products/wheat.jpg',
+				availability: true
 			},
 			{
 				id: 4,
@@ -71,7 +75,8 @@ export const useStoreProduct = defineStore(
 					amount: 1,
 					barrier: 10
 				},
-				image: '/images/landing/products/pea.jpg'
+				image: '/images/landing/products/pea.jpg',
+				availability: true
 			},
 			{
 				id: 5,
@@ -84,7 +89,8 @@ export const useStoreProduct = defineStore(
 					amount: 1,
 					barrier: 10
 				},
-				image: '/images/landing/products/fodder.jpg'
+				image: '/images/landing/products/fodder.jpg',
+				availability: true
 			},
 			{
 				id: 6,
@@ -97,7 +103,8 @@ export const useStoreProduct = defineStore(
 					amount: 1,
 					barrier: 10
 				},
-				image: '/images/landing/products/rolled-barley.jpg'
+				image: '/images/landing/products/rolled-barley.jpg',
+				availability: true
 			},
 			{
 				id: 7,
@@ -110,7 +117,8 @@ export const useStoreProduct = defineStore(
 					amount: 1,
 					barrier: 10
 				},
-				image: '/images/landing/products/rolled-wheat.jpg'
+				image: '/images/landing/products/rolled-wheat.jpg',
+				availability: true
 			},
 			{
 				id: 8,
@@ -120,7 +128,8 @@ export const useStoreProduct = defineStore(
 				cost: 2500,
 				multifyer: 1,
 				discount: null,
-				image: '/images/landing/products/hay.jpg'
+				image: '/images/landing/products/hay.jpg',
+				availability: false
 			},
 			{
 				id: 9,
@@ -130,7 +139,8 @@ export const useStoreProduct = defineStore(
 				cost: 1500,
 				multifyer: 1,
 				image: '/images/landing/products/straw.jpg',
-				discount: null
+				discount: null,
+				availability: true
 			}
 		]);
 		return {
