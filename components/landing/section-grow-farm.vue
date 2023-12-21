@@ -16,6 +16,7 @@
 		<div class="grow-farm__picture">
 			<div class="grow-farm__picture-desktop">
 				<base-picture
+					preload="true"
 					:width="1920"
 					:height="707"
 					alt="grow-photo"
