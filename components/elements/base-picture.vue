@@ -104,9 +104,7 @@ if (props.preload) {
 	});
 }
 
-const placeholder = computed(() =>
-	$img(props.src, { quality: 90, width: 100, height: 100, fit: 'cover', format: 'webp' })
-);
+const placeholder = computed(() => $img(props.src, { quality: 90, width: 100, fit: 'cover', format: 'webp' }));
 
 type Source = { srcset: string; src?: string; type?: string; sizes?: string };
 const sources = computed<Source[]>(() => {
@@ -179,16 +177,21 @@ const classes = computed(() => {
 	}
 
 	&:not(#{$self}--is-preload) {
-		opacity: 0;
+		img {
+			filter: blur(20px);
+			scale: 1.1;
+		}
 		&#{$self}--is-loaded {
-			animation: appear 500ms forwards;
+			img {
+				animation: appear 500ms forwards;
+			}
 		}
 	}
 }
 
 @keyframes appear {
 	0% {
-		opacity: 0;
+		opacity: 1;
 		filter: blur(20px);
 		scale: 1.1;
 	}
